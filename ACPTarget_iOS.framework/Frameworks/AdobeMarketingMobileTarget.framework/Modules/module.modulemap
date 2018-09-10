@@ -1,0 +1,6 @@
+framework module AdobeMarketingMobileTarget {
+  umbrella header "AdobeMarketingMobileTarget.h"
+
+  export *
+  module * { export * }
+}
