@@ -185,6 +185,16 @@ typedef NS_ENUM(NSUInteger, ACPMobileVisitorAuthenticationState) {
 + (BOOL) registerExtension: (nonnull Class) extensionClass
                      error: (NSError* _Nullable* _Nullable) error;
 
+/*
+ * @brief Start the Core processing. This should be called after the initial set of extensions have been registered.
+ *
+ * This call will wait for any outstanding registrations to complete and then start event processing.
+ * You can use the callback to kickoff additional operations immediately after any operations kicked off during registration.
+ *
+ * @param callback An optional method invoked after registrations are complete
+ */
++ (void) start: (nullable void (^) (void)) callback;
+
 #pragma mark - Rules Engine
 
 /**
