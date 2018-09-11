@@ -1,0 +1,6 @@
+framework module AdobeMarketingMobileSignal {
+  umbrella header "AdobeMarketingMobileSignal.h"
+
+  export *
+  module * { export * }
+}
