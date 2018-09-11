@@ -1,5 +1,5 @@
 //
-//  ACPMarketingMobileCore.h
+//  ACPCore.h
 //  Adobe Digital Marketing Suite -- iOS Application Measurement Library
 //
 //  Copyright 1996-2018. Adobe, Inc. All Rights Reserved
@@ -13,14 +13,14 @@
 #endif
 @class ACPExtension, ACPMobileVisitorId;
 
-@interface ACPMarketingMobileCore : NSObject {}
+@interface ACPCore : NSObject {}
 
 #pragma mark - enums
 
 /**
  * @brief An enum type representing different levels of logging used by the SDK.
  *
- * @see ACPMarketingMobileCore::setLogLevel:
+ * @see ACPCore::setLogLevel:
  */
 typedef NS_ENUM(NSUInteger, ACPMobileLogLevel) {
     ACPMobileLogLevelError = 0,
@@ -34,11 +34,11 @@ typedef NS_ENUM(NSUInteger, ACPMobileLogLevel) {
  *
  * The possible values for the Adobe Mobile Privacy Status. The privacy status controls whether
  * specific activity is allowed on the device. The default privacy status is set in any ADBMobile JSON configuration
- * file using the parameter `global.privacy`. Use ACPMarketingMobileCore::setPrivacyStatus: to override the
+ * file using the parameter `global.privacy`. Use ACPCore::setPrivacyStatus: to override the
  * default privacy status.
  *
- * @see ACPMarketingMobileCore::getPrivacyStatus:
- * @see ACPMarketingMobileCore::setPrivacyStatus:
+ * @see ACPCore::getPrivacyStatus:
+ * @see ACPCore::setPrivacyStatus:
  */
 typedef NS_ENUM(NSInteger, ACPMobilePrivacyStatus) {
     ACPMobilePrivacyStatusOptIn,    ///< Adobe Mobile Privacy Status opted-in
@@ -74,9 +74,9 @@ typedef NS_ENUM(NSUInteger, ACPMobileVisitorAuthenticationState) {
  * file if it exists, or if no cache file exists then the existing configuration remains unchanged.
  *
  * Calls to this API will replace any existing SDK configuration except those set using
- * ACPMarketingMobileCore::updateConfiguration: or ACPMarketingMobileCore::setPrivacyStatus:. Configuration updates
- * made using ACPMarketingMobileCore::updateConfiguration:
- * and ACPMarketingMobileCore::setPrivacyStatus: are always applied on top of configuration changes made using this API.
+ * ACPCore::updateConfiguration: or ACPCore::setPrivacyStatus:. Configuration updates
+ * made using ACPCore::updateConfiguration:
+ * and ACPCore::setPrivacyStatus: are always applied on top of configuration changes made using this API.
  *
  * @param appid a unique identifier assigned to the app instance by the Adobe Mobile Services. It is automatically
  * added to the ADBMobile JSON file when downloaded from the Adobe Mobile Services UI and can be
@@ -93,9 +93,9 @@ typedef NS_ENUM(NSUInteger, ACPMobileVisitorAuthenticationState) {
  * On failure to read the file or parse the JSON contents, the existing configuration remains unchanged.
  *
  * Calls to this API will replace any existing SDK configuration except those set using
- * ACPMarketingMobileCore::updateConfiguration: or ACPMarketingMobileCore::setPrivacyStatus:. Configuration updates
- * made using ACPMarketingMobileCore::updateConfiguration:
- * and ACPMarketingMobileCore::setPrivacyStatus: are always applied on top of configuration changes made using this API.
+ * ACPCore::updateConfiguration: or ACPCore::setPrivacyStatus:. Configuration updates
+ * made using ACPCore::updateConfiguration:
+ * and ACPCore::setPrivacyStatus: are always applied on top of configuration changes made using this API.
  *
  * @param filepath absolute path to a local configuration file. A value of `nil` has no effect.
  */
@@ -134,7 +134,7 @@ typedef NS_ENUM(NSUInteger, ACPMobileVisitorAuthenticationState) {
 /**
  * @brief Set the logging level of the SDK
  *
- * @param logLevel ACPMarketingMobileCore::ACPMobileLogLevel to be used by the SDK
+ * @param logLevel ACPCore::ACPMobileLogLevel to be used by the SDK
  * @see ACPMobileLogLevel
  */
 + (void) setLogLevel: (ACPMobileLogLevel) logLevel;
@@ -143,10 +143,10 @@ typedef NS_ENUM(NSUInteger, ACPMobileVisitorAuthenticationState) {
  * @brief Set the Adobe Mobile Privacy status
  *
  * Sets the \ref ACPMobilePrivacyStatus for this SDK. The set privacy status is preserved and applied over any new
- * configuration changes from calls to ACPMarketingMobileCore::configureWithAppId: or ACPMarketingMobileCore::configureWithFileInPath:,
+ * configuration changes from calls to ACPCore::configureWithAppId: or ACPCore::configureWithFileInPath:,
  * even across application restarts.
  *
- * @param status ACPMarketingMobileCore::ACPMobilePrivacyStatus to be set to the SDK
+ * @param status ACPCore::ACPMobilePrivacyStatus to be set to the SDK
  * @see ACPMobilePrivacyStatus
  */
 + (void) setPrivacyStatus: (ACPMobilePrivacyStatus) status;
@@ -156,7 +156,7 @@ typedef NS_ENUM(NSUInteger, ACPMobileVisitorAuthenticationState) {
  *
  * Update the current SDK configuration with specific key/value pairs. Keys not found in the current
  * configuration are added. Configuration updates are preserved and applied over existing or new
- * configurations set by calling ACPMarketingMobileCore::configureWithAppId: or ACPMarketingMobileCore::configureWithFileInPath:,
+ * configurations set by calling ACPCore::configureWithAppId: or ACPCore::configureWithFileInPath:,
  * even across application restarts.
  *
  * Using `nil` values is allowed and effectively removes the configuration parameter from the current configuration.
@@ -184,6 +184,16 @@ typedef NS_ENUM(NSUInteger, ACPMobileVisitorAuthenticationState) {
  */
 + (BOOL) registerExtension: (nonnull Class) extensionClass
                      error: (NSError* _Nullable* _Nullable) error;
+
+/*
+ * @brief Start the Core processing. This should be called after the initial set of extensions have been registered.
+ *
+ * This call will wait for any outstanding registrations to complete and then start event processing.
+ * You can use the callback to kickoff additional operations immediately after any operations kicked off during registration.
+ *
+ * @param callback An optional method invoked after registrations are complete
+ */
++ (void) start: (nullable void (^) (void)) callback;
 
 #pragma mark - Rules Engine
 

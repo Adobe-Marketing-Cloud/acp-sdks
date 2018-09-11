@@ -30,4 +30,5 @@ FOUNDATION_EXPORT const unsigned char AdobeMobileMarketingCore_iOSVersionString[
 #import <ACPCore_iOS/ACPExtensionError.h>
 #import <ACPCore_iOS/ACPExtensionEvent.h>
 #import <ACPCore_iOS/ACPExtensionListener.h>
-#import <ACPCore_iOS/ACPMarketingMobileCore.h>
+#import <ACPCore_iOS/ACPCore.h>
+#import <ACPCore_iOS/ACPMobileVisitorId.h>

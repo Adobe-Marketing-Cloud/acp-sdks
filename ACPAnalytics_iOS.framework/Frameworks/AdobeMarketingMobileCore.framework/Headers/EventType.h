@@ -37,6 +37,7 @@ namespace AdobeMarketingMobile {
         static const std::shared_ptr<EventType> ACQUISITION;
         static const std::shared_ptr<EventType> ANALYTICS;
         static const std::shared_ptr<EventType> AUDIENCE_MANAGER;
+        static const std::shared_ptr<EventType> CAMPAIGN;
         static const std::shared_ptr<EventType> CONFIGURATION;
         static const std::shared_ptr<EventType> CUSTOM;
         static const std::shared_ptr<EventType> HUB;

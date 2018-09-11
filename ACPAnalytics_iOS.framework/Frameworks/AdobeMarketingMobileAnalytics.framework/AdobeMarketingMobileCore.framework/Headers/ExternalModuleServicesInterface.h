@@ -36,6 +36,8 @@ namespace AdobeMarketingMobile {
                                       const std::string& event_type,
                                       const std::string& event_source) = 0;
 
+        virtual void RegisterWildcardListener(const std::shared_ptr<ExternalModuleListenerInterface>& event_listener) = 0;
+
         virtual void DispatchEvent(const std::shared_ptr<Event>& event) = 0;
 
         virtual void SetSharedEventState(const std::string& state,

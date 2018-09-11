@@ -233,6 +233,13 @@ namespace AdobeMarketingMobile {
         void GetSDKIdentities(const std::function<void(const std::string& identities)>& callback) const;
 
         /**
+         * @brief Start the Core processing. This should be called after extensions have been registered.
+         *
+         * @param completion_callback A callback called after the Core has been started.
+         */
+        void Start(std::function<void()> completion_callback);
+
+        /**
          * @name External Module
          */
         ///@{

@@ -10,32 +10,32 @@
 
 @interface ACPAnalytics : NSObject {}
 
-+ (void) registerAdobeAnalyticsExtension;
++ (void) registerExtension;
 
 /**
  *  @brief Clears all hits from the tracking queue and removes them from the database.
  *  @warning Use caution when clearing the queue manually. This process cannot be reversed.
  */
-+ (void) analyticsClearQueue;
++ (void) clearQueue;
 
 /**
  *  @brief Retrieves the number of hits currently in the tracking queue
  *
  *  @param callback invoked with the queue size value
  */
-+ (void) analyticsGetQueueSize: (nonnull void (^) (NSUInteger queueSize)) callback;
++ (void) getQueueSize: (nonnull void (^) (NSUInteger queueSize)) callback;
 
 /**
  *  @brief Retrieves the analytics tracking identifier.
  *
  *  @param callback invoked with the analytics identifier value
  */
-+ (void) analyticsGetTrackingIdentifier: (nonnull void (^) (NSString* __nullable trackingIdentifier)) callback;
++ (void) getTrackingIdentifier: (nonnull void (^) (NSString* __nullable trackingIdentifier)) callback;
 
 /**
  *  @brief Forces analytics to send all queued hits regardless of current batch options
  */
-+ (void) analyticsSendQueuedHits;
++ (void) sendQueuedHits;
 
 /**
  *  @brief This method sends an Analytics action tracking hit with context data
@@ -49,7 +49,7 @@
  *  @param action NSString containing the name of the action to track
  *  @param data NSDictionary<NSString, NSString> containing context data to attach on this hit
  */
-+ (void) analyticsTrackAction: (nullable NSString*) action data: (nullable NSDictionary*) data;
++ (void) trackAction: (nullable NSString*) action data: (nullable NSDictionary*) data;
 
 /**
  *  @brief This method sends an Analytics state tracking hit with context data
@@ -63,6 +63,6 @@
  *  @param state NSString containing the name of the state to track
  *  @param data NSDictionary<NSString, NSString> containing context data to attach on this hit
  */
-+ (void) analyticsTrackState: (nullable NSString*) state data: (nullable NSDictionary*) data;
++ (void) trackState: (nullable NSString*) state data: (nullable NSDictionary*) data;
 
 @end
