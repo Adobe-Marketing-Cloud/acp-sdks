@@ -28,13 +28,15 @@
 #include "ExternalModuleInterface.h"
 
 namespace AdobeMarketingMobile {
-    class Event;
-    class ExternalModuleServicesImpl;
-    class ExternalModuleListenerInterface;
     class ExternalModuleDispatcher;
+    class ExternalModuleListener;
+    class ExternalModuleListenerInterface;
+    class ExternalModuleServicesImpl;
+    class Event;
 
     class ExternalModule : public InternalModule {
     public:
+        friend class ExternalModuleSpy;
         ExternalModule();
 
         explicit ExternalModule(const std::string& log_prefix, const std::shared_ptr<ExternalModuleInterface>& interface);
@@ -68,12 +70,14 @@ namespace AdobeMarketingMobile {
         /*
          * Interface methods called by the ExternalModuleListener
          */
-
         ADOBE_VIRTUAL_FOR_TESTS void ExternalListener_OnRegistered(const std::shared_ptr<EventType>& event_type,
-                const std::shared_ptr<EventSource>& event_source);
-        ADOBE_VIRTUAL_FOR_TESTS void ExternalListener_Hear(const std::shared_ptr<Event>& event);
+                const std::shared_ptr<EventSource>& event_source,
+                const std::shared_ptr<ExternalModuleListener>& internal_event_listener);
+        ADOBE_VIRTUAL_FOR_TESTS void ExternalListener_Hear(const std::shared_ptr<Event>& event,
+                const std::shared_ptr<ExternalModuleListener>& internal_event_listener);
         ADOBE_VIRTUAL_FOR_TESTS void ExternalListener_OnUnregistered(const std::shared_ptr<EventType>& event_type,
-                const std::shared_ptr<EventSource>& event_source);
+                const std::shared_ptr<EventSource>& event_source,
+                const std::shared_ptr<ExternalModuleListener>& internal_event_listener);
 
     protected:
         ADOBE_VIRTUAL_FOR_TESTS void OnRegistered() override;
@@ -88,9 +92,11 @@ namespace AdobeMarketingMobile {
          * Returns the registered listener associated with the provided key from the listeners_ map.
          *
          * @param key listener key containing the event type and source
+         * @param internal_event_listener the internal listener shared pointer to be matched with the external listener
          * @return the listener instance if found, nullptr otherwise
          */
-        std::shared_ptr<ExternalModuleListenerInterface> FindListener(const ListenerKey key);
+        ADOBE_VIRTUAL_FOR_TESTS std::shared_ptr<ExternalModuleListenerInterface> FindListener(const ListenerKey key,
+                const std::shared_ptr<ExternalModuleListener>& internal_event_listener);
 
         /**
          * Returns the listener associated with the provided key from the pending_listeners_ map. This map contains
@@ -98,6 +104,7 @@ namespace AdobeMarketingMobile {
          * complete and are pending until onUnregistered is called and they are moved in the listeners_ map.
          *
          * @param key listener key containing the event type and source
+         * @param remove_after if set on true, this method will remove the found listener from the pending_listeners_ map
          * @return the listener instance if found, nullptr otherwise
          */
         std::shared_ptr<ExternalModuleListenerInterface> FindPendingListener(const ListenerKey key, const bool remove_after);
@@ -118,7 +125,9 @@ namespace AdobeMarketingMobile {
         std::shared_ptr<ExternalModuleDispatcher> dispatcher_;
 
         // The internal module uses this to call the external listeners
-        std::map<ListenerKey, std::shared_ptr<ExternalModuleListenerInterface>> listeners_;
+        // it is a map containing both internal and external listener in order to distinguish which one was called from the EventHub
+        std::map<ListenerKey, std::pair<std::shared_ptr<ExternalModuleListener>, std::shared_ptr<ExternalModuleListenerInterface>>>
+        listeners_;
 
         // The internal module uses this to cache the external listeners until they are registered by the EventHub
         std::map<ListenerKey, std::queue<std::shared_ptr<ExternalModuleListenerInterface>>> pending_listeners_;

@@ -137,8 +137,10 @@ namespace AdobeMarketingMobile {
         /**
          * This method should be called after all modules are registered.
          * This will trigger the dispatch of a booted event.
+         *
+         * @param completion_callback A callback called after this call is completed.
          */
-        virtual void FinishModulesRegistration() = 0;
+        virtual void FinishModulesRegistration(std::function<void()> completion_callback) = 0;
 
         /**
          * Dispatches an event onto the event queue.
