@@ -1,0 +1,6 @@
+framework module AdobeMarketingMobileIdentity {
+  umbrella header "AdobeMarketingMobileIdentity.h"
+
+  export *
+  module * { export * }
+}
