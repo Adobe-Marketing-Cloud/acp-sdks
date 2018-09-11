@@ -1,0 +1,6 @@
+framework module ACPLifecycle_iOS {
+  umbrella header "ACPLifecycle_iOS.h"
+
+  export *
+  module * { export * }
+}

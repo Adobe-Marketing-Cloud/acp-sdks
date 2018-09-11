@@ -1,0 +1,6 @@
+framework module AdobeMarketingMobileLifecycle {
+  umbrella header "AdobeMarketingMobileLifecycle.h"
+
+  export *
+  module * { export * }
+}
