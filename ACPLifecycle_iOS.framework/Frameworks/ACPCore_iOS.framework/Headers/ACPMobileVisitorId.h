@@ -1,10 +1,10 @@
-/* **************************************************************************
+/*************************************************************************
  *
  * ADOBE CONFIDENTIAL
  * ___________________
  *
- * Copyright 2017 Adobe Systems Incorporated
- * All Rights Reserved.
+ *  Copyright 2017 Adobe Systems Incorporated
+ *  All Rights Reserved.
  *
  * NOTICE:  All information contained herein is, and remains
  * the property of Adobe Systems Incorporated and its suppliers,
@@ -14,20 +14,19 @@
  * Dissemination of this information or reproduction of this material
  * is strictly forbidden unless prior written permission is obtained
  * from Adobe Systems Incorporated.
+ *
  **************************************************************************/
 
-#ifndef ADOBEMOBILE_PLATFORMSHIM_LOGGINGMODE_H
-#define ADOBEMOBILE_PLATFORMSHIM_LOGGINGMODE_H
+#ifndef ADBMOBILEMARKETING_ACPMobileVisitorId_H
+#define ADBMOBILEMARKETING_ACPMobileVisitorId_H
 
-namespace AdobeMarketingMobile {
+#import <Foundation/Foundation.h>
+#import "ACPCore.h"
 
-    enum class LoggingMode : int32_t {
-        ERROR_LOG = 0,
-        WARNING_LOG = 1,
-        DEBUG_LOG = 2,
-        VERBOSE_LOG = 3,
 
-    };
-} //namespace
+@interface ACPMobileVisitorId()
 
-#endif /* ADOBEMOBILE_PLATFORMSHIM_LOGGINGMODE_H */
+- (instancetype) initWithOrigin: (NSString*) idOrigin type: (NSString*) idType id: (NSString*) identifier authentication: (ACPMobileVisitorAuthenticationState) authenticationState;
+
+@end
+#endif /* ADBMOBILEMARKETING_ACPMobileVisitorId_H */

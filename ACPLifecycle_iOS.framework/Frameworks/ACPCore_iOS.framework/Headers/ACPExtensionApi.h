@@ -23,7 +23,6 @@
 #import "ACPExtensionError.h"
 #import "ACPExtensionEvent.h"
 #import "ACPExtensionListener.h"
-#import "ACPExtensionProcessor.h"
 
 /*
  * @brief This interface is used by extensions to call into the core event hub.
@@ -32,16 +31,12 @@
 @interface ACPExtensionApi : NSObject {}
 
 /*
- * @brief Called by the extension to register a processor to handle all events. When any event is fired, this interface will be called to process the event.
- * @param processor A callback interface to receive events
- * @param error An optional parameter where an NSError* will be returned if valid and NO was returned
- * @return YES if processor was added, NO otherwise. For example if processing is not allowed.
- */
-- (BOOL) registerProcessor: (nonnull Class) processorClass
-                     error: (NSError* _Nullable* _Nullable) error;
-
-/*
- * @brief Called by the extension to register a listener for a specific event. When this event is fired, the listener interface will be called with details.
+ * @brief Called by the extension to register a listener for a specific event. When this event is fired, the listener interface
+ * will be called with details.
+ *
+ * This method executes asynchronously, returning immediately and registering the provided listener on the event hub
+ * thread. The provided listener's init method will be called when the registration is completed.
+ *
  * @param listener A callback interface to receive events
  * @param eventType The type of the event we are listening for. See documentation for the list of available types.
  * @param eventSource The source for the events we are listening for. See documentation for the list of available sources.
@@ -52,6 +47,23 @@
                 eventType: (nonnull NSString*) eventType
               eventSource: (nonnull NSString*) eventSource
                     error: (NSError* _Nullable* _Nullable) error;
+
+/*
+ * @brief Called by the extension to register a wildcard event listener for current extension. This listener will
+ * receive all events that are dispatched by the event hub.
+ *
+ * You can register only one wildcard listener for your extension. If this method is called multiple times, the
+ * the existing wildcard listener will be unregistered before the new listener is registered.
+ *
+ * This method executes asynchronously, returning immediately and registering the provided listener on the event hub
+ * thread. The provided listener's init method will be called when the registration is completed.
+ *
+ * @param listener A callback interface to receive events
+ * @param error An optional parameter where an NSError* will be returned if valid and NO was returned
+ * @return YES if listener was added, NO otherwise.
+ */
+- (BOOL) registerWildcardListener: (nonnull Class) listenerClass
+                            error: (NSError* _Nullable* _Nullable) error;
 
 /*
  * @brief Called by extension to dispatch an event for other extensions or the internal SDK to consume.
@@ -93,7 +105,9 @@
 
 /*
  * @brief Un-register this extension. This can be called at any time after SDK initialization.
- * This will result in the ACPExtension::OnUnregister callback being called.
+
+ * This method executes asynchronously, unregistering the extension on the event hub thread. This will result in the
+ * ACPExtension::OnUnregister callback being called.
  */
 - (void) unregisterExtension;
 

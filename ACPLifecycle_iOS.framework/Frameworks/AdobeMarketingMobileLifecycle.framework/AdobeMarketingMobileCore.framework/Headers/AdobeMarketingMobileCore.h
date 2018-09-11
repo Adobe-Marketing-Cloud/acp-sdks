@@ -51,8 +51,6 @@ extern const unsigned char AdobeMarketingMobileCoreVersionString[];
 #import <AdobeMarketingMobileCore/ExternalModuleInterface.h>
 #import <AdobeMarketingMobileCore/ExternalModuleListener.h>
 #import <AdobeMarketingMobileCore/ExternalModuleListenerInterface.h>
-#import <AdobeMarketingMobileCore/ExternalModuleProcessor.h>
-#import <AdobeMarketingMobileCore/ExternalModuleProcessorInterface.h>
 #import <AdobeMarketingMobileCore/ExternalModuleServicesInterface.h>
 #import <AdobeMarketingMobileCore/FileSystemServiceInterface.h>
 #import <AdobeMarketingMobileCore/FlatDictionaryInterface.h>

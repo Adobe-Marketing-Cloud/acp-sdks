@@ -19,7 +19,7 @@
 
 #import <AdobeMarketingMobileCore/AdobeMarketingMobileCore.h>
 #import <Foundation/Foundation.h>
-#import "ACPMarketingMobileCore.h"
+#import "ACPCore.h"
 
 namespace AdobeMarketingMobile {
 

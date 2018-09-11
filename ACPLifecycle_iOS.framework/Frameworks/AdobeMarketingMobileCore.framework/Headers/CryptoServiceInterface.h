@@ -52,14 +52,14 @@ namespace AdobeMarketingMobile {
         virtual std::shared_ptr<UuidInterface> GetRandomUuid() const = 0;
 
         /**
-         * Get SHA-1 hash value for string ( https://tools.ietf.org/html/rfc3174 )
-         * SHA-1 hash example:
+         * Get SHA-256 hash value for string ( https://tools.ietf.org/html/rfc4634 )
+         * SHA-256 hash example:
          * input: "5DCD537D-A351-408E-92D7-EBCBC69FEF44"
-         * output: "3ed187dcf5662d135760654b9d8f061dc18822d0"
+         * output: "521FF623340269FD77EBC5BD19E459DCD6A3BFD89A8FBCD10E0B11672914E36B"
          *
-         * @return string representation of sha-1 hash value
+         * @return string representation of sha-256 hash value
          */
-        virtual std::string GetSha1Hash(const std::string& str) const = 0;
+        virtual std::string GetSha256Hash(const std::string& str) const = 0;
     };
 }
 
