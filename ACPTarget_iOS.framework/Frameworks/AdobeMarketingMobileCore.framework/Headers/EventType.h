@@ -34,21 +34,23 @@ namespace AdobeMarketingMobile {
      */
     class EventType : public Object {
     public:
+        static const std::shared_ptr<EventType> ACQUISITION;
         static const std::shared_ptr<EventType> ANALYTICS;
         static const std::shared_ptr<EventType> AUDIENCE_MANAGER;
-        static const std::shared_ptr<EventType> TARGET;
+        static const std::shared_ptr<EventType> CAMPAIGN;
+        static const std::shared_ptr<EventType> CONFIGURATION;
+        static const std::shared_ptr<EventType> CUSTOM;
+        static const std::shared_ptr<EventType> HUB;
+        static const std::shared_ptr<EventType> IDENTITY;
         static const std::shared_ptr<EventType> LIFECYCLE;
         static const std::shared_ptr<EventType> LOCATION;
         static const std::shared_ptr<EventType> PII;
-        static const std::shared_ptr<EventType> IDENTITY;
-        static const std::shared_ptr<EventType> CONFIGURATION;
-        static const std::shared_ptr<EventType> CUSTOM;
-        static const std::shared_ptr<EventType> ACQUISITION;
-        static const std::shared_ptr<EventType> SYSTEM;
-        static const std::shared_ptr<EventType> USER_PROFILE;
-        static const std::shared_ptr<EventType> HUB;
+        static const std::shared_ptr<EventType> PLACES;
         static const std::shared_ptr<EventType> RULES_ENGINE;
         static const std::shared_ptr<EventType> SIGNAL;
+        static const std::shared_ptr<EventType> SYSTEM;
+        static const std::shared_ptr<EventType> TARGET;
+        static const std::shared_ptr<EventType> USER_PROFILE;
         static const std::shared_ptr<EventType> WILDCARD;
 
         /*

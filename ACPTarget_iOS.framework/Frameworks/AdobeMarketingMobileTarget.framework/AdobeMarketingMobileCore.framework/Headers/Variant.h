@@ -138,6 +138,14 @@ namespace AdobeMarketingMobile {
         static std::shared_ptr<Variant> FromStringMap(const std::map<std::string, std::string>& out_value);
 
         /**
+         * @return a new variant with the given string vector as its value.
+         * Objects will be stored by reference.
+         *
+         * @note The variant will contain a COPY of the given string map.
+         */
+        static std::shared_ptr<Variant> FromStringVector(const std::vector<std::string>& value);
+
+        /**
          * @return a new variant with the given variant map as its value.
          * Objects will be stored by reference.
          *

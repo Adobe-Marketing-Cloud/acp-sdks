@@ -21,17 +21,17 @@
 
 #import <Foundation/Foundation.h>
 
-@class ADBExtension;
-@class ADBExtensionEvent;
+@class ACPExtension;
+@class ACPExtensionEvent;
 
-@interface ADBExtensionListener : NSObject {}
+@interface ACPExtensionListener : NSObject {}
 
 /*
  * @brief Initialize new listener.
  * Implementers can access the extension via `self.extension` as needed.
  * This method must be fast (<100ms) or the listener may be unregistered. Avoid file and/or network operations.
  * The `extension` method returns a valid reference even during `init`, since it will be set prior to `init` being called.
- * @return ADBExtensionListener* or nil
+ * @return ACPExtensionListener* or nil
  *
  */
 - (nullable instancetype) init;
@@ -40,14 +40,14 @@
  * @brief Reference to the extension that registered this listener
  *
  */
-@property(nonatomic, readonly) ADBExtension* _Nonnull extension;
+@property(nonatomic, readonly) ACPExtension* _Nonnull extension;
 
 /*
  * @brief Called when an event is fired that matches eventType and eventSource passed to RegisterListener.
  * Be aware that this method will typically be called from a different thread than listener was registered on.
  * @param event The event fired
  */
-- (void) hear: (nonnull ADBExtensionEvent*) event;
+- (void) hear: (nonnull ACPExtensionEvent*) event;
 
 @end
 

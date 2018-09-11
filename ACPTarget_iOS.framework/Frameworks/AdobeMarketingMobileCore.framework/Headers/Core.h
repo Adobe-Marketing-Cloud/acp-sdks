@@ -72,6 +72,10 @@ namespace AdobeMarketingMobile {
      */
     class Core : public Object {
     public:
+        std::shared_ptr<EventHub> event_hub; ///< the event hub instance
+
+        std::shared_ptr<PlatformServicesInterface> platform_services; ///< the platform services instance
+
         /**
          * @name Creation and Disposal
          */
@@ -135,22 +139,6 @@ namespace AdobeMarketingMobile {
          */
         template<class TModule>
         void RegisterModule();
-
-        ///@}
-
-        /**
-         * @name External Module
-         */
-        ///@{
-
-        /**
-         * @brief Register an external module.
-         *
-         * @param external_module The interface to the applications external module implementation.
-         * @param error_callback A callback called if errors occur during registration.
-         */
-        void RegisterExternalModule(const std::shared_ptr<ExternalModuleInterface>& external_module,
-                                    std::function<void(SdkError&)> error_callback);
 
         ///@}
 
@@ -233,9 +221,47 @@ namespace AdobeMarketingMobile {
          */
         void GetPrivacyStatus(const std::function<void(const MobilePrivacyStatus&)>& callback) const;
 
-        std::shared_ptr<EventHub> event_hub; ///< the event hub instance
+        /**
+         * Retrieve all identities stored by/known to the SDK in a JSONString format.
+         *
+         * Dispatches an EventType#CONFIGURATION - EventSource#REQUEST_IDENTITY Event.
+         * Returns an empty string if the SDK is unable to retrieve any identifiers.
+         *
+         * @param callback method which is invoked with all the known identifier in JSONString format
+         * @see AdobeCallback
+         */
+        void GetSDKIdentities(const std::function<void(const std::string& identities)>& callback) const;
 
-        std::shared_ptr<PlatformServicesInterface> platform_services; ///< the platform services instance
+        /**
+         * @name External Module
+         */
+        ///@{
+
+        /**
+         * @brief Register an external module.
+         *
+         * @param external_module The interface to the applications external module implementation.
+         * @param error_callback A callback called if errors occur during registration.
+         */
+        void RegisterExternalModule(const std::shared_ptr<ExternalModuleInterface>& external_module,
+                                    std::function<void(SdkError&)> error_callback);
+
+        ///@}
+
+        /**
+         * @name Rules Engine Module
+         */
+        ///@{
+
+        /**
+         * Called from the platform to force redownload rules.
+         * <p>
+         * Rules Engine attempts to redownload rules from the already defined url provided in the configuration.
+         * Dispatches {@code EventType#RULES_ENGINE} - {@code EventSource.REQUEST_CONTENT} {code Event} to refresh rules.
+         */
+        void DownloadRules();
+
+        ///@}
 
     private:
         /**

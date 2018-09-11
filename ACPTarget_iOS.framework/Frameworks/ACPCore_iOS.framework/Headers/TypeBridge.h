@@ -19,7 +19,7 @@
 
 #import <AdobeMarketingMobileCore/AdobeMarketingMobileCore.h>
 #import <Foundation/Foundation.h>
-#import "ADBMarketingMobileCore.h"
+#import "ACPCore.h"
 
 namespace AdobeMarketingMobile {
 
@@ -148,19 +148,19 @@ namespace AdobeMarketingMobile {
     int64_t ToInt64(NSNumber* _Nonnull num);
 
     /**
-     * Converts ADBMobilePrivacyStatus to MobilePrivacyStatus
+     * Converts ACPMobilePrivacyStatus to MobilePrivacyStatus
      */
-    MobilePrivacyStatus ToMobilePrivacyStatus(const ADBMobilePrivacyStatus status);
+    MobilePrivacyStatus ToMobilePrivacyStatus(const ACPMobilePrivacyStatus status);
 
     /**
-     * Converts C++ MobilePrivacyStatus to objective c ADBMobilePrivacyStatus
+     * Converts C++ MobilePrivacyStatus to objective c ACPMobilePrivacyStatus
      */
-    ADBMobilePrivacyStatus ToADBMobilePrivacyStatus(const MobilePrivacyStatus status);
+    ACPMobilePrivacyStatus ToACPMobilePrivacyStatus(const MobilePrivacyStatus status);
 
     /**
-     * ADBMobileLogLevel to LoggingMode
+     * ACPMobileLogLevel to LoggingMode
      */
-    LoggingMode ToLoggingMode(const ADBMobileLogLevel logLevel);
+    LoggingMode ToLoggingMode(const ACPMobileLogLevel logLevel);
 
     /**
      * Converts Objective-C type to a Variant
@@ -186,6 +186,21 @@ namespace AdobeMarketingMobile {
      * std::chrono::seconds to NSTimeInterval
      */
     NSTimeInterval ToNSTimeInterval(std::chrono::seconds ts);
+
+    /**
+     * Converts cpp VisitorId to Objective c ACPMobileVisitorId
+     */
+    NSArray* _Nullable ToACPMobileVisitorIdArray(const std::vector<std::shared_ptr<VisitorId>>& visitor_ids);
+
+    /**
+     * Converts objective c ACPMobileVisitorAuthenticationState to cpp VisitorIdAuthenticationState
+     */
+    VisitorIdAuthenticationState ToCppVisitorAuthenticationState(const ACPMobileVisitorAuthenticationState authentication);
+
+    /**
+     * Converts cpp VisitorIdAuthenticationState to objective c ACPMobileVisitorAuthenticationState
+     */
+    ACPMobileVisitorAuthenticationState ToObjCVisitorAuthenticationState(const VisitorIdAuthenticationState authentication);
 
     /**
      * Converts NSData to Hex NSString.

@@ -34,6 +34,7 @@ namespace AdobeMarketingMobile {
     class Event;
     class EventData;
     class EventHub;
+    class Rule;
     class InternalModule;
     class ModuleEventDispatcherBase;
     class ModuleEventListenerBase;
@@ -490,6 +491,15 @@ namespace AdobeMarketingMobile {
                 const std::shared_ptr<Event>& event);
 
         /**
+         * Determines if the named module contains any valid shared states.
+         *
+         * @param state_name name of the module to query for valid states
+         *
+         * @return true if the named module contains any valid shared states
+         **/
+        ADOBE_VIRTUAL_FOR_TESTS bool HasSharedEventState(const std::string& state_name);
+
+        /**
          * Retrieve the unique module name for storing shared state information.
          *
          * @return String containing the container name for shared state for this module (can be empty string)
@@ -512,6 +522,18 @@ namespace AdobeMarketingMobile {
          * otherwise, returns nullptr.
          */
         ADOBE_VIRTUAL_FOR_TESTS std::shared_ptr<PlatformServicesInterface> GetPlatformServices();
+
+        /**
+         * Registers a rule to be executed by the eventhub
+         *
+         */
+        ADOBE_VIRTUAL_FOR_TESTS void RegisterRule(const std::shared_ptr<Rule>& rule);
+
+        /**
+         * Unregisters all previously registered rules
+         *
+         */
+        ADOBE_VIRTUAL_FOR_TESTS void UnregisterAllRules();
 
     private:
 

@@ -137,6 +137,16 @@ namespace AdobeMarketingMobile {
          */
         const std::shared_ptr<T>& Get(const int32_t version);
 
+        /**
+         * @brief Determines if there are any valid states contained within this RangedResolver.
+         *
+         * A valid state is any value other than INVALID, NEXT, or PREV.
+         * A PENDING state is considered valid as it is the expectation of data.
+         *
+         * @return true if this RangedResolver constains any value which is not INVALID, NEXT, or PREV
+         */
+        bool ContainsValidState() const;
+
     private:
         const std::shared_ptr<T>& PENDING; ///< state that is "on the way" and will eventually be resolved.
         const std::shared_ptr<T>&
@@ -155,7 +165,7 @@ namespace AdobeMarketingMobile {
          * @param it an iterator
          * @returns state value of DATA, PENDING, or INVALID
          */
-        const std::shared_ptr<T>& Resolve(states_it it);
+        const std::shared_ptr<T>& Resolve(states_it it) const;
 
         std::map<int32_t, std::shared_ptr<T>> states_; ///< map of state version and data
     };
@@ -265,7 +275,21 @@ namespace AdobeMarketingMobile {
     }
 
     template<class T>
-    const std::shared_ptr<T>& RangedResolver<T>::Resolve(states_it it) {
+    bool RangedResolver<T>::ContainsValidState() const {
+        auto it = states_.begin();
+
+        while (it != states_.end()) {
+            if (it->second != INVALID && it->second != NEXT && it->second != PREV) {
+                return true; // state is either DATA or PENDING
+            }
+            it = std::next(it);
+        }
+
+        return false; // reached end with no valid entries
+    }
+
+    template<class T>
+    const std::shared_ptr<T>& RangedResolver<T>::Resolve(states_it it) const {
         // sanity check
         if (it == states_.end()) {
             return PENDING;

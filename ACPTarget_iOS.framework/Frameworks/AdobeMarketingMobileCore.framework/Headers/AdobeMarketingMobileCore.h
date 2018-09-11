@@ -40,6 +40,7 @@ extern const unsigned char AdobeMarketingMobileCoreVersionString[];
 #import <AdobeMarketingMobileCore/Event.h>
 #import <AdobeMarketingMobileCore/EventBuilder.h>
 #import <AdobeMarketingMobileCore/EventData.h>
+#import <AdobeMarketingMobileCore/EventDataFlattener.h>
 #import <AdobeMarketingMobileCore/EventHub.h>
 #import <AdobeMarketingMobileCore/EventSource.h>
 #import <AdobeMarketingMobileCore/EventType.h>
@@ -50,10 +51,9 @@ extern const unsigned char AdobeMarketingMobileCoreVersionString[];
 #import <AdobeMarketingMobileCore/ExternalModuleInterface.h>
 #import <AdobeMarketingMobileCore/ExternalModuleListener.h>
 #import <AdobeMarketingMobileCore/ExternalModuleListenerInterface.h>
-#import <AdobeMarketingMobileCore/ExternalModuleProcessor.h>
-#import <AdobeMarketingMobileCore/ExternalModuleProcessorInterface.h>
 #import <AdobeMarketingMobileCore/ExternalModuleServicesInterface.h>
 #import <AdobeMarketingMobileCore/FileSystemServiceInterface.h>
+#import <AdobeMarketingMobileCore/FlatDictionaryInterface.h>
 #import <AdobeMarketingMobileCore/HitDatabaseBase.h>
 #import <AdobeMarketingMobileCore/HitProcessor.h>
 #import <AdobeMarketingMobileCore/HitProcessorBase.h>
@@ -69,6 +69,8 @@ extern const unsigned char AdobeMarketingMobileCoreVersionString[];
 #import <AdobeMarketingMobileCore/Log.h>
 #import <AdobeMarketingMobileCore/LoggingMode.h>
 #import <AdobeMarketingMobileCore/LoggingServiceInterface.h>
+#import <AdobeMarketingMobileCore/Matchers.h>
+#import <AdobeMarketingMobileCore/MobileIdentities.h>
 #import <AdobeMarketingMobileCore/MobilePrivacyStatus.h>
 #import <AdobeMarketingMobileCore/Module.h>
 #import <AdobeMarketingMobileCore/ModuleEventDispatcher.h>
@@ -89,6 +91,13 @@ extern const unsigned char AdobeMarketingMobileCoreVersionString[];
 #import <AdobeMarketingMobileCore/RandomUtil.h>
 #import <AdobeMarketingMobileCore/RangedResolver.h>
 #import <AdobeMarketingMobileCore/RemoteFileManagerServiceInterface.h>
+#import <AdobeMarketingMobileCore/Rule.h>
+#import <AdobeMarketingMobileCore/RuleConditions.h>
+#import <AdobeMarketingMobileCore/RuleConsequence.h>
+#import <AdobeMarketingMobileCore/RuleTokenParser.h>
+#import <AdobeMarketingMobileCore/RulesBundleNetworkProtocolHandler.h>
+#import <AdobeMarketingMobileCore/RulesDownloader.h>
+#import <AdobeMarketingMobileCore/RulesEngine.h>
 #import <AdobeMarketingMobileCore/SdkError.h>
 #import <AdobeMarketingMobileCore/StringUtils.h>
 #import <AdobeMarketingMobileCore/SystemInfoServiceInterface.h>
@@ -104,5 +113,6 @@ extern const unsigned char AdobeMarketingMobileCoreVersionString[];
 #import <AdobeMarketingMobileCore/Variant.h>
 #import <AdobeMarketingMobileCore/VariantKind.h>
 #import <AdobeMarketingMobileCore/VariantSerializerInterface.h>
-
-
+#import <AdobeMarketingMobileCore/VisitorId.h>
+#import <AdobeMarketingMobileCore/VisitorIdAuthenticationState.h>
+#import <AdobeMarketingMobileCore/ZipBundleHandler.h>

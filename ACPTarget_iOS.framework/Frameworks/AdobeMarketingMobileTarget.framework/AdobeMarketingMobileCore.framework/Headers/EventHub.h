@@ -32,6 +32,7 @@
 #include "TaskExecutor.h"
 
 namespace AdobeMarketingMobile {
+    class Rule;
     class Module;
     class ModuleEventListenerBase;
     class ModuleEventProcessorBase;
@@ -40,7 +41,6 @@ namespace AdobeMarketingMobile {
     class EventHubData;
     enum class EventHubState : int32_t;
     class ExternalModuleInterface;
-    class EventData;
 
     // declaration of global shared state variables
     extern const std::shared_ptr<EventData>
@@ -118,9 +118,11 @@ namespace AdobeMarketingMobile {
      */
     class EventHub : public Object {
         friend class Module;
+        friend class RuleTokenParser;
         friend class EventHubMethods; // For testing
 
     public:
+
         /**
          * Creates and returns a new EventHub.
          *
@@ -312,6 +314,20 @@ namespace AdobeMarketingMobile {
         /**
          * @private
          *
+         * Register a rule for a given module.  Intended for use by RegisterRule<TModule>(...).
+         */
+        virtual void RegisterRule(const std::shared_ptr<Module>& module, const std::shared_ptr<Rule>& rule) = 0;
+
+        /**
+         * @private
+         *
+         * Unregisters all rules for a given module, Intended for use by UnregisterRules<TModule>(...).
+         */
+        virtual void UnregisterAllRules(const std::shared_ptr<Module>& module) = 0;
+
+        /**
+         * @private
+         *
          * Perform book-keeping after a Module is unregistered. Intended for use by Module.
          */
         virtual void OnModuleUnregistered(const std::shared_ptr<Module>& module) = 0;
@@ -426,6 +442,19 @@ namespace AdobeMarketingMobile {
         virtual std::shared_ptr<EventData> GetSharedEventState(const std::string& state_name,
                 const std::shared_ptr<Event>& event,
                 const std::shared_ptr<Module>& calling_module) = 0;
+
+        /**
+         * @private
+         * Determine if there are any shared states for the specified module.
+         * A module is considered to have a valid shared state if any state is data or EventHub::PENDING.
+         * States EventHub::INVALID, EventHub::NEXT, and EventHub::PREV are not considered valid.
+         *
+         * Only for use by Module.
+         *
+         * @param state_name    String identifier for the module that shared the state
+         * @return true if the specified module has shared a valid state
+         */
+        virtual bool HasSharedEventState(const std::string& state_name) = 0;
 
         /**
          * @private

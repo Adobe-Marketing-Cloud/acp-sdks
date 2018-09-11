@@ -25,10 +25,10 @@ FOUNDATION_EXPORT double AdobeMobileMarketingCore_iOSVersionNumber;
 FOUNDATION_EXPORT const unsigned char AdobeMobileMarketingCore_iOSVersionString[];
 
 // import platform core public headers
-#import <ACPCore_iOS/ADBExtension.h>
-#import <ACPCore_iOS/ADBExtensionApi.h>
-#import <ACPCore_iOS/ADBExtensionError.h>
-#import <ACPCore_iOS/ADBExtensionEvent.h>
-#import <ACPCore_iOS/ADBExtensionListener.h>
-#import <ACPCore_iOS/ADBExtensionProcessor.h>
-#import <ACPCore_iOS/ADBMarketingMobileCore.h>
+#import <ACPCore_iOS/ACPExtension.h>
+#import <ACPCore_iOS/ACPExtensionApi.h>
+#import <ACPCore_iOS/ACPExtensionError.h>
+#import <ACPCore_iOS/ACPExtensionEvent.h>
+#import <ACPCore_iOS/ACPExtensionListener.h>
+#import <ACPCore_iOS/ACPCore.h>
+#import <ACPCore_iOS/ACPMobileVisitorId.h>

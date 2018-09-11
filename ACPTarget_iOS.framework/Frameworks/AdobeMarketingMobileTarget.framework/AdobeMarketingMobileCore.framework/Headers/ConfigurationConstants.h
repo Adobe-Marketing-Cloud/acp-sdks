@@ -39,8 +39,12 @@ namespace AdobeMarketingMobile {
                 static const std::string SHARED_STATE_NAME;
                 static const std::string CONFIGURATION_REQUEST_CONTENT_JSON_APP_ID;
                 static const std::string CONFIGURATION_REQUEST_CONTENT_JSON_FILE_PATH;
+                static const std::string CONFIGURATION_REQUEST_CONTENT_IS_INTERNAL_EVENT;
                 static const std::string CONFIGURATION_REQUEST_CONTENT_UPDATE_CONFIG;
                 static const std::string CONFIGURATION_REQUEST_CONTENT_RETRIEVE_CONFIG;
+                static const std::string RULES_REMOTE_URL;
+                static const std::string CONFIGURATION_RESPONSE_IDENTITY_ALL_IDENTIFIERS;
+                static const std::string EVENT_STATE_OWNER;
 
             private:
                 Configuration() = delete;
@@ -48,6 +52,72 @@ namespace AdobeMarketingMobile {
 
         private:
             EventDataKeys() = delete;
+        };
+
+
+        class SharedStateKeys {
+        public:
+
+            // Analytics shared state keys
+            class Analytics {
+            public:
+                static const std::string MODULE_NAME;
+                static const std::string ANALYTICS_ID;
+            private:
+                Analytics() = delete;
+            };
+
+            // Audience shared state keys
+            class Audience {
+            public:
+                static const std::string MODULE_NAME;
+                static const std::string DPID;
+                static const std::string DPUUID;
+                static const std::string UUID;
+            private:
+                Audience() = delete;
+            };
+
+
+            // Identity shared state keys
+            class Identity {
+            public:
+                static const std::string MODULE_NAME;
+                static const std::string MID;
+                static const std::string VISITOR_IDS_LIST;
+                static const std::string ADVERTISING_IDENTIFIER;
+                static const std::string PUSH_IDENTIFIER;
+                static const std::string USER_IDENTIFIER;
+
+            private:
+                Identity() = delete;
+            };
+
+
+            // Configuration shared state keys
+            class Configuration {
+            public:
+                static const std::string MODULE_NAME;
+                static const std::string CONFIG_EXPERIENCE_CLOUD_ORGID_KEY;
+                static const std::string ANALYTICS_CONFIG_REPORT_SUITES;
+            private:
+                Configuration() = delete;
+            };
+
+
+            // Target shared state keys
+            class Target {
+            public:
+                static const std::string MODULE_NAME;
+                static const std::string TNT_ID;
+                static const std::string THIRD_PARTY_ID;
+            private:
+                Target() = delete;
+            };
+
+
+        private:
+            SharedStateKeys() = delete;
         };
 
     private:

@@ -20,9 +20,9 @@
 #define ADOBEMOBILE_ADBEXTENSIONINTERFACE_H
 
 #import <Foundation/Foundation.h>
-#import "ADBExtensionApi.h"
+#import "ACPExtensionApi.h"
 
-@interface ADBExtension : NSObject {}
+@interface ACPExtension : NSObject {}
 
 /*
  * @brief Initialize a new extension instance.
@@ -74,7 +74,7 @@
  * @brief This provides the services the extension will need.
  *
  */
-@property(nonatomic, readonly) ADBExtensionApi* _Nonnull api;
+@property(nonatomic, readonly) ACPExtensionApi* _Nonnull api;
 
 @end
 

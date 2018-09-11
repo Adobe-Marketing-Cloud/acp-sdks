@@ -21,7 +21,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ADBExtensionEvent : NSObject {}
+@interface ACPExtensionEvent : NSObject {}
 
 /**
  * @brief Create a new broadcast event. See TBD for a list of supported types, sources and data formats.
@@ -30,7 +30,7 @@
  * @param source The source of the event to be dispatched.
  * @param data (Optional) Data associated with the event. The NSDictionary passed should follow NSCoding protocol.
  * @param error (Optional) NSError** where any errors constructing the event can be reported.
- * @return a new instance of ADBExtensionEvent
+ * @return a new instance of ACPExtensionEvent
  */
 + (nullable instancetype) extensionEventWithName: (nonnull NSString*) name
                                             type: (nonnull NSString*) type

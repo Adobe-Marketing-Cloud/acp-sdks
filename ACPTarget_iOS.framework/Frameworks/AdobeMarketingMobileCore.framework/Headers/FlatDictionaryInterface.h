@@ -1,4 +1,4 @@
-/****************************************************************************
+/* **************************************************************************
  *
  * ADOBE CONFIDENTIAL
  * ___________________
@@ -14,31 +14,33 @@
  * Dissemination of this information or reproduction of this material
  * is strictly forbidden unless prior written permission is obtained
  * from Adobe Systems Incorporated.
- ****************************************************************************/
+ **************************************************************************/
 
-#ifndef ADOBEMOBILE_SHARED_FLATDICTIONARYINTERFACE_H
-#define ADOBEMOBILE_SHARED_FLATDICTIONARYINTERFACE_H
+#ifndef ADOBEMOBILE_RULESENGINE_FLATDICTIONARY_H
+#define ADOBEMOBILE_RULESENGINE_FLATDICTIONARY_H
 
 #include <string>
-#include <map>
-
 #include "ObjectInterface.h"
-#include "Variant.h"
 
 namespace AdobeMarketingMobile {
-
+    /**
+     * @class FlatDictionary
+     *
+     * Interface used for redefining complex objects as map of {string, variants}
+     */
     class FlatDictionaryInterface : public virtual ObjectInterface {
-
     public:
         /**
-         * Extracts the data of the implementation class in a map of strings
+         * Returns the internal state of the class in a flat KV map.
+         * The key is of string type, namespaced with periods if required,
+         * and the value is a Variant, with no nesting.
          *
-         * @return flattened dictionary
+         * @param out the flattened dictionary result
+         * @return true if a flat dictionary was correctly set to out, false if the operation failed.
          */
-        virtual std::map<std::string, std::shared_ptr<Variant>> GetFlatDictionary() const = 0;
-
+        virtual bool GetFlatDictionary(std::map<std::string, std::shared_ptr<Variant>>& out) const = 0;
     };
+} //namespace
 
-}
 
-#endif /* ADOBEMOBILE_SHARED_FLATDICTIONARYINTERFACE_H */
+#endif /* ADOBEMOBILE_RULESENGINE_FLATDICTIONARY_H */

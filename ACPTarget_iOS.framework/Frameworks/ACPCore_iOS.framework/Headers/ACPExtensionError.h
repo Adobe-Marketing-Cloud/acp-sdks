@@ -21,12 +21,12 @@
 
 #import <Foundation/Foundation.h>
 
-extern NSString* _Nonnull const ADBExtensionErrorDomain;
+extern NSString* _Nonnull const ACPExtensionErrorDomain;
 
 /**
  * @brief Errors that can be returned by either any of the 3rd party extension APIs.
  */
-typedef NS_ENUM(NSUInteger, ADBExtensionError) {
+typedef NS_ENUM(NSUInteger, ACPExtensionError) {
     ADBUnexpectedExtensionError = 0,
     ADBBadExtensionNameExtensionError = 1,
     ADBDuplicateExtensionNameExtensionError = 2,

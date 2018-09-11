@@ -39,8 +39,22 @@ namespace AdobeMarketingMobile {
                 static const std::string CONFIGURATION_REQUEST_CONTENT_JSON_FILE_PATH;
                 static const std::string CONFIGURATION_REQUEST_CONTENT_UPDATE_CONFIG;
                 static const std::string CONFIGURATION_REQUEST_CONTENT_RETRIEVE_CONFIG;
+                static const std::string CONFIGURATION_RESPONSE_IDENTITY_ALL_IDENTIFIERS;
             private:
                 Configuration() = delete;
+            };
+
+            class RulesEngine {
+            public:
+                static const std::string CONSEQUENCE_TRIGGERED;
+                static const std::string CONSEQUENCES_LOADED;
+                static const std::string CONSEQUENCE_ID;
+                static const std::string CONSEQUENCE_TYPE;
+                static const std::string CONSEQUENCE_DETAIL;
+                static const std::string CONSEQUENCE_ASSETS_PATH;
+                static const std::string RULES_REQUEST_CONTENT_DOWNLOAD_RULES;
+            private:
+                RulesEngine() = delete;
             };
 
         private:

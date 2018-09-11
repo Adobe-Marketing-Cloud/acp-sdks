@@ -1,4 +1,4 @@
-/***************************************************************************
+/* **************************************************************************
  *
  * ADOBE CONFIDENTIAL
  * ___________________
@@ -16,27 +16,28 @@
  * from Adobe Systems Incorporated.
  **************************************************************************/
 
-#ifndef ADOBEMOBILE_EXTERNALMODULE_EXTERNALMODULEPROCESSOR_H
-#define ADOBEMOBILE_EXTERNALMODULE_EXTERNALMODULEPROCESSOR_H
+#ifndef ADOBEMOBILE_CONFIGURATION_CONFIGURATIONLISTENERHUBSHAREDSTATE_H
+#define ADOBEMOBILE_CONFIGURATION_CONFIGURATIONLISTENERHUBSHAREDSTATE_H
 
-#include "ModuleEventProcessor.h"
-#include "ExternalModule.h"
+#include "Configuration.h"
 #include "Event.h"
+#include "ModuleEventListener.h"
+
 
 namespace AdobeMarketingMobile {
     /**
-     * @class ExternalModuleProcessor
-     * Listener registered by an external module for various event types and sources
+     * @class ConfigurationListenerHubSharedState
+     * Listener for shared state change events.
      */
-    class ExternalModuleProcessor : public ModuleEventProcessor<ExternalModule> {
+    class ConfigurationListenerHubSharedState : public ModuleEventListener<Configuration> {
     public:
-        std::shared_ptr<Event> Process(const std::shared_ptr<Event>& event) override;
-    protected:
-        void OnRegistered() override;
-        void OnUnregistered() override;
+        /**
+         * Callback for shared state change events.
+         *
+         * @param event HUB SHARED_STATE event.
+         */
+        void Hear(const std::shared_ptr<Event>& event) override;
     };
 }
 
-#endif /* ADOBEMOBILE_EXTERNALMODULE_EXTERNALMODULEPROCESSOR_H */
-
-
+#endif /* ADOBEMOBILE_CONFIGURATION_CONFIGURATIONLISTENERHUBSHAREDSTATE_H */
