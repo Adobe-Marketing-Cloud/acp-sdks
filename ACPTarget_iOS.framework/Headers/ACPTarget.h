@@ -87,6 +87,27 @@
                  callback: (nullable void (^) (BOOL success)) callback;
 
 /**
+ * @brief Sends a click notification to Target if a click metric is defined for the provided location name.
+ *
+ * Click notification can be sent for a location provided a load request has been executed for that prefetched or regular mbox
+ * location before, indicating that the mbox was viewed. This request helps Target record the clicked event for the given location or mbox.
+ *
+ * @param name NSString value representing the name for location/mbox
+ * @param mboxParameters optional dictionary of key-value pairs representing mbox parameters for this request
+ * @param productParameters optional dictionary of key-value pairs representing product parameters for this request
+ * @param orderParameters optional dictionary of key-value pairs representing order parameters for this request
+ * @param profileParameters optional dictionary of key-value pairs representing profile parameters for this request
+ *
+ * @see ACPTarget::loadRequests:withProfileParameters:
+ * @see ACPTarget::prefetchContent:withProfileParameters:callback
+ */
++ (void) locationClickedWithName: (nonnull NSString*) name
+                  mboxParameters: (nullable NSDictionary<NSString*, NSString*>*) mboxParameters
+               productParameters: (nullable NSDictionary<NSString*, NSString*>*) productParameters
+                 orderParameters: (nullable NSDictionary*) orderParameters
+               profileParameters: (nullable NSDictionary<NSString*, NSString*>*) profileParameters;
+
+/**
  *  @brief Resets the user's experience
  *
  *  Resets the user's experience by removing the visitor identifiers.
