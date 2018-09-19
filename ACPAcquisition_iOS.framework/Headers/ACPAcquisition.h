@@ -7,7 +7,9 @@
 //  Acquisition Version: 1.0
 
 #import <Foundation/Foundation.h>
-#import <CoreLocation/CLLocation.h>
+
+@class UNNotificationResponse;
+@class CLLocation;
 
 @interface ACPAcquisition : NSObject {}
 
@@ -18,7 +20,7 @@
  *
  * This method should be called before any other acquisition API is called
  */
-+ (void) registerAdobeAcquisitionExtension;
++ (void) registerExtension;
 
 /**
  * @brief Processes the acquisition campaign start event for the given application ID
@@ -38,8 +40,8 @@
  * @param data key-value pairs that will be attached in the resulting acquisition link.  At a minimum, this dictionary
  *        must contain the keys `a.referrer.campaign.name` and `a.referrer.campaign.source`
  */
-+ (void) acquisitionCampaignStart: (nonnull NSString*) applicationId
-                         withData: (nullable NSDictionary<NSString*, NSString*>*) data;
++ (void) campaignStart: (nonnull NSString*) applicationId
+              withData: (nullable NSDictionary<NSString*, NSString*>*) data;
 
 /**
  * @brief Provide user info to the SDK from various launch points in your application
