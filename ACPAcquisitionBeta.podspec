@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "ACPAcquisitionBeta"
   s.version      = "1.0.0beta"
-  s.summary      = "BETA - Acquisition framework for Adobe Experience Cloud SDK. Written and Supported by Adobe, the official Pod for the Adobe Experience Cloud."
+  s.summary      = "BETA - Acquisition framework for Adobe Experience Cloud SDK. Written and Supported by Adobe."
   s.description  = <<-DESC
                    By using the Adobe Cloud Platform SDKs (“Beta”), you hereby acknowledge that the Beta is provided “as is” without warranty of any kind. Adobe shall have no obligation to maintain, correct, update, change, modify or otherwise support the Beta. You are advised to use caution and not to rely in any way on the correct functioning or performance of such Beta and/or accompanying materials.
 
