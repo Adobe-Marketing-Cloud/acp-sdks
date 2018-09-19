@@ -33,7 +33,8 @@ typedef NS_ENUM(NSUInteger, ACPExtensionError) {
     ADBEventTypeNotSupportedExtensionError = 3,
     ADBEventSourceNotSupportedExtensionError = 4,
     ADBEventDataNotSupportedExtensionError = 5,
-    ADBBadExtensionClassExtensionError = 6
+    ADBBadExtensionClassExtensionError = 6,
+    ADBEventNullError = 7,
 };
 
 #endif /* ADOBEMOBILE_ADBEXTENSIONERROR_H */

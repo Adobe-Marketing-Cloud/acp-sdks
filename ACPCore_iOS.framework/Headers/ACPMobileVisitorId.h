@@ -26,7 +26,8 @@
 
 @interface ACPMobileVisitorId()
 
-- (instancetype) initWithOrigin: (NSString*) idOrigin type: (NSString*) idType id: (NSString*) identifier authentication: (ACPMobileVisitorAuthenticationState) authenticationState;
+- (instancetype) initWithOrigin: (NSString*) idOrigin type: (NSString*) idType id: (NSString*) identifier authentication:
+    (ACPMobileVisitorAuthenticationState) authenticationState;
 
 @end
 #endif /* ADBMOBILEMARKETING_ACPMobileVisitorId_H */

@@ -66,15 +66,6 @@
                             error: (NSError* _Nullable* _Nullable) error;
 
 /*
- * @brief Called by extension to dispatch an event for other extensions or the internal SDK to consume.
- * @param event Event we are dispatching
- * @param error An optional parameter where an NSError* will be returned if valid and NO was returned
- * @return YES if event was dispatched, NO otherwise. For example if this extension is not allowed to dispatch this kind of event.
- */
-- (BOOL) dispatchEvent: (nonnull ACPExtensionEvent*) event
-                 error: (NSError* _Nullable* _Nullable) error;
-
-/*
  * @brief Called by extension to set a shared state for itself. Usually called from a listener during event processing.
  * @param state State data (in JSON format). Passing `nil` will remove existing state data.
  * @param event The event for which the state is being set. Passing `nil` will set default state for all events.

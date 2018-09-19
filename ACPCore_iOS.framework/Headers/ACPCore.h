@@ -11,7 +11,7 @@
 #if TARGET_OS_IOS || TARGET_OS_WATCH
 @class UNNotificationResponse;
 #endif
-@class ACPExtension, ACPMobileVisitorId;
+@class ACPExtension, ACPExtensionEvent, ACPMobileVisitorId;
 
 @interface ACPCore : NSObject {}
 
@@ -52,9 +52,12 @@ typedef NS_ENUM(NSInteger, ACPMobilePrivacyStatus) {
  *  @see syncIdentifier
  */
 typedef NS_ENUM(NSUInteger, ACPMobileVisitorAuthenticationState) {
-    ACPMobileVisitorAuthenticationStateUnknown            = 0, /*!< Enum value ACPMobileVisitorAuthenticationStateUnknown. */
-    ACPMobileVisitorAuthenticationStateAuthenticated    = 1, /*!< Enum value ACPMobileVisitorAuthenticationStateAuthenticated. */
-    ACPMobileVisitorAuthenticationStateLoggedOut        = 2  /*!< Enum value ACPMobileVisitorAuthenticationStateLoggedOut. */
+    ACPMobileVisitorAuthenticationStateUnknown            =
+                0, /*!< Enum value ACPMobileVisitorAuthenticationStateUnknown. */
+                ACPMobileVisitorAuthenticationStateAuthenticated    =
+                            1, /*!< Enum value ACPMobileVisitorAuthenticationStateAuthenticated. */
+                            ACPMobileVisitorAuthenticationStateLoggedOut        =
+                                        2  /*!< Enum value ACPMobileVisitorAuthenticationStateLoggedOut. */
 };
 
 #pragma mark - Configuration
@@ -151,6 +154,16 @@ typedef NS_ENUM(NSUInteger, ACPMobileVisitorAuthenticationState) {
  */
 + (void) setPrivacyStatus: (ACPMobilePrivacyStatus) status;
 
+/*
+ * @brief Start the Core processing. This should be called after the initial set of extensions have been registered.
+ *
+ * This call will wait for any outstanding registrations to complete and then start event processing.
+ * You can use the callback to kickoff additional operations immediately after any operations kicked off during registration.
+ *
+ * @param callback An optional method invoked after registrations are complete
+ */
++ (void) start: (nullable void (^) (void)) callback;
+
 /**
  * @brief Update specific configuration parameters
  *
@@ -185,20 +198,135 @@ typedef NS_ENUM(NSUInteger, ACPMobileVisitorAuthenticationState) {
 + (BOOL) registerExtension: (nonnull Class) extensionClass
                      error: (NSError* _Nullable* _Nullable) error;
 
-/*
- * @brief Start the Core processing. This should be called after the initial set of extensions have been registered.
- *
- * This call will wait for any outstanding registrations to complete and then start event processing.
- * You can use the callback to kickoff additional operations immediately after any operations kicked off during registration.
- *
- * @param callback An optional method invoked after registrations are complete
+#pragma mark - Generic methods
+/**
+ *    @brief Submits a generic PII collection request event with type `generic.pii`.
+ *    @param data a dictionary containing PII data
  */
-+ (void) start: (nullable void (^) (void)) callback;
++ (void) collectPii: (nonnull NSDictionary<NSString*, NSString*>*) data;
+
+/**
+ * @brief Submits a generic event to pause lifecycle collection with event type `generic.lifecycle`.
+ *
+ * When using the Adobe Lifecycle extension, the following applies:
+ *   - Pauses the current lifecycle session. Calling pause on an already paused session updates the paused timestamp,
+ *     having the effect of resetting the session timeout timer. If no lifecycle session is running, then calling
+ *     this method does nothing.
+ *   - A paused session is resumed if ADBMobileMarketing::lifecycleStart: is called before the session timeout. After
+ *     the session timeout, a paused session is closed and calling ADBMobileMarketing::lifecycleStart: will create
+ *     a new session. The session timeout is defined by the `lifecycle.sessionTimeout` configuration parameter.
+ *   - If not defined, the default session timeout is five minutes.
+ */
++ (void) lifecyclePause;
+
+/**
+ * @brief Submits a generic event to start/resume lifecycle collection with event type `generic.lifecycle`.
+ *
+ * When using the Adobe Lifecycle extension, the following applies:
+ *   - Start a new lifecycle session or resume a previously paused lifecycle session. If a previously paused session
+ *     timed out, then a new session is created. If a current session is running, then calling this method does nothing.
+ *   - Additional context data may be passed when calling this method. Lifecycle data and any additional data are
+ *     sent as context data parameters to Analytics, to Target as mbox parameters, and for Audience Manager they are
+ *     sent as customer variables. Any additional data is also used by the Rules Engine when processing rules.
+ *
+ * @param additionalContextData optional additional context for this session.
+ */
++ (void) lifecycleStart: (nullable NSDictionary<NSString*, NSString*>*) additionalContextData;
+
+/**
+ * @brief Submits a generic event containing the provided IDFA with event type `generic.identity`.
+ *
+ * When using the Adobe Identity extension, the following applies:
+ *   - If the IDFA was set in the SDK, the IDFA will be sent in lifecycle. It can also be accessed in Signals (Postbacks).
+ *   - This ID is preserved between app upgrades, is saved and restored during the standard application backup process,
+ *     and is removed at uninstall.
+ *   - If the Mobile SDK is configured with `identity.adidEnabled` set to `false`, then the advertising identifier
+ *     is not set or stored.
+ *
+ * @param adId the advertising idenifier string.
+ */
++ (void) setAdvertisingIdentifier: (nullable NSString*) adId;
+
+/**
+ * @brief Submits a generic event containing the provided push token with event type `generic.identity`.
+ *
+ * When using the Adobe Identity extension, the following applies:
+ *   - If the current SDK privacy status is \ref ACPMobilePrivacyStatusOptOut, then the push identifier is not set.
+ *
+ * @param deviceToken the device token for push notifications
+ * @see ACPMobilePrivacyStatus
+ */
++ (void) setPushIdentifier: (nullable NSData*) deviceToken;
+
+/**
+ *  @brief This method sends a generic Analytics action tracking hit with context data.
+ *
+ *  Actions represent events that occur in your application that you want to measure; the corresponding metrics will
+ *  be incremented each time the event occurs. For example, you may want to track when an user click on the login
+ *  button or a certain article was viewed.
+ *
+ *  @note when using the Adobe Analytics extension, calling this API will not increment page views
+ *
+ *  @param action NSString containing the name of the action to track
+ *  @param data NSDictionary<NSString, NSString> containing context data to attach on this hit
+ */
++ (void) trackAction: (nullable NSString*) action data: (nullable NSDictionary*) data;
+
+/**
+ *  @brief This method sends a generic Analytics state tracking hit with context data.
+ *
+ *  States represent different screens or views of you application. When the user navigates between application pages,
+ *  a new track call should be sent with current state name. Tracking state name is typically called from an
+ *  UIViewController in the viewDidLoad method.
+ *
+ *  @note when using the Adobe Analytics extension, calling this API will increment page views
+ *
+ *  @param state NSString containing the name of the state to track
+ *  @param data NSDictionary<NSString, NSString> containing context data to attach on this hit
+ */
++ (void) trackState: (nullable NSString*) state data: (nullable NSDictionary*) data;
+
+/**
+ * @brief Called by the extension public API to dispatch an event for other extensions or the internal SDK to consume.
+ * Any events dispatched by this call will not be processed until after `start` has been called.
+ *
+ * @param event Required parameter with {@link Event} instance to be dispatched. Should not be nil
+ * @param error Optional parameter where an NSError* will be returned if valid and NO was returned
+ * @return YES if the the event dispatching operation succeeded
+ */
++ (BOOL) dispatchEvent: (nonnull ACPExtensionEvent*) event
+                 error: (NSError* _Nullable* _Nullable) error;
+
+/**
+ * @brief You should use this method when the {@code Event} being passed is a request and you expect an event in response.
+ * Any events dispatched by this call will not be processed until after `start` has been called.
+ *
+ * @param requestEvent Required parameter with {@link Event} instance to be dispatched. Should not be nil
+ * @param responseCallback Required parameter with callback called when response event is available. Should not be nil
+ * @param error Optional parameter where an NSError* will be returned if valid and NO was returned
+ * @return YES if the the event dispatching operation succeeded
+ */
++ (BOOL) dispatchEventWithResponseCallback: (nonnull ACPExtensionEvent*) requestEvent
+                          responseCallback: (nonnull void (^) (ACPExtensionEvent* _Nonnull responseEvent)) responseCallback
+                                     error: (NSError* _Nullable* _Nullable) error;
+
+/**
+ * @brief Dispatches a response event for a paired event that was sent to {@code dispatchEventWithResponseCallback}
+ * or received by an extension listener {@code hear} method.
+ *
+ * @param responseEvent Required parameter with {@link Event} instance to be dispatched. Should not be nil
+ * @param requestEvent Required parameter with {@link Event} that {@code responseEvent} is responding to. Should not be nil
+ * @param error Optional parameter where an NSError* will be returned if valid and NO was returned
+ * @return YES if the the event dispatching operation succeeded
+ */
++ (BOOL) dispatchResponseEvent: (nonnull ACPExtensionEvent*) responseEvent
+                  requestEvent: (nonnull ACPExtensionEvent*) requestEvent
+                         error: (NSError* _Nullable* _Nullable) error;
 
 #pragma mark - Rules Engine
 
 /**
- * RulesEngine API to download and refresh rules from the server.
+ * @brief RulesEngine API to download and refresh rules from the server.
  *
  * Forces Rules Engine to send a network request to the rules url in Configuration,
  * to refresh rules content set in the SDK.
