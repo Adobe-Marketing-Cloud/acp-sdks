@@ -51,16 +51,6 @@ typedef NS_ENUM(NSUInteger, ACPMobileVisitorAuthenticationState);
 + (void) getExperienceCloudId: (nonnull void (^) (NSString* __nullable experienceCloudId)) callback;
 
 /**
- * @brief Retrieves the user identifier
- *
- * If a custom identifier has been set, the user identifier is returned.
- * If a custom identifier is not set, `nil` is returned.
- *
- * @param callback method which will be invoked with the user identifier value.
- */
-+ (void) getUserIdentifier: (nullable void (^) (NSString* __nullable userIdentifier)) callback;
-
-/**
  * @brief Updates the given customer ID with the Adobe Experience Cloud ID Service.
  *
  * Synchronizes the provided customer identifier type key and value with the given
@@ -118,40 +108,5 @@ typedef NS_ENUM(NSUInteger, ACPMobileVisitorAuthenticationState);
  */
 + (void) syncIdentifiers: (nullable NSDictionary*) identifiers
           authentication: (ACPMobileVisitorAuthenticationState) authenticationState;
-
-/**
- * @brief Sets the advertising identifier (IDFA) in the Mobile SDK.
- *
- * If the IDFA was set in the SDK, the IDFA will be sent in lifecycle. It can also be accessed in Signals (Postbacks).
- *
- * This ID is preserved between app upgrades, is saved and restored during the standard application backup process,
- * and is removed at uninstall.
- *
- * If the Mobile SDK is configured with `identity.adidEnabled` set to `false`, then the advertising identifier
- * is not set or stored.
- *
- * @param adId the advertising idenifier string.
- */
-+ (void) setAdvertisingIdentifier: (nullable NSString*) adId;
-
-/**
- * @brief Sets the device token for push notifications.
- *
- * If the current SDK privacy status is \ref ACPMobilePrivacyStatusOptOut, then the push identifier is not set.
- *
- * @param deviceToken the device token for push notifications
- * @see ADBMobilePrivacyStatus
- */
-+ (void) setPushIdentifier: (nullable NSData*) deviceToken;
-
-/**
- * @brief Sets the user identifier.
- *
- * This ID is preserved between app upgrades, is saved and restored during the standard application backup process,
- * and is removed at uninstall.
- *
- * @param userId user identifier to set.
- */
-+ (void) setUserIdentifier: (nullable NSString*) userId;
 
 @end
