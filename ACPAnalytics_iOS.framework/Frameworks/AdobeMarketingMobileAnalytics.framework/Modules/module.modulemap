@@ -1,6 +1,0 @@
-framework module AdobeMarketingMobileAnalytics {
-  umbrella header "AdobeMarketingMobileAnalytics.h"
-
-  export *
-  module * { export * }
-}
