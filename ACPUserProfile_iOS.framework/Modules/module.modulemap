@@ -1,0 +1,6 @@
+framework module ACPUserProfile_iOS {
+    umbrella header "ACPUserProfile_iOS.h"
+
+    export*
+    module* { export* }
+}
