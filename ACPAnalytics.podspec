@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
   s.subspec 'iOS' do |ios|
     ios.vendored_frameworks = 'ACPAnalytics_iOS.framework'
     ios.xcconfig = {
-      "FRAMEWORK_SEARCH_PATHS" => "'${PODS_ROOT}/ACPAnalyticsBeta'",
+      "FRAMEWORK_SEARCH_PATHS" => "'${PODS_ROOT}/ACPAnalytics'",
       "LD_RUNPATH_SEARCH_PATHS" => "@loader_path/../Frameworks"
     }
     ios.requires_arc = true
