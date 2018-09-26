@@ -1,9 +1,9 @@
 # Adobe Cloud Platform SDKs
-Home of the official Adobe Cloud Platform (ACP) mobile SDKs.
+Home of the official Adobe Cloud Platform (ACP) SDKs for mobile apps.
 
 <hr>
 
-[Adobe Launch](https://launch.adobe.com/) and Adobe Cloud Platform SDKs are teaming up to meet all your mobile optimization needs.
+[Adobe Launch](https://launch.adobe.com/) and Adobe Cloud Platform SDKs are coming together to help you take advantage of [Adobe's Experience Cloud](https://www.adobe.com/experience-cloud.html) in your mobile app.
 
 <img src="resources/acp_sdks.png"></img>
 
@@ -24,7 +24,7 @@ Please click a link below to learn more about your topic of interest:
 The ACP SDK supports Android API 14 (Ice Cream Sandwich) and newer.
 
 #### <a name="gradle"></a>Installation using Maven/Gradle << Preferred >>
-Installation via [Maven](https://maven.apache.org/) & [Gradle](https://gradle.org/) is the easiest and Adobe recommended way to get the ACP SDK into your Android app.  In your `build.gradle` file, include the following dependencies:
+Installation via [Maven](https://maven.apache.org/) & [Gradle](https://gradle.org/) is the easiest and recommended way to get the ACP SDK into your Android app.  In your `build.gradle` file, include the following dependencies:
 
     implementation 'com.adobe.marketing.mobile:sdk-core:1.+'
     implementation 'com.adobe.marketing.mobile:analytics:1.+'
@@ -46,14 +46,14 @@ In order to do a manual installation of the ACP SDK `.aar` binaries, please comp
    - Click on the "+" button on the bottom, and select module dependency.
    - In the next dialog, select the library module as your dependency.
 
-__Important__ - please keep in mind that all ACP SDK Android binaries depend on `core-1.x.x.aar`.
+__Important__ - note that all ACP SDK Android binaries depend on `core-1.x.x.aar`.
 
 ## Installing the ACP SDK for iOS
 
 The ACP SDK supports iOS 10 and newer.
 
 #### <a name="cocoapods"></a>Installation using Cocoapods << Preferred >>
-Installation via [Cocoapods](https://cocoapods.org/) is the easiest and Adobe recommended way to get the ACP SDK into your iOS app.  In your `Podfile`, simply add the following changes as needed:
+Installation via [Cocoapods](https://cocoapods.org/) is the easiest and recommended way to get the ACP SDK into your iOS app.  In your `Podfile`, simply add the following changes as needed:
 
     # minimum supported version of iOS is 10.0
     platform :ios, '10.0'
@@ -77,4 +77,4 @@ In order to do a manual installation of the ACP SDK frameworks, please complete 
 - In the `Embedded Binaries` section, click the `+` link and select all the ACP frameworks you need to add.
   - __Important__ - for a manual installation, you will need to use the universal framework to build to a simulator, but switch to using the device-only framework prior to submitting a build to Apple.  Any build submitted to Apple containing architecture slices for simulator will result in immediate rejection of your app.
 
-__Important__ - please keep in mind that all ACP SDK iOS frameworks depend on `ACPCore.framework`.
+__Important__ - note that all ACP SDK iOS frameworks depend on `ACPCore.framework`.
