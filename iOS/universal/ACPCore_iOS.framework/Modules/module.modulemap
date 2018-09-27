@@ -1,0 +1,6 @@
+framework module ACPCore_iOS {
+    umbrella header "ACPCore_iOS.h"
+
+    export*
+    module* { export* }
+}

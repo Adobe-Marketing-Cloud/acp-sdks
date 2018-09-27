@@ -1,2 +1,3 @@
-For manual installation instructions of the Adobe Cloud Platform Android SDKs, please consult the documentation:
-https://launch.gitbook.io/marketing-mobile-sdk-v5-by-adobe-documentation/
+This directory has `.aar` binaries for the Adobe Cloud Platform Android SDK.
+
+For installation instructions, please see the [README](https://github.com/Adobe-Marketing-Cloud/acp-sdks/blob/master/README.md) on the root of the `master` branch.
