@@ -1,0 +1,6 @@
+framework module ACPTarget_iOS {
+    umbrella header "ACPTarget_iOS.h"
+
+    export*
+    module* { export* }
+}
