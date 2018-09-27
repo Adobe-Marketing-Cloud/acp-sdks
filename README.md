@@ -78,4 +78,4 @@ In order to do a manual installation of the ACP SDK frameworks, please complete 
 - In the `Embedded Binaries` section, click the `+` link and select all the ACP frameworks you need to add.
   - __Important__ - for a manual installation, you will need to use the universal framework to build to a simulator, but switch to using the device-only framework prior to submitting a build to Apple.  Any build submitted to Apple containing architecture slices for simulator will result in immediate rejection of your app.
 
-__Important__ - note that all ACP SDK iOS frameworks depend on `ACPCore.framework`.
+__Important__ - note that all ACP SDK iOS frameworks depend on `ACPCore.framework` and `AdobeMarketingMobileCore.framework`.
