@@ -1,0 +1,6 @@
+framework module ACPAnalytics_iOS {
+    umbrella header "ACPAnalytics_iOS.h"
+
+    export*
+    module* { export* }
+}
