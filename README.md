@@ -5,7 +5,7 @@ Home of the official Adobe Cloud Platform (ACP) SDKs for mobile apps.
 
 ## ACPUserProfile
 
-This pod contains the core frameworks for the Adobe Cloud Platform SDK for iOS.
+This pod contains the user profile framework for the Adobe Cloud Platform SDK for iOS.
 
 For more information, please see our [GitHub page](https://github.com/Adobe-Marketing-Cloud/acp-sdks).
 
