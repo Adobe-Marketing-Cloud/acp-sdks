@@ -32,7 +32,3 @@ FOUNDATION_EXPORT const unsigned char AdobeMobileMarketingCore_iOSVersionString[
 #import <ACPCore_iOS/ACPExtensionListener.h>
 #import <ACPCore_iOS/ACPCore.h>
 #import <ACPCore_iOS/ACPMobileVisitorId.h>
-// TODO: need to rename these classes with the correct prefix and include them in umbrella header
-// ...cascading effect to all extensions
-//#import <ACPCore_iOS/MobileMarketingCoreBridge.h>
-//#import <ACPCore_iOS/TypeBridge.h>
