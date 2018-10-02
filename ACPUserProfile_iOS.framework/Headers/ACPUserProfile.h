@@ -4,21 +4,33 @@
 //
 //  Copyright 1996-2018. Adobe, Inc. All Rights Reserved
 //
-//  UserProfile Version: 1.0
+//  UserProfile Version: 1.0.0
 
 #import <Foundation/Foundation.h>
 
-
-
 @interface ACPUserProfile : NSObject {}
 
-#pragma mark - UserProfile
+/**
+ * @brief Returns the current version of the ACPUserProfile Extension.
+ */
++ (nonnull NSString*) extensionVersion;
+
 /**
  * @brief Registers the UserProfile extension
  *
  * This method should be called before any other User Profile API is called
  */
 + (void) registerExtension;
+
+/**
+ * UserProfile API to remove the give attribute name
+ *
+ * If the attribute does not exist, this API has no effects
+ * If the attribute exists, then the User Attribute will be removed
+ *
+ * @param attributeName Attribute key which has to be removed.
+ */
++ (void) removeUserAttribute: (nonnull NSString*) attributeName;
 
 /**
  * UserProfile API to set user profile attributes keys and values.
@@ -41,15 +53,4 @@
  */
 + (void) updateUserAttributes: (nonnull NSDictionary*) attributeMap;
 
-/**
- * UserProfile API to remove the give attribute name
- *
- * If the attribute does not exist, this API has no effects
- * If the attribute exists, then the User Attribute will be removed
- *
- * @param attributeName Attribute key which has to be removed.
- */
-+ (void) removeUserAttribute: (nonnull NSString*) attributeName;
-
 @end
-
