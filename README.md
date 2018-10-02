@@ -11,6 +11,7 @@ Please click a link below to learn more about your topic of interest:
 
 - [Launch documentation](https://docs.adobelaunch.com/)
 - [Mobile on Launch extension documentation](https://docs.adobelaunch.com/extension-reference/mobile/mobile)
+- [Mobile on Launch forums](https://forums.adobe.com/community/experience-cloud/platform/launch/sdk)
 - [ACP SDK documentation](https://docs.adobelaunch.com/)
 - Installing the ACP SDK for Android
   - [Installation using Gradle << Preferred >>](#gradle)
