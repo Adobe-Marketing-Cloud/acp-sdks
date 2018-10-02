@@ -4,7 +4,7 @@
 //
 //  Copyright 1996-2018. Adobe, Inc. All Rights Reserved
 //
-//  Target Version: 1.0
+//  Target Version: 1.0.0
 
 #import <Foundation/Foundation.h>
 
@@ -15,8 +15,6 @@
 
 #pragma mark - Target
 
-+ (void) registerExtension;
-
 /**
  *  @brief Clears prefetched mboxes.
  *
@@ -25,6 +23,11 @@
  *  @see ACPTarget::prefetchContent:withProfileParameters:callback:
  */
 + (void) clearPrefetchCache;
+
+/**
+ * @brief Returns the current version of the ACPTarget Extension.
+ */
++ (nonnull NSString*) extensionVersion;
 
 /**
  *  @brief Gets the custom visitor ID for Target
@@ -106,6 +109,11 @@
                productParameters: (nullable NSDictionary<NSString*, NSString*>*) productParameters
                  orderParameters: (nullable NSDictionary*) orderParameters
                profileParameters: (nullable NSDictionary<NSString*, NSString*>*) profileParameters;
+
+/**
+ * @brief Registers the ACPTarget extension with the Core Event Hub.
+ */
++ (void) registerExtension;
 
 /**
  *  @brief Resets the user's experience
