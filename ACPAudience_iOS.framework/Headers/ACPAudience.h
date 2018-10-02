@@ -1,33 +1,31 @@
-//
-//  ACPTarget.h
-//  Adobe Digital Marketing Suite -- iOS Application Measurement Library
-//
-//  Copyright 1996-2018. Adobe, Inc. All Rights Reserved
-//
-//  Target Version: 1.0
+/***************************************************************************
+ *
+ * ADOBE CONFIDENTIAL
+ * ___________________
+ *
+ * Copyright 2018 Adobe Systems Incorporated
+ * All Rights Reserved.
+ *
+ * NOTICE:  All information contained herein is, and remains
+ * the property of Adobe Systems Incorporated and its suppliers,
+ * if any.  The intellectual and technical concepts contained
+ * herein are proprietary to Adobe Systems Incorporated and its
+ * suppliers and are protected by trade secret or copyright law.
+ * Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained
+ * from Adobe Systems Incorporated.
+ *
+ **************************************************************************/
+//  Audience Version: 1.0.0
 
 #import <Foundation/Foundation.h>
 
-// audience
 @interface ACPAudience : NSObject {}
 
-#pragma mark - Audience
-
-+ (void) registerExtension;
-
-#pragma mark - Audience Manager
-
 /**
- * @brief Returns the dictionary of current Data Provider ID (DPID) and the current Data Provider Unique User ID (DPUUID).
- * @discussion Data Provider ID, also referred to as Data Source ID is assigned to each data source in
- *             Audience Manager. If DPID is not set, nil is returned.
- *             Data Provider Unique User ID, also referred to as CRM ID is the data provider's unique ID
- *             for the user in their CRM system. DPUUIDs can be synced with Audience Manager UUIDs. If DPUUID
- *             is not set, nil is returned.
-
- * @param callback void method invoked with the dataProviderIDs dictionary as a parameter
+ * @brief Returns the current version of the ACPAudience Extension.
  */
-+ (void) getDpidAndDpuuid: (nonnull void (^) (NSDictionary* __nullable dataProviderIDs)) callback;
++ (nonnull NSString*) extensionVersion;
 
 /**
  * @brief Returns the visitor profile that was most recently obtained.
@@ -39,21 +37,15 @@
 + (void) getVisitorProfile: (nonnull void (^) (NSDictionary* __nullable visitorProfile)) callback;
 
 /**
+ * @brief Registers the ACPAudience extension with the Core Event Hub.
+ */
++ (void) registerExtension;
+
+/**
  * @brief Resets the Audience Manager UUID and purges the current visitor profile from NSUserDefaults.
  * @discussion Audience reset also clears the current in-memory DPID and DPUUID variables.
  */
 + (void) reset;
-
-/**
- * @brief Sets the DPID and DPUUID. If DPID and DPUUID are set, they will be sent with each signal.
- * @discusssion If the DPID that is set does not match an existing data source on Audience Manager,
- *              signal call returns an error.
- *
- * @param dpid the dpid String
- * @param dpuuid the dpuuid String
- */
-+ (void) setDpid: (NSString* __nullable) dpid
-          dpuuid: (NSString* __nullable) dpuuid;
 
 /**
  * @brief Sends Audience Manager a signal with traits and returns the matching segments for the visitor in a callback.
