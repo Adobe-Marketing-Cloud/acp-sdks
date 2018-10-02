@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   s.default_subspec = 'iOS'
 
   # dependency on the core framework
-  s.dependency "ACPCoreBeta", ">= 1.0.0beta"
+  s.dependency "ACPCoreBeta", ">= 1.0.2beta"
 
   s.subspec 'iOS' do |ios|
     ios.vendored_frameworks = 'ACPCampaign_iOS.framework'
