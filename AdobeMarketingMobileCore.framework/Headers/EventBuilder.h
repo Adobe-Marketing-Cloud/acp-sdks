@@ -68,12 +68,6 @@ namespace AdobeMarketingMobile {
          */
         EventBuilder& SetResponsePairID(const std::string& responsePairId);
 
-        // TODO: (AMSDK-5833) Is this used?
-        /**
-         * @brief Sets the error for the event.
-         */
-        EventBuilder& SetError(const std::string& error);
-
         /**
          * @brief Sets the timestamp for the event.
          * If not explicitly set, the timestamp would be set to the number of milliseconds since Unix Epoch.

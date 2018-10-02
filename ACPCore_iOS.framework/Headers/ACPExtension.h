@@ -28,10 +28,10 @@
  * @brief Initialize a new extension instance.
  * Implementers can override this and call into the core via `self.api` e.g. to set listeners.
  * The `api` method returns a valid interface even during `init`, since it will be created prior to `init` being called.
- * @return Valid instance of the extension or nil
+ * @return Valid instance of the extension
  *
  */
-- (nullable instancetype) init;
+- (nonnull instancetype) init;
 
 /*
  * @brief Get extension name for use by the event hub to managing shared state and for logging.

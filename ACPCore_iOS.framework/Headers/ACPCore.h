@@ -4,7 +4,7 @@
 //
 //  Copyright 1996-2018. Adobe, Inc. All Rights Reserved
 //
-//  SDK Version: 5.0.0b2
+//  Core Version: 1.0.0b
 
 #import <Foundation/Foundation.h>
 
@@ -105,10 +105,10 @@ typedef NS_ENUM(NSUInteger, ACPMobileVisitorAuthenticationState) {
 + (void) configureWithFileInPath: (NSString* __nullable) filepath;
 
 /**
- * @brief Calls the provided callback with a JSON string containing all of the User's identifiers known by the SDK
+ * @brief Calls the provided callback with a JSON string containing all of the user's identities known by the SDK
  * @param callback a void-returning method that has an NSString param containing a JSON string
  */
-+ (void) getAllIdentifiers: (nullable void (^) (NSString* __nullable content)) callback;
++ (void) getSdkIdentities: (nullable void (^) (NSString* __nullable content)) callback;
 
 /**
  * @brief Get the current Adobe Mobile Privacy Status
@@ -121,11 +121,9 @@ typedef NS_ENUM(NSUInteger, ACPMobileVisitorAuthenticationState) {
 + (void) getPrivacyStatus: (nonnull void (^) (ACPMobilePrivacyStatus status)) callback;
 
 /**
- *  @brief Gets the version.
- *
- *  @return a string pointer containing the version value.
+ * @brief Returns the current version of the ACPCore Extension.
  */
-+ (nonnull NSString*) sdkVersion;
++ (nonnull NSString*) extensionVersion;
 
 /**
  * @brief set the app group used to sharing user defaults and files among containing app and extension apps

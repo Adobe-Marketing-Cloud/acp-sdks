@@ -26,6 +26,7 @@
 #include "EventSource.h"
 
 namespace AdobeMarketingMobile {
+    class EventMethods;
     class EventBuilder;
     class EventData;
 
@@ -70,9 +71,9 @@ namespace AdobeMarketingMobile {
      */
     class Event : public Object {
     public:
-        // TODO: (AMSDK-5832) Some methods should return const&
-
+        friend class EventHub;
         friend class EventBuilder;
+        friend class EventMethods;
 
         /**
          * @brief Convenience event for retrieving the oldest shared state
@@ -94,7 +95,7 @@ namespace AdobeMarketingMobile {
          * @brief Gets the name of this event.
          * @return the name of this event
          */
-        std::string GetName() const;
+        const std::string& GetName() const;
 
         /**
          * @brief Gets the source of this event.
@@ -112,19 +113,19 @@ namespace AdobeMarketingMobile {
          * @brief Gets the pairing id of this event.
          * @return the pairing id of this event, or empty string if there is no pairing id
          */
-        std::string GetPairID() const;
+        const std::string& GetPairID() const;
 
         /**
          * @brief Gets the response pairing id of this event.
          * @return the response pairing id of this event, or empty string if there is no response pairing id
          */
-        std::string GetResponsePairID() const;
+        const std::string& GetResponsePairID() const;
 
         /**
          * @brief Gets the additional data for this event.
          * @return the data for this event
          */
-        std::shared_ptr<EventData> GetData();
+        const std::shared_ptr<EventData>& GetData();
 
         /**
          * @brief Gets the timestamp of this event.
@@ -138,16 +139,6 @@ namespace AdobeMarketingMobile {
          */
         int32_t GetEventNumber() const;
 
-        // TODO: (AMSDK-5834) Make SetEventNumber only accessible to EventHub
-        /**
-         * @brief Sets sequence number for the event.
-         *
-         * Intended for use by EventHub.
-         *
-         * @param number - the new event number
-         */
-        void SetEventNumber(int32_t number);
-
         /**
          * @brief Sets the pairing id of this event.
          *
@@ -155,13 +146,6 @@ namespace AdobeMarketingMobile {
          *
          */
         void SetPairID(const std::string& pair_id);
-
-        // TODO: (AMSDK-5833) Possibly remove GetError()
-        /**
-         * @brief Returns an error descriptor for this event.
-         * @return event error descriptor (generally only populated on error events)
-         */
-        std::string GetError() const;
 
         /**
          * @see ObjectInterface::ToStringImpl()
@@ -182,13 +166,21 @@ namespace AdobeMarketingMobile {
          */
         explicit Event(int32_t event_number);
 
+        /**
+         * @brief Sets sequence number for the event.
+         *
+         * Intended for use by EventHub.
+         *
+         * @param number - the new event number
+         */
+        void SetEventNumber(int32_t number);
+
         std::string name_; ///< @private the name of this event
         std::shared_ptr<EventSource> source_; ///< @private the source of this event
         std::shared_ptr<EventType> type_; ///< @private the type of this event
         std::string pair_id_; ///< @private the pairing id of this event
         std::string response_pair_id_; ///< @private the response pairing id of this event
         std::shared_ptr<EventData> data_; ///< @private the additional data for this event
-        std::string error_; ///< @private the error message
 
         /**
          * @private

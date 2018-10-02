@@ -4,7 +4,7 @@
 //
 //  Copyright 1996-2018. Adobe, Inc. All Rights Reserved
 //
-//  Identity Version: 1.0
+//  Identity Version: 1.0.0
 
 #import <Foundation/Foundation.h>
 
@@ -14,8 +14,6 @@ typedef NS_ENUM(NSUInteger, ACPMobileVisitorAuthenticationState);
 @interface ACPIdentity : NSObject {}
 
 #pragma mark - Identity
-
-+ (void) registerExtension;
 
 /**
  * @brief Appends visitor information to the given URL.
@@ -29,6 +27,11 @@ typedef NS_ENUM(NSUInteger, ACPMobileVisitorAuthenticationState);
  * @param callback method which will be invoked once the updated url is available.
  */
 + (void) appendToUrl: (nullable NSURL*) baseUrl withCallback: (nullable void (^) (NSURL* __nullable urlWithVisitorData)) callback;
+
+/**
+ * @brief Returns the current version of the ACPIdentity Extension.
+ */
++ (nonnull NSString*) extensionVersion;
 
 /**
  * @brief Returns all customer identifiers which were previously synced with the Adobe Experience Cloud.
@@ -49,6 +52,11 @@ typedef NS_ENUM(NSUInteger, ACPMobileVisitorAuthenticationState);
  * @param callback method which will be invoked once Experience Cloud ID is available.
  */
 + (void) getExperienceCloudId: (nonnull void (^) (NSString* __nullable experienceCloudId)) callback;
+
+/**
+ * @brief Registers the ACPIdentity extension with the Core Event Hub.
+ */
++ (void) registerExtension;
 
 /**
  * @brief Updates the given customer ID with the Adobe Experience Cloud ID Service.

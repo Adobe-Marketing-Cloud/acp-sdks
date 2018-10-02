@@ -309,6 +309,14 @@ namespace AdobeMarketingMobile {
                 const std::string& pair_id,
                 const std::function<void(const std::shared_ptr<Event>&)>& listener_block);
 
+        /**
+         * @private
+         *
+         * Calls Event::SetEventNumber();
+         */
+        static void CallEventSetEventNumber(const std::shared_ptr<Event>& event,
+                                            int32_t number);
+
     private:
         /**
          * @private
