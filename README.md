@@ -10,9 +10,8 @@ Home of the official Adobe Cloud Platform (ACP) SDKs for mobile apps.
 Please click a link below to learn more about your topic of interest:
 
 - [Launch documentation](https://docs.adobelaunch.com/)
-- [Mobile on Launch extension documentation](https://docs.adobelaunch.com/extension-reference/mobile/mobile)
 - [Mobile on Launch forums](https://forums.adobe.com/community/experience-cloud/platform/launch/sdk)
-- [ACP SDK documentation](https://docs.adobelaunch.com/)
+- [AEP SDK documentation](https://aep-sdks.gitbook.io/docs/)
 - Installing the ACP SDK for Android
   - [Installation using Gradle << Preferred >>](#gradle)
   - [Manual installation](#manual-android)
