@@ -7,7 +7,7 @@ Home of the official Adobe Cloud Platform (ACP) SDKs for mobile apps.
 
 <img src="resources/acp_sdks.png"></img>
 
-Please click a link below to learn more about your topic of interest:
+To learn more about your topic of interest, click the following links:
 
 - [Launch documentation](https://docs.adobelaunch.com/)
 - [Mobile on Launch forums](https://forums.adobe.com/community/experience-cloud/platform/launch/sdk)
