@@ -70,6 +70,7 @@ In order to do a manual installation of the AEP SDK frameworks, please complete 
 - Copy the frameworks into your Xcode app.  Do not add them to any of your App's targets.
 - Select your project from the `Project Navigator`, select your App from the `TARGETS` frame, then select the `General` tab at the top of the window.
 - In the `Embedded Binaries` section, click the `+` link and select all the AEP frameworks you need to add.
-  - __Important__ - for a manual installation, you will need to use the universal framework to build to a simulator, but switch to using the device-only framework prior to submitting a build to Apple.  Any build submitted to Apple containing architecture slices for simulator will result in immediate rejection of your app.
+  - __Important__ - for a manual installation, you will need to use the universal framework to build to a simulator, but switch to using the device-only framework prior to submitting a build to Apple.  When using the device-only framework, you will have to manually rename it and remove the `-device` suffix.  For example, you would need to rename `ACPCore_iOS-device.framework` to `ACPCore_iOS.framework`.
+  - Any build submitted to Apple containing architecture slices for simulator will result in immediate rejection of your app.
 
-__Important__ - note that all AEP SDK iOS frameworks depend on `ACPCore.framework` and `AdobeMarketingMobileCore.framework`.
+__Important__ - note that all AEP SDK iOS frameworks depend on `ACPCore_iOS.framework` and `AdobeMarketingMobileCore.framework`.
