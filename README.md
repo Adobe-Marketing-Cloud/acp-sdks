@@ -1,8 +1,10 @@
-# acp-sdks
-Home of the official Adobe Cloud Platform (ACP) mobile SDK (Beta)
+# ACPWeatherExample
+The ACPWeatherExample project is a simple demonstration of how you can write your own custom extension to integrate with the ACP SDK.
 
 <hr>
 
-## Beta version acknowledgment
+## Getting Started
 
-By using the Adobe Cloud Platform SDKs (“Beta”), you hereby acknowledge that the Beta is provided “as is” without warranty of any kind. Adobe shall have no obligation to maintain, correct, update, change, modify or otherwise support the Beta. You are advised to use caution and not to rely in any way on the correct functioning or performance of such Beta and/or accompanying materials. 
+1. Download [sdk-weather-extension-ios.zip](https://github.com/Adobe-Marketing-Cloud/acp-sdks/blob/weather-example/sdk-weather-extension-ios.zip)
+2. From within the extracted _sdk-weather-extension-ios_ folder, click on _TestApp_ to open the project in Xcode.
+3. Hit the Run button from the toolbar, or from the menu select _Product > Run_
