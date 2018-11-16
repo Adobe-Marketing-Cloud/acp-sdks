@@ -1,10 +1,10 @@
 //
 //  ACPCore.h
-//  Adobe Digital Marketing Suite -- iOS Application Measurement Library
+//  Adobe Experience Platform -- iOS Framework
 //
-//  Copyright 1996-2018. Adobe, Inc. All Rights Reserved
+//  Copyright 1996-2018. Adobe. All Rights Reserved
 //
-//  Core Version: 1.0.0
+//  Core Version: 1.0.1
 
 #import <Foundation/Foundation.h>
 
