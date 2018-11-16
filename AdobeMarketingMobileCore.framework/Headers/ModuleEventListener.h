@@ -71,7 +71,7 @@ namespace AdobeMarketingMobile {
      * A module may only have a single listener for a given event type and source.
      *
      * Alternatively, one time listeners can be registered to react once to a single, specific event.
-     * @see Module::RegisterOneTimeListenerBlock.
+     * @see EventHub::RegisterOneTimeListener.
      *
      * Responding to Events
      * ====================
