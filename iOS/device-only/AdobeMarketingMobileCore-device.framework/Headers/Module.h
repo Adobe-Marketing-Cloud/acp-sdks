@@ -330,25 +330,7 @@ namespace AdobeMarketingMobile {
         void RegisterWildCardListener();
 
         /**
-         * Registers a one-time block with the parent event hub.
-         *
-         * A one-time block is an event handler that will cease to function after it sucessfully 'hears' one event.
-         *
-         * This method will only have an effect while the Module is registered. Calling this method before
-         * the Module is registered or after it is unregistered will be a noop.
-         *
-         * Threading
-         * =========
-         * This method is thread-safe.
-         *
-         * Due to threading, it is possible (but rare) for existing listeners on event_type/event_source to get invoked slightly after
-         * calling this function. For stricter ordering guarantees, Modules should override ModuleEventListener::OnUnregistered
-         * and ModuleEventListener::OnRegistered.
-         *
-         * @param type - the EventType of an event to listen for
-         * @param source - the EventSource of an event to listen for
-         * @param pair_id - optional pairID to listen for -- this is primarily used for request/response events
-         * @param block - the block to call when the event is heard
+         * This method is not used, keeping it for compatibility reasons
          */
         ADOBE_VIRTUAL_FOR_TESTS void RegisterOneTimeListenerBlock(const std::shared_ptr<EventType>& type,
                 const std::shared_ptr<EventSource>& source,

@@ -27,9 +27,9 @@ namespace AdobeMarketingMobile {
 
     /**
      * @class OneTimeListener
-     * Used to wrap a Module.OneTimeListenerBlock in an EventListener so it can be added to an EventHub.
+     * Used to wrap an OneTimeListenerBlock in an EventListener so it can be added to an EventHub.
      *
-     * Do not use directly. @see Module::RegisterOneTimeListenerBlock.
+     * Do not use directly. @see EventHub::RegisterOneTimeListener.
      */
     class OneTimeListener : public ModuleEventListenerBase {
         friend class Module;
@@ -40,14 +40,13 @@ namespace AdobeMarketingMobile {
          */
         void Hear(const std::shared_ptr<Event>& event) override final;
 
-    private:
         /**
-         * @private
          * Constructor.
-         * For use by Module only.
+         * For use by EventHub.
          */
         explicit OneTimeListener(const std::function<void(const std::shared_ptr<Event>&)>& block);
 
+    private:
         /**
          * @private
          * the block this listener should execute.
