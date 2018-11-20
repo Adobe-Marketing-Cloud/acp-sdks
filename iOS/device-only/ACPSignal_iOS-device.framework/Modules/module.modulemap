@@ -1,6 +1,0 @@
-framework module ACPSignal_iOS {
-    umbrella header "ACPSignal_iOS.h"
-
-    export*
-    module* { export* }
-}

@@ -1,6 +1,0 @@
-framework module AdobeMarketingMobileCore {
-  umbrella header "AdobeMarketingMobileCore.h"
-
-  export *
-  module * { export * }
-}
