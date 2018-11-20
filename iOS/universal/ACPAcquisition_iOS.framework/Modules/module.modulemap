@@ -1,6 +1,0 @@
-framework module ACPAcquisition_iOS {
-    umbrella header "ACPAcquisition_iOS.h"
-
-    export*
-    module* { export* }
-}

@@ -1,6 +1,0 @@
-framework module ACPIdentity_iOS {
-    umbrella header "ACPIdentity_iOS.h"
-
-    export*
-    module* { export* }
-}
