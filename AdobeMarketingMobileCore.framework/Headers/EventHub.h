@@ -27,6 +27,7 @@
 #include <string>
 #include <thread>
 #include <typeinfo>
+#include "Common.h"
 #include "Object.h"
 #include "Event.h"
 #include "TaskExecutor.h"
@@ -189,15 +190,8 @@ namespace AdobeMarketingMobile {
          *
          * TModule must be a subclass of Module.
          *
-         * Example:
-         *
-         *     class MyModule : public Module { ... };
-         *
-         *     void RegisterOneTimeListenerToMyModule(const std::shared_ptr<EventHub>& event_hub
-         *                                            EventType event_type, EventSource event_source, const std::string& pair_id,
-         *                                            const std::function<void(const std::shared_ptr<Event>&)>& listener_block) {
-         *         event_hub->RegisterOneTimeListener<MyModule>(event_type, event_source, pair_id, listener_block);
-         *     }
+         * This method is deprecated and it will be removed in the upcoming versions, use
+         * EventHub::RegisterOneTimeListener(std::string&, const std::function<void(const std::shared_ptr<Event>&)>&) instead
          *
          * @param event_type - the EventType of an event to listen for
          * @param event_source - the EventSource of an event to listen for
@@ -210,6 +204,10 @@ namespace AdobeMarketingMobile {
                                      const std::string& pair_id,
                                      const std::function<void(const std::shared_ptr<Event>&)>& listener_block);
 
+        /**
+         * This method is deprecated and it will be removed in the upcoming versions, use
+         * EventHub::RegisterOneTimeListener(std::string&, const std::function<void(const std::shared_ptr<Event>&)>&) instead
+         */
         template<class TModule>
         void RegisterOneTimeListener(const std::shared_ptr<EventType>& event_type,
                                      const std::shared_ptr<EventSource>& event_source,
@@ -298,11 +296,6 @@ namespace AdobeMarketingMobile {
          */
         static void CallModuleUnregisterModule(const std::shared_ptr<Module>& module);
 
-        /**
-         * @private
-         *
-         * Calls Module::RegisterOneTimeListenerBlock();
-         */
         static void CallModuleRegisterOneTimeListener(const std::shared_ptr<Module>& module,
                 const std::shared_ptr<EventType>& event_type,
                 const std::shared_ptr<EventSource>& event_source,
@@ -515,7 +508,6 @@ namespace AdobeMarketingMobile {
         static_assert(std::is_base_of<Module, TModule>::value, "Type of TModule must be derived from Module.");
 
         size_t type_hash = typeid(TModule).hash_code();
-
         RegisterOneTimeListener(type_hash, event_type, event_source, pair_id, listener_block);
     }
 
@@ -536,13 +528,7 @@ namespace AdobeMarketingMobile {
     template<class TModule>
     void EventHub::RegisterOneTimeListener(const std::string& pair_id,
                                            const std::function<void(const std::shared_ptr<Event>&)>& listener_block) {
-
-        // If you get an error on the following line, you need to make sure the type you pass
-        // into RegisterOneTimeListener is a subclass of Module.
-        static_assert(std::is_base_of<Module, TModule>::value, "Type of TModule must be derived from Module.");
-
         size_t type_hash = typeid(TModule).hash_code();
-
         RegisterOneTimeListener(type_hash, nullptr, nullptr, pair_id, listener_block);
     }
 }
