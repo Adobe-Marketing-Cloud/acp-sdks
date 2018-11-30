@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "ACPCore"
-  s.version      = "1.0.1"
+  s.version      = "1.0.2"
   s.summary      = "Core framework for Adobe Experience Platform SDK. Written and Supported by Adobe."
   s.description  = <<-DESC
                    The core framework provides the foundation for the Adobe Experience Platform SDK.  Having the core framework installed is a pre-requisite for any other Adobe Experience Platform SDK extension to work.
