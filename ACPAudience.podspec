@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "ACPAudience"
-  s.version      = "1.0.0"
-  s.summary      = "Audience Manager framework for Adobe Cloud Platform SDK. Written and Supported by Adobe."
+  s.version      = "1.1.0"
+  s.summary      = "Audience Manager framework for Adobe Experience Platform SDK. Written and Supported by Adobe."
   s.description  = <<-DESC
                    The Audience Manager framework provides APIs that allow use of Adobe Audience Manager in the Adobe Cloud Platform SDK.
                    DESC
@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/Adobe-Marketing-Cloud/acp-sdks/releases"
 
   s.license      = {:type => "Commercial", :file => "LICENSE.md"}
-  s.author       = "Adobe Cloud Platform SDK Team"
+  s.author       = "Adobe Experience Platform SDK Team"
   s.source       = { :git => 'https://github.com/Adobe-Marketing-Cloud/acp-sdks.git', :tag => "v1.0.0-ACPAudience" }
   s.platform     = :ios, '10.0'
 
