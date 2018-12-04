@@ -4,7 +4,7 @@
 //
 //  Copyright 1996-2018. Adobe, Inc. All Rights Reserved
 //
-//  Analytics Version: 1.0.0
+//  Analytics Version: 1.1.0
 
 #import <Foundation/Foundation.h>
 

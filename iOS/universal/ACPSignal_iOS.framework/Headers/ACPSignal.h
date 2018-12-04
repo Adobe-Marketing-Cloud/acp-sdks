@@ -4,7 +4,7 @@
 //
 //  Copyright 1996-2018. Adobe, Inc. All Rights Reserved
 //
-//  Signal Version: 1.0.0
+//  Signal Version: 1.1.0
 
 #import <Foundation/Foundation.h>
 
