@@ -6,11 +6,12 @@
 
 #import <UIKit/UIKit.h>
 
-//! Project version number for AdobeMobileMarketingCore_iOS.
-FOUNDATION_EXPORT double AdobeMobileMarketingCore_iOSVersionNumber;
+//! Project version number for ACPCore_iOS.
+FOUNDATION_EXPORT double ACPCore_iOSVersionNumber;
 
-//! Project version string for AdobeMobileMarketingCore_iOS.
-FOUNDATION_EXPORT const unsigned char AdobeMobileMarketingCore_iOSVersionString[];
+//! Project version string for ACPCore_iOS.
+FOUNDATION_EXPORT const unsigned char ACPCore_iOSVersionString[];
+
 
 // import platform core public headers
 #import <ACPCore_iOS/ACPExtension.h>
