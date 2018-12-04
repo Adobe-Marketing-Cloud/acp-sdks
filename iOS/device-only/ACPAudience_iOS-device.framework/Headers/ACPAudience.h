@@ -16,7 +16,7 @@
  * from Adobe Systems Incorporated.
  *
  **************************************************************************/
-//  Audience Version: 1.0.0
+//  Audience Version: 1.1.0
 
 #import <Foundation/Foundation.h>
 
