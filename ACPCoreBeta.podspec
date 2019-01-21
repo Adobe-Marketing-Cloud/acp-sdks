@@ -12,14 +12,14 @@ Pod::Spec.new do |s|
 
   s.license      = {:type => "Commercial", :text => "Adobe Systems, Incorporated.  All Rights Reserved."}
   s.author       = "Adobe Cloud Platform SDK Team"
-  s.source       = { :git => 'https://github.com/Adobe-Marketing-Cloud/acp-sdks.git', :tag => "v2.0.-beta-ACPCore" }
+  s.source       = { :git => 'https://github.com/Adobe-Marketing-Cloud/acp-sdks.git', :tag => "v2.0.0-beta-ACPCore" }
   s.platform     = :ios, '10.0'
 
   s.default_subspec = 'iOS'
 
   s.subspec 'iOS' do |ios|
-    ios.vendored_libraries = "iOS/libACPUserProfile_iOS.a"
-    ios.source_files = "iOS/include/*.h"
+    ios.vendored_libraries = "libACPCore_iOS.a","libACPIdentity_iOS.a","libACPSignal_iOS.a","libACPLifecycle_iOS.a"
+    ios.source_files = "include/*.h"
     ios.frameworks = "UIKit", "SystemConfiguration", "WebKit", "UserNotifications"
     ios.libraries = "sqlite3.0", "c++", "z"
   end
