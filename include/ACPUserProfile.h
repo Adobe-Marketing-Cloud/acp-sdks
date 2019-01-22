@@ -2,9 +2,9 @@
 //  ACPUserProfile.h
 //  Adobe Digital Marketing Suite -- iOS Application Measurement Library
 //
-//  Copyright 1996-2018. Adobe, Inc. All Rights Reserved
+//  Copyright 1996-2019. Adobe, Inc. All Rights Reserved
 //
-//  UserProfile Version: 1.0.0
+//  UserProfile Version: 2.0.0
 
 #import <Foundation/Foundation.h>
 
