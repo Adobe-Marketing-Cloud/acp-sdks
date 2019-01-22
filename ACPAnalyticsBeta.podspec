@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "ACPAnalyticsBeta"
-  s.version      = "1.0.2beta"
+  s.version      = "2.0.0beta"
   s.summary      = "BETA - Analytics framework for Adobe Experience Cloud SDK. Written and Supported by Adobe, the official Pod for the Adobe Experience Cloud."
   s.description  = <<-DESC
                    By using the Adobe Cloud Platform SDKs (“Beta”), you hereby acknowledge that the Beta is provided “as is” without warranty of any kind. Adobe shall have no obligation to maintain, correct, update, change, modify or otherwise support the Beta. You are advised to use caution and not to rely in any way on the correct functioning or performance of such Beta and/or accompanying materials.
@@ -12,20 +12,15 @@ Pod::Spec.new do |s|
 
   s.license      = {:type => "Commercial", :text => "Adobe Systems, Incorporated.  All Rights Reserved."}
   s.author       = "Adobe Cloud Platform SDK Team"
-  s.source       = { :git => 'https://github.com/Adobe-Marketing-Cloud/acp-sdks.git', :tag => "v1.0.2beta-ACPAnalytics" }
+  s.source       = { :git => 'https://github.com/Adobe-Marketing-Cloud/acp-sdks.git', :tag => "v2.0.0beta-ACPAnalytics" }
   s.platform     = :ios, '10.0'
 
   s.default_subspec = 'iOS'
 
-  # dependency on the core framework
-  s.dependency "ACPCoreBeta", ">= 1.0.2beta"
+  s.dependency "ACPCoreBeta"
 
   s.subspec 'iOS' do |ios|
-    ios.vendored_frameworks = 'ACPAnalytics_iOS.framework'
-    ios.xcconfig = {
-      "FRAMEWORK_SEARCH_PATHS" => "'${PODS_ROOT}/ACPAnalyticsBeta'",
-      "LD_RUNPATH_SEARCH_PATHS" => "@loader_path/../Frameworks"
-    }
-    ios.requires_arc = true
+    ios.vendored_libraries = "libACPAnalytics_iOS.a"
+    ios.source_files = "include/*.h"
   end
 end
