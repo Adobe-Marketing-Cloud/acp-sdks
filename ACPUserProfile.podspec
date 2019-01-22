@@ -23,8 +23,6 @@ Pod::Spec.new do |s|
 
   s.subspec "iOS" do |ios|
     ios.vendored_libraries = "libACPUserProfile_iOS.a"
-    ios.source_files = "include/*.h"
-    ios.frameworks = "UIKit", "SystemConfiguration", "UserNotifications", "WebKit"
-    ios.libraries = "sqlite3.0", "c++", "z"
+    ios.source_files = "include/*.h"    
   end
 end
