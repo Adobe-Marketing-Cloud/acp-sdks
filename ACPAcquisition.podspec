@@ -1,29 +1,27 @@
 Pod::Spec.new do |s|
   s.name         = "ACPAcquisition"
-  s.version      = "1.1.0"
-  s.summary      = "Acquisition framework for Adobe Experience Platform SDK. Written and Supported by Adobe."
+  s.version      = "2.0.0"
+  s.summary      = "Acquisition library for Adobe Experience Platform SDK. Written and maintained by Adobe."
   s.description  = <<-DESC
-                   The Acquisition framework provides APIs that allow use of acquisition and Adobe link features in the Adobe Experience Platform SDK.
+                   The Acquisition library provides APIs that allow use of the Acquisition product in the Adobe Experience Platform SDK.
                    DESC
 
   s.homepage     = "https://github.com/Adobe-Marketing-Cloud/acp-sdks/releases"
 
   s.license      = {:type => "Commercial", :file => "LICENSE.md"}
   s.author       = "Adobe Experience Platform SDK Team"
-  s.source       = { :git => 'https://github.com/Adobe-Marketing-Cloud/acp-sdks.git', :tag => "v1.1.0-ACPAcquisition" }
+  s.source       = { :git => 'https://github.com/Adobe-Marketing-Cloud/acp-sdks.git', :tag => "v#{s.version}-#{s.name}" }
   s.platform     = :ios, '10.0'
+  s.requires_arc = true
 
   s.default_subspec = 'iOS'
+  s.static_framework = true
 
-  # dependency on the core framework
-  s.dependency "ACPCore", "~> 1.0"
+  s.dependency "ACPCore", "~> 2.0"
 
-  s.subspec 'iOS' do |ios|
-    ios.vendored_frameworks = 'ACPAcquisition_iOS.framework'
-    ios.xcconfig = {
-      "FRAMEWORK_SEARCH_PATHS" => "'${PODS_ROOT}/ACPAcquisition'",
-      "LD_RUNPATH_SEARCH_PATHS" => "@loader_path/../Frameworks"
-    }
-    ios.requires_arc = true
+  s.subspec "iOS" do |ios|
+    ios.vendored_libraries = "libACPAcquisition_iOS.a"
+    ios.source_files = "include/*.h", "include/Empty.m"
   end
+
 end
