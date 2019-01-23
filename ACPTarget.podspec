@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
                    The target framework provides APIs that allow use of the Target product in the V5 Adobe Experience Cloud SDK.
                    DESC
 
-  s.homepage     = "https://git.corp.adobe.com/dms-mobile/v5-podspecs"
+  s.homepage     = "https://github.com/Adobe-Marketing-Cloud/acp-sdks/releases"
 
   s.license      = {:type => "Commercial", :text => "Adobe.  All Rights Reserved."}
   s.author       = "Adobe Mobile SDK Team"
