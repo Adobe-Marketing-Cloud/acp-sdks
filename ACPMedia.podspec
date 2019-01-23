@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version      = "1.0.0"
   s.summary      = "Media library for Adobe Experience Platform SDK. Written and maintained by Adobe."
   s.description  = <<-DESC
-                   The Media library provides APIs that allow analytics tracking for audio and video in the V5 Adobe Experience Platform SDK.
+                   The Media library provides APIs that allow analytics tracking for audio and video in the Adobe Experience Platform SDK.
                    DESC
 
   s.homepage     = "https://github.com/Adobe-Marketing-Cloud/acp-sdks/releases"
