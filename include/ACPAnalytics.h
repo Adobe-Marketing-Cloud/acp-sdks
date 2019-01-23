@@ -2,9 +2,9 @@
 //  ACPAnalytics.h
 //  Adobe Digital Marketing Suite -- iOS Application Measurement Library
 //
-//  Copyright 1996-2018. Adobe, Inc. All Rights Reserved
+//  Copyright 1996-2019. Adobe, Inc. All Rights Reserved
 //
-//  Analytics Version: 2.0.0
+//  Analytics Version: 2.0.1
 
 #import <Foundation/Foundation.h>
 
