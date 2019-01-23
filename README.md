@@ -51,26 +51,27 @@ The AEP SDK supports iOS 10 and newer.
 Installation via [Cocoapods](https://cocoapods.org/) is the easiest and recommended way to get the AEP SDK into your iOS app.  In your `Podfile`, simply add the following changes as needed:
 
     # minimum supported version of iOS is 10.0
-    platform :ios, '10.0'
+    platform :ios, '10.0'    
 
-    # ACP SDKs leverage dynamic frameworks
-    use_frameworks!
-
+    # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+    # use_frameworks!
+    
     # Adobe ACP Pods
-    pod 'ACPCore', '~> 1.0'
-    pod 'ACPAnalytics', '~> 1.0'
-    pod 'ACPAudience', '~> 1.0'
-    pod 'ACPTarget', '~> 1.0'
-    pod 'ACPUserProfile', '~> 1.0'
+    pod 'ACPCore', '~> 2.0'
+    pod 'ACPAnalytics', '~> 2.0'
+    pod 'ACPAudience', '~> 2.0'
+    pod 'ACPTarget', '~> 2.0'
+    pod 'ACPUserProfile', '~> 2.0'
 
 
 #### <a name="manual-ios"></a>Manual installation
-In order to do a manual installation of the AEP SDK frameworks, please complete the following steps:
-- Download the frameworks needed by your app from the `iOS/` directory.
-- Copy the frameworks into your Xcode app.  Do not add them to any of your App's targets.
+In order to do a manual installation of the AEP SDK libraries, please complete the following steps:
+- Download the extensions needed by your app from the `iOS/` directory.
+- In the Xcode project create a new Group, and then drag all the folders you just download and drop them under the group. And verify the following:
+    * `The Copy Items if needed checkbox` is selected.
+    * `Create groups` is selected.
+    * In the`Add to targets` section select all the targets that need AEP SDKs.
 - Select your project from the `Project Navigator`, select your App from the `TARGETS` frame, then select the `General` tab at the top of the window.
-- In the `Embedded Binaries` section, click the `+` link and select all the AEP frameworks you need to add.
-  - __Important__ - for a manual installation, you will need to use the universal framework to build to a simulator, but switch to using the device-only framework prior to submitting a build to Apple.  When using the device-only framework, you will have to manually rename it and remove the `-device` suffix.  For example, you would need to rename `ACPCore_iOS-device.framework` to `ACPCore_iOS.framework`.
-  - Any build submitted to Apple containing architecture slices for simulator will result in immediate rejection of your app.
+- In the `Link Binary With Libraries` section, click the `+` link and add the following frameworks and libraries: `UIKit`, `SystemConfiguration`, `WebKit`, `UserNotifications`, `libsqlite3.0`, `libc++`, `libz`.
 
-__Important__ - note that all AEP SDK iOS frameworks depend on `ACPCore_iOS.framework` and `AdobeMarketingMobileCore.framework`.
+__Important__ - note that all AEP SDK iOS libraries depend on `libACPCore.a`.
