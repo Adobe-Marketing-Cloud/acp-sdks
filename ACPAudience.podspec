@@ -16,6 +16,7 @@ Pod::Spec.new do |s|
   }
   s.platform     = :ios, '10.0'
   s.requires_arc = true
+  s.static_framework = true
   s.default_subspec = 'iOS'
 
   # dependency on the core library
