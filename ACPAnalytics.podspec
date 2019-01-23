@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.default_subspec = "iOS"
 
-  # dependency on the core framework
+  # dependency on the core library
   s.dependency "ACPCore", "~> 2.0"
 
   s.subspec "iOS" do |ios|
