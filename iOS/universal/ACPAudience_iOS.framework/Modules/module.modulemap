@@ -1,6 +1,0 @@
-framework module ACPAudience_iOS {
-    umbrella header "ACPAudience_iOS.h"
-
-    export*
-    module* { export* }
-}
