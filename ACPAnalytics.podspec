@@ -1,9 +1,9 @@
 Pod::Spec.new do |s|
   s.name         = "ACPAnalytics"
   s.version      = "2.0.0"
-  s.summary      = "Analytics library for Adobe Experience Cloud SDK. Written and maintained by Adobe."
+  s.summary      = "Analytics library for Adobe Experience Platform SDK. Written and maintained by Adobe."
   s.description  = <<-DESC
-                   The Analytics library provides APIs that allow use of the Analytics product in the V5 Adobe Experience Cloud SDK.
+                   The Analytics library provides APIs that allow use of the Analytics product in the Adobe Experience Platform SDK.
                    DESC
 
   s.homepage     = "https://github.com/Adobe-Marketing-Cloud/acp-sdks/releases"
