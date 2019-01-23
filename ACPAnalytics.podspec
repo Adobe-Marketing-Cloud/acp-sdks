@@ -1,29 +1,30 @@
 Pod::Spec.new do |s|
   s.name         = "ACPAnalytics"
-  s.version      = "1.1.0"
-  s.summary      = "Analytics framework for Adobe Experience Platform SDK. Written and Supported by Adobe."
+  s.version      = "2.0.0"
+  s.summary      = "Analytics library for Adobe Experience Platform SDK. Written and maintained by Adobe."
   s.description  = <<-DESC
-                   The Analytics framework provides APIs that allow use of the Analytics product in the Adobe Experience Platform SDK.
+                   The Analytics library provides APIs that allow use of the Analytics product in the Adobe Experience Platform SDK.
                    DESC
 
   s.homepage     = "https://github.com/Adobe-Marketing-Cloud/acp-sdks/releases"
 
-  s.license      = {:type => "Commercial", :file => "LICENSE.md"}
-  s.author       = "Adobe Experience Platform SDK Team"
-  s.source       = { :git => 'https://github.com/Adobe-Marketing-Cloud/acp-sdks.git', :tag => "v1.1.0-ACPAnalytics" }
-  s.platform     = :ios, '10.0'
+  s.license      = {:type => "Commercial", :text => "Adobe.  All Rights Reserved."}
+  s.author       = "Adobe Mobile SDK Team"
+  s.source       = {
+  	:git => 'https://github.com/Adobe-Marketing-Cloud/acp-sdks.git',
+  	:tag => "v#{s.version}-#{s.name}"
+  }
 
-  s.default_subspec = 'iOS'
+  s.platform = :ios, "10.0"
+  s.requires_arc = true
+  s.default_subspec = "iOS"
 
-  # dependency on the core framework
-  s.dependency "ACPCore", "~> 1.0"
+  # dependency on the core library
+  s.dependency "ACPCore", "~> 2.0"
 
-  s.subspec 'iOS' do |ios|
-    ios.vendored_frameworks = 'ACPAnalytics_iOS.framework'
-    ios.xcconfig = {
-      "FRAMEWORK_SEARCH_PATHS" => "'${PODS_ROOT}/ACPAnalytics'",
-      "LD_RUNPATH_SEARCH_PATHS" => "@loader_path/../Frameworks"
-    }
-    ios.requires_arc = true
+  s.subspec "iOS" do |ios|
+    ios.vendored_libraries = "libACPAnalytics_iOS.a"
+    ios.source_files = "include/*.h"
   end
+
 end
