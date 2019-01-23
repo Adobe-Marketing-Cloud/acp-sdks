@@ -15,6 +15,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.default_subspec = "iOS"
+  s.static_framework = true
 
   s.dependency "ACPCore", "~> 2.0"
 
