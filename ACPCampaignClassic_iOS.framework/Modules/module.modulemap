@@ -1,6 +1,0 @@
-framework module ACPCampaignClassic_iOS {
-    umbrella header "ACPCampaignClassic_iOS.h"
-
-    export*
-    module* { export* }
-}
