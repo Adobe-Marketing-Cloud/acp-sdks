@@ -1,26 +1,24 @@
 Pod::Spec.new do |s|
   s.name         = "ACPCore"
-  s.version      = "1.1.1"
-  s.summary      = "Core framework for Adobe Experience Platform SDK. Written and Supported by Adobe."
+  s.version      = "2.0.0"
+  s.summary      = "Core library for Adobe Experience Platform SDK. Written and Supported by Adobe."
   s.description  = <<-DESC
-                   The core framework provides the foundation for the Adobe Experience Platform SDK.  Having the core framework installed is a pre-requisite for any other Adobe Experience Platform SDK extension to work.
+                   The core library provides the foundation for the Adobe Experience Platform SDK.  Having the core library installed is a pre-requisite for any other Adobe Experience Platform SDK extension to work.
                    DESC
 
   s.homepage     = "https://github.com/Adobe-Marketing-Cloud/acp-sdks/releases"
 
   s.license      = {:type => "Commercial", :file => "LICENSE.md"}
   s.author       = "Adobe Experience Platform SDK Team"
-  s.source       = { :git => 'https://github.com/Adobe-Marketing-Cloud/acp-sdks.git', :tag => "v1.1.1-ACPCore" }
+  s.source       = { :git => 'https://github.com/Adobe-Marketing-Cloud/acp-sdks.git', :tag => "v2.0.0-ACPCore" }
   s.platform     = :ios, '10.0'
 
   s.default_subspec = 'iOS'
 
   s.subspec 'iOS' do |ios|
-    ios.frameworks = "UIKit"
-    ios.vendored_frameworks = "ACPCore_iOS.framework",
-                              "AdobeMarketingMobileCore.framework",
-                              "ACPIdentity_iOS.framework",
-                              "ACPLifecycle_iOS.framework",
-                              "ACPSignal_iOS.framework"
+    ios.vendored_libraries = "libACPCore_iOS.a","libACPIdentity_iOS.a","libACPSignal_iOS.a","libACPLifecycle_iOS.a"
+    ios.source_files = "include/*.h"
+    ios.frameworks = "UIKit", "SystemConfiguration", "WebKit", "UserNotifications"
+    ios.libraries = "sqlite3.0", "c++", "z"
   end
 end
