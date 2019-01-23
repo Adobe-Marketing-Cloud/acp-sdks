@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version      = "2.0.0"
   s.summary      = "Target library for Adobe Experience Cloud SDK. Written and maintained by Adobe."
   s.description  = <<-DESC
-                   The target library provides APIs that allow use of the Target product in the Adobe Experience Cloud SDK.
+                   The Target library provides APIs that allow use of the Target product in the Adobe Experience Cloud SDK.
                    DESC
 
   s.homepage     = "https://github.com/Adobe-Marketing-Cloud/acp-sdks/releases"
