@@ -4,6 +4,6 @@
 // 
 // Copyright 1996-2019. Adobe. All Rights Reserved
 
- #import "ACPCore.h"
- @implementation ACPCore (ForceLoad) @end
+ #import "ACPAcquisition.h"
+ @implementation ACPAcquisition (ForceLoad) @end
 
