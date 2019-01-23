@@ -1,29 +1,26 @@
 Pod::Spec.new do |s|
   s.name         = "ACPTarget"
-  s.version      = "1.1.0"
-  s.summary      = "Target framework for Adobe Experience Platform SDK. Written and Supported by Adobe."
+  s.version      = "2.0.0"
+  s.summary      = "Target library for Adobe Experience Cloud SDK. Written and maintained by Adobe."
   s.description  = <<-DESC
-                   The Target framework provides APIs that allow use of the Target product in the Adobe Experience Platform SDK.
+                   The Target library provides APIs that allow use of the Target product in the Adobe Experience Cloud SDK.
                    DESC
 
   s.homepage     = "https://github.com/Adobe-Marketing-Cloud/acp-sdks/releases"
 
   s.license      = {:type => "Commercial", :file => "LICENSE.md"}
   s.author       = "Adobe Experience Platform SDK Team"
-  s.source       = { :git => 'https://github.com/Adobe-Marketing-Cloud/acp-sdks.git', :tag => "v1.1.0-ACPTarget" }
-  s.platform     = :ios, '10.0'
+  s.source       = { :git => 'https://github.com/Adobe-Marketing-Cloud/acp-sdks.git', :tag => "v#{s.version}-#{s.name}" }
+  s.platform = :ios, "10.0"
+  s.requires_arc = true
 
-  s.default_subspec = 'iOS'
+  s.default_subspec = "iOS"
+  s.static_framework = true
 
-  # dependency on the core framework
-  s.dependency "ACPCore", "~> 1.0"
+  s.dependency "ACPCore", "~> 2.0"
 
-  s.subspec 'iOS' do |ios|
-    ios.vendored_frameworks = 'ACPTarget_iOS.framework'
-    ios.xcconfig = {
-      "FRAMEWORK_SEARCH_PATHS" => "'${PODS_ROOT}/ACPTarget'",
-      "LD_RUNPATH_SEARCH_PATHS" => "@loader_path/../Frameworks"
-    }
-    ios.requires_arc = true
+  s.subspec "iOS" do |ios|
+    ios.vendored_libraries = "libACPTarget_iOS.a"
+    ios.source_files = "include/*.h", "include/*.m"
   end
 end
