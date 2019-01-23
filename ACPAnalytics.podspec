@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/Adobe-Marketing-Cloud/acp-sdks/releases"
 
   s.license      = {:type => "Commercial", :text => "Adobe.  All Rights Reserved."}
-  s.author       = "Adobe Mobile SDK Team"
+  s.author       = "Adobe Experience Platform SDK Team"
   s.source       = {
   	:git => 'https://github.com/Adobe-Marketing-Cloud/acp-sdks.git',
   	:tag => "v#{s.version}-#{s.name}"
