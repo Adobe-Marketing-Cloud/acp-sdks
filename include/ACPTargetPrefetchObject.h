@@ -1,19 +1,10 @@
-/* ************************************************************************
- * ADOBE CONFIDENTIAL
- * ___________________
- *
- * Copyright 2017 Adobe
- * All Rights Reserved.
- *
- * NOTICE: All information contained herein is, and remains
- * the property of Adobe and its suppliers, if any. The intellectual
- * and technical concepts contained herein are proprietary to Adobe
- * and its suppliers and are protected by all applicable intellectual
- * property laws, including trade secret and copyright laws.
- * Dissemination of this information or reproduction of this material
- * is strictly forbidden unless prior written permission is obtained
- * from Adobe.
- **************************************************************************/
+//
+//  ACPTargetPrefetchObject.h
+//  Adobe Experience Platform -- iOS Application Measurement Library
+//
+//  Copyright 1996-2019. Adobe Inc. All Rights Reserved
+//
+//  Target Version: 2.0.0
 
 #import <Foundation/Foundation.h>
 #import "ACPTarget.h"
