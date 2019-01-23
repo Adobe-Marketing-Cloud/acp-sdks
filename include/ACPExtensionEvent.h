@@ -2,7 +2,7 @@
 //  ACPExtensionEvent.h
 //  Adobe Experience Platform -- iOS Framework
 //
-//  Copyright 1996-2018. Adobe. All Rights Reserved
+//  Copyright 1996-2019. Adobe. All Rights Reserved
 
 #ifndef ADOBEMOBILE_ADBEXTENSIONEVENT_H
 #define ADOBEMOBILE_ADBEXTENSIONEVENT_H
