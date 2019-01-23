@@ -2,7 +2,7 @@
 //  ACPAcquisition.h
 //  Adobe Experience Platform -- iOS Library
 //
-//  Copyright 1996-2018. Adobe. All Rights Reserved
+//  Copyright 1996-2019. Adobe. All Rights Reserved
 //
 //  Acquisition Version: 2.0.0
 

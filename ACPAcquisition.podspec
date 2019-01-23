@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
 
   s.license      = {:type => "Commercial", :file => "LICENSE.md"}
   s.author       = "Adobe Experience Platform SDK Team"
-  s.source       = { :git => 'https://github.com/Adobe-Marketing-Cloud/acp-sdks.git', :tag => "v2.0.0-ACPAcquisition" }
+  s.source       = { :git => 'https://github.com/Adobe-Marketing-Cloud/acp-sdks.git', :tag => "v#{s.version}-#{s.name}" }
   s.platform     = :ios, '10.0'
   s.requires_arc = true
 
