@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version      = "2.0.0"
   s.summary      = "Audience Manager library for Adobe Experience Platform SDK. Written and maintained by Adobe."
   s.description  = <<-DESC
-                   The Audience Manager library provides APIs that allow use of the Audience Manager product in the V5 Adobe Experience Platform SDK.
+                   The Audience Manager library provides APIs that allow use of the Audience Manager product in the Adobe Experience Platform SDK.
                    DESC
 
   s.homepage     = "https://github.com/Adobe-Marketing-Cloud/acp-sdks/releases"
