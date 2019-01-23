@@ -17,12 +17,13 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "10.0"
   s.requires_arc = true
   s.default_subspec = "iOS"
+  s.static_framework = true
 
   # dependency on the core library
   s.dependency "ACPCore", "~> 2.0"
 
   s.subspec "iOS" do |ios|
     ios.vendored_libraries = "libACPUserProfile_iOS.a"
-    ios.source_files = "include/*.h", "include/*.m"
+    ios.source_files = "include/*.h", "include/Empty.m"
   end
 end
