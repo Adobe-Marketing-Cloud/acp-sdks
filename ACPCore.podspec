@@ -14,10 +14,11 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '10.0'
 
   s.default_subspec = 'iOS'
+  s.static_framework = true
 
   s.subspec 'iOS' do |ios|
     ios.vendored_libraries = "libACPCore_iOS.a","libACPIdentity_iOS.a","libACPSignal_iOS.a","libACPLifecycle_iOS.a"
-    ios.source_files = "include/*.h", "include/*.m"
+    ios.source_files = "include/*.h", "include/Empty.m"
     ios.frameworks = "UIKit", "SystemConfiguration", "WebKit", "UserNotifications"
     ios.libraries = "sqlite3.0", "c++", "z"
   end
