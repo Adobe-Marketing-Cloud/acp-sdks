@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "ACPUserProfile"
-  s.version      = "2.0.0"
+  s.version      = "2.0.1"
   s.summary      = "User Profile library for Adobe Experience Platform SDK. Written and Supported by Adobe."
   s.description  = <<-DESC
                    The User Profile library provides APIs that allow use of the custom client-side User Profile in the Adobe Experience Platform SDK.
@@ -23,6 +23,6 @@ Pod::Spec.new do |s|
 
   s.subspec "iOS" do |ios|
     ios.vendored_libraries = "libACPUserProfile_iOS.a"
-    ios.source_files = "include/*.h"
+    ios.source_files = "include/*.h", "include/*.m"
   end
 end
