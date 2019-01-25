@@ -2,7 +2,7 @@
 //  AppDelegate.h
 //  Adobe Cloud Platform -- ACP SDK Extension for iOS
 //
-//  Copyright 1996-2018 Adobe. All Rights Reserved.
+//  Copyright 1996-2019 Adobe. All Rights Reserved.
 //
 
 #import <UIKit/UIKit.h>
