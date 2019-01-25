@@ -1,0 +1,29 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '10.0'
+
+target 'ACPWeatherExample' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for ACPWeatherExample
+  #
+  # IMPORTANT!
+  #
+  # We don't include the ACPCore pod here because then its binaries
+  # would be compiled in with this extension's binary.  This would lead to
+  # duplicate symbols and linker errors.  Instead, we will have the pods
+  # available for reference via the test app, and will have to manually
+  # update the header search paths in our extension.  For this project,
+  # the correct header search path is `$(PROJECT_DIR)/Pods/ACPCore/include`
+
+end
+
+target 'TestApp' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for TestApp
+  pod 'ACPCore'
+  pod 'ACPAnalytics'
+
+end

@@ -5,9 +5,16 @@ The ACPWeatherExample project is a simple demonstration of how you can write you
 
 ## Getting Started
 
-1. Download [sdk-weather-extension-ios.zip](https://github.com/Adobe-Marketing-Cloud/acp-sdks/blob/weather-example/sdk-weather-extension-ios.zip)
-2. From within the extracted _sdk-weather-extension-ios_ folder, navigate to _ACPWeatherExampleTester_ folder and click on _ACPWeatherExampleTester.xcodeproj_ file to open the project in Xcode.
-3. Hit the Run button from the toolbar, or from the menu select _Product > Run_
+1. Download or clone the [weather-example branch](https://github.com/Adobe-Marketing-Cloud/acp-sdks/tree/weather-example)
+2. Navigate to the `ACPWeatherExample` directory in terminal and run `pod update`
+3. Open `ACPWeatherExample.xcworkspace`
+4. The `ACPWeatherExample` project has two targets in it:
+  - `ACPWeatherExample` - a target to produce a static library output
+  - `TestApp` - a simple app used for testing the `ACPWeatherExample` extension with the SDK
+5. If you want to run the test app, do the following:
+  - Go to https://openweathermap.org/ and generate an API key
+  - In `AppDelegate.m` for the `TestApp`, fill in the value of `ACPWeatherExampleApiKey` with your API key
+  - Select the `TestApp` scheme and press `Run`
 
 ## Extension Documentation
 
