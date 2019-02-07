@@ -2,7 +2,7 @@
 //  ACPCore.h
 //  Adobe Experience Platform -- iOS Framework
 //
-//  Copyright 1996-2018. Adobe. All Rights Reserved
+//  Copyright 1996-2019. Adobe. All Rights Reserved
 //
 //  Core Version: 2.0.2
 
@@ -357,4 +357,3 @@ typedef NS_ENUM(NSUInteger, ACPMobileVisitorAuthenticationState) {
 @property(nonatomic, strong, nullable) NSString* identifier;
 @property(nonatomic, readwrite) ACPMobileVisitorAuthenticationState authenticationState;
 @end
-

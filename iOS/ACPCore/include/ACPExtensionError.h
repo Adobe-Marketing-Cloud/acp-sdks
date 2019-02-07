@@ -2,7 +2,7 @@
 //  ACPExtensionError.h
 //  Adobe Experience Platform -- iOS Framework
 //
-//  Copyright 1996-2018. Adobe. All Rights Reserved
+//  Copyright 1996-2019. Adobe. All Rights Reserved
 
 #ifndef ADOBEMOBILE_ADBEXTENSIONERROR_H
 #define ADOBEMOBILE_ADBEXTENSIONERROR_H
@@ -26,4 +26,3 @@ typedef NS_ENUM(NSUInteger, ACPExtensionError) {
 };
 
 #endif /* ADOBEMOBILE_ADBEXTENSIONERROR_H */
-
