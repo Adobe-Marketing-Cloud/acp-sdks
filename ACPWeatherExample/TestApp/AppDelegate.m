@@ -6,7 +6,7 @@
 //
 
 #import "AppDelegate.h"
-#import "WeatherExtensionInternal.h"
+#import "WeatherExtension.h"
 #import "ACPCore.h"
 #import "ACPIdentity.h"
 #import "ACPSignal.h"
@@ -23,19 +23,16 @@ static NSString *const ACPWeatherExampleApiKey = @"";
     [ACPCore setLogLevel:ACPMobileLogLevelError];
     [ACPCore configureWithAppId:@"staging/launch-ENb44c5c8eb4ac4c5b8c89b6afffc167f7-development"];
     
-    // register our weather extension
-    NSError *error = nil;
-    if ([ACPCore registerExtension:[WeatherExtensionInternal class] error:&error]) {
-        NSLog(@"WeatherExtension was successfully registered!");
-    } else {
-        NSLog(@"An error occurred while attempting to register WeatherExtension: %@", [error localizedDescription]);
-    }
+    // register the weather extension
+    [WeatherExtension registerExtension];
     
+    // register Adobe core extensions
     [ACPIdentity registerExtension];
     [ACPSignal registerExtension];
     [ACPLifecycle registerExtension];
     [ACPAnalytics registerExtension];
     
+    // after registering all the extensions, call ACPCore start to start procesing events in the Event Hub
     [ACPCore start:^{
         [ACPCore updateConfiguration:@{@"weather.apiKey":ACPWeatherExampleApiKey}];
         dispatch_async(dispatch_get_main_queue(), ^{

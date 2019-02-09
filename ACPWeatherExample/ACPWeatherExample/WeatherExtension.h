@@ -19,6 +19,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface WeatherExtension : NSObject
 
 #pragma mark - WeatherExtension Public API methods
+
+
+/**
+ * Registers the WeatherExtension with the ACPCore in order to receive and dispatch new events
+ * though the internal Event Hub. This method should be called once, when the application is initialized
+ * in the AppDelegate.m class
+ */
++ (void) registerExtension;
+
 /**
  * @brief Gets the current weather and conditions for the provided zip code
  *

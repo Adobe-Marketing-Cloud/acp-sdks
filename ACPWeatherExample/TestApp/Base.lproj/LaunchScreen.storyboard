@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,34 +18,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="adobe_logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="AQE-Dd-KaE">
-                                <rect key="frame" x="64.666666666666686" y="100" width="246" height="262"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adobe Weather Extension" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="quK-Mx-TWc">
+                                <rect key="frame" x="0.0" y="364" width="375" height="94"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="262" id="Pih-Te-CNl"/>
-                                    <constraint firstAttribute="width" constant="246" id="mqy-2S-KRv"/>
+                                    <constraint firstAttribute="height" constant="94" id="W3A-hO-qaP"/>
                                 </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adobe Extensions Weather Example" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="quK-Mx-TWc">
-                                <rect key="frame" x="64.666666666666686" y="396" width="246" height="94"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="94" id="g5I-ay-Ph0"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="246" id="x0b-oZ-QQ6"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="adobe_logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="AQE-Dd-KaE">
+                                <rect key="frame" x="133" y="200" width="109" height="156"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="156" id="hIZ-gD-4Tf"/>
+                                    <constraint firstAttribute="width" constant="109" id="vc2-4m-dMa"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="quK-Mx-TWc" firstAttribute="leading" secondItem="AQE-Dd-KaE" secondAttribute="leading" id="FdJ-sQ-qfY"/>
-                            <constraint firstItem="AQE-Dd-KaE" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Tau-ji-9WI"/>
-                            <constraint firstItem="quK-Mx-TWc" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="bEe-0i-eqE"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="AQE-Dd-KaE" secondAttribute="bottom" constant="416" id="bWp-0Z-aAl"/>
-                            <constraint firstItem="quK-Mx-TWc" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="cNP-Ik-fZ5"/>
-                            <constraint firstItem="quK-Mx-TWc" firstAttribute="top" secondItem="AQE-Dd-KaE" secondAttribute="bottom" constant="34" id="dxH-sh-jUM"/>
-                            <constraint firstItem="AQE-Dd-KaE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="56" id="hWT-cD-YGL"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="quK-Mx-TWc" secondAttribute="bottom" constant="288" id="xCv-3g-G0R"/>
+                            <constraint firstItem="quK-Mx-TWc" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="K91-qw-zhy"/>
+                            <constraint firstItem="quK-Mx-TWc" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Rwn-ja-BMC"/>
+                            <constraint firstItem="quK-Mx-TWc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Vrh-8U-sHs"/>
+                            <constraint firstItem="quK-Mx-TWc" firstAttribute="top" secondItem="AQE-Dd-KaE" secondAttribute="bottom" constant="8" id="opi-XG-taa"/>
+                            <constraint firstItem="AQE-Dd-KaE" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="rj0-Cn-eGM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
