@@ -26,4 +26,3 @@ typedef NS_ENUM(NSUInteger, ACPExtensionError) {
 };
 
 #endif /* ADOBEMOBILE_ADBEXTENSIONERROR_H */
-

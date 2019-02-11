@@ -4,7 +4,7 @@
 //
 //  Copyright 1996-2019. Adobe. All Rights Reserved
 //
-//  Core Version: 2.0.1
+//  Core Version: 2.0.2
 
 #import <Foundation/Foundation.h>
 
@@ -357,4 +357,3 @@ typedef NS_ENUM(NSUInteger, ACPMobileVisitorAuthenticationState) {
 @property(nonatomic, strong, nullable) NSString* identifier;
 @property(nonatomic, readwrite) ACPMobileVisitorAuthenticationState authenticationState;
 @end
-
