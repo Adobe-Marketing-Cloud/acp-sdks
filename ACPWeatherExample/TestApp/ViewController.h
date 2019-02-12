@@ -13,8 +13,6 @@
 @property (nonatomic, assign) IBOutlet UITextField *txtZip;
 @property (nonatomic, assign) IBOutlet UIButton *btnGetWeather;
 @property (nonatomic, assign) IBOutlet UILabel *lblConditions;
-@property (nonatomic, assign) IBOutlet UIImageView *imgConditions;
-
 
 - (IBAction) getWeather:(id)sender;
 

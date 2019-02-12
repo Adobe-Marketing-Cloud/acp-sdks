@@ -14,6 +14,15 @@
 @implementation WeatherExtension
 
 #pragma mark - WeatherExtension Public API methods
++ (void) registerExtension {
+    NSError *error = nil;
+    if ([ACPCore registerExtension:[WeatherExtensionInternal class] error:&error]) {
+        NSLog(@"WeatherExtension was successfully registered");
+    } else {
+        NSLog(@"An error occurred while attempting to register WeatherExtension: %@", [error localizedDescription]);
+    }
+}
+
 + (void) getWeatherByZipCode:(NSUInteger)zip callback:(nullable void (^) (WeatherExtensionDataObject* __nullable content))callback {
     // create the request event
     NSError *eventError = nil;
