@@ -28,7 +28,7 @@
 - (IBAction) getWeather:(id)sender {
     [self.txtZip resignFirstResponder];
     NSString* zipString = _txtZip.text;
-    
+
     // retrieve the weather conditions for current zipcode by calling the getWeatherByZipCode public API
     [WeatherExtension getWeatherByZipCode:[zipString integerValue] callback:^(WeatherExtensionDataObject * _Nullable weather) {
         NSLog(@"Received response callback from weather extension: %@", weather);
@@ -43,7 +43,7 @@
 - (IBAction)getWeatherByTriggeringRules:(id)sender {
     [self.txtZip resignFirstResponder];
     NSString* zipString = _txtZip.text;
-    
+
     // Send an analytics track request with zip as context data. This will trigger the rule set up
     // in Launch UI for Mobile Core track action with context data key "zip" and the Weather extension
     // can process the rule consequence event
