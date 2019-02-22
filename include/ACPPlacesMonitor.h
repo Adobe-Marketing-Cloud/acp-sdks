@@ -4,7 +4,7 @@
 //
 //  Copyright 1996-2019. Adobe. All Rights Reserved
 //
-//  Places Monitor Version: 0.0.1
+//  Places Monitor Version: 0.0.2
 
 #import <Foundation/Foundation.h>
 
