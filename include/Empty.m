@@ -1,2 +1,2 @@
-#import "ACPPlaces.h"
-@implementation ACPPlaces (ForceLoad) @end
+#import "ACPPlacesMonitor.h"
+@implementation ACPPlacesMonitor (ForceLoad) @end
