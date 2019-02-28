@@ -1,9 +1,9 @@
 Pod::Spec.new do |s|
   s.name         = "ACPPlaces"
-  s.version      = "0.0.1"
-  s.summary      = "Places extension for Adobe Experience Platform SDK. Written and maintained by Adobe."
+  s.version      = "1.0.0"
+  s.summary      = "Places extension (BETA) for Adobe Experience Platform SDK. Written and maintained by Adobe."
   s.description  = <<-DESC
-                   The Places extension provides APIs that allow use of the Places service in the Adobe Experience Platform SDK.
+                   The Places extension (BETA) provides APIs that allow use of the Places service in the Adobe Experience Platform SDK.
                    DESC
 
   s.homepage     = "https://github.com/Adobe-Marketing-Cloud/acp-sdks/releases"

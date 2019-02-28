@@ -4,7 +4,7 @@
 //
 //  Copyright 1996-2018. Adobe. All Rights Reserved
 //
-//  Places Version: 0.0.1
+//  Places Version: 1.0.0
 
 #import <Foundation/Foundation.h>
 
@@ -16,9 +16,9 @@
  * @see processRegionEvent:forRegionEventType:
  */
 typedef NS_ENUM(NSUInteger, ACPRegionEventType) {
-    ACPRegionEventTypeEntry   = 1, /*!< Enum value ACPRegionEventTypeEntry */
-    ACPRegionEventTypeExit    = 2, /*!< Enum value ACPRegionEventTypeExit */
-    ACPRegionEventTypeNone    = 3  /*!< Enum value ACPRegionEventTypeNone */
+    ACPRegionEventTypeNone,     /*!< Enum value ACPRegionEventTypeNone */
+    ACPRegionEventTypeEntry,    /*!< Enum value ACPRegionEventTypeEntry */
+    ACPRegionEventTypeExit      /*!< Enum value ACPRegionEventTypeExit */
 };
 
 @interface ACPPlaces : NSObject {}
@@ -27,6 +27,13 @@ typedef NS_ENUM(NSUInteger, ACPRegionEventType) {
  * @brief Returns the current version of the ACPPlaces Extension.
  */
 + (nonnull NSString*) extensionVersion;
+
+/**
+ * @brief Returns the last latitude and longitude provided to the ACPPlaces Extension.
+ *
+ * @param callback called with a CLLocation object representing the last known lat/lon provided to the extension
+ */
++ (void) getLastKnownLocation: (nullable void (^) (CLLocation* _Nullable lastLocation)) callback;
 
 /**
  * @brief Requests a list of nearby Points of Interest (POI) and returns them in a callback.
@@ -38,6 +45,13 @@ typedef NS_ENUM(NSUInteger, ACPRegionEventType) {
 + (void) getNearbyPointsOfInterest: (nonnull CLLocation*) currentLocation
                              limit: (NSUInteger) limit
                           callback: (nullable void (^) (NSArray<ACPPlacesPoi*>* _Nullable nearbyPoi)) callback;
+
+/**
+ * @brief Returns all Points of Interest (POI) in which the device is currently known to be within.
+ *
+ * @param callback called with an array of ACPPlacesPoi objects that represent the user-within POIs
+ */
++ (void) getCurrentPointsOfInterest: (nullable void (^) (NSArray<ACPPlacesPoi*>* _Nullable userWithinPoi)) callback;
 
 /**
  * @brief Passes a region and event type to be processed by the SDK
