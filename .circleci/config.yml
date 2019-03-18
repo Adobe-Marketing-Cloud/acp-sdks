@@ -7,12 +7,8 @@ jobs: # a basic unit of work in a run
       - checkout  # pull down code from your version control system.
       - run:
           name: Update pod
-          command: pod update
-      - run:
-          # run our tests using xcode's cli tool `xcodebuild`
-          name: Run Unit Tests
-          command: xcodebuild test -scheme circleci-demo-macos
+          command: cd iOS/ACPWeatherExample && pod update
       - run:
           # build our application
           name: Build Application
-          command: xcodebuild
+          command: cd iOS/ACPWeatherExample && xcodebuild
