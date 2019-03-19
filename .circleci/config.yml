@@ -4,7 +4,7 @@ jobs: # a basic unit of work in a run
     macos:  # indicate that we are using the macOS executor
       xcode: "10.0.0" # indicate our selected version of Xcode
     steps: # a series of commands to run
-      - checkout  # pull down code from your version control system.
+      - checkout  # pull down code from your version control system. blah
       - run:
           name: Update pod
           command: cd iOS/ACPWeatherExample && pod update
