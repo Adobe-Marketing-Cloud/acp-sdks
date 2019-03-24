@@ -99,14 +99,14 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="40dp"
         android:text="0"
         android:textAlignment="textEnd"
         android:textAllCaps="true"
         android:textColor="@color/colorTurquoise"
         android:textSize="30dp"
         app:layout_constraintEnd_toStartOf="@+id/tvTempFormat"
-        app:layout_constraintHorizontal_bias="0.96"
+        app:layout_constraintHorizontal_bias="0.984"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnGetWeatherByRules" />
 
@@ -123,7 +123,7 @@
         android:textAllCaps="true"
         android:textColor="@color/colorTurquoise"
         android:textSize="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/tvCredits"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
@@ -132,10 +132,10 @@
 
     <TextView
         android:id="@+id/tvTempFormat"
-        android:layout_width="39dp"
+        android:layout_width="42dp"
         android:layout_height="38dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="144dp"
+        android:layout_marginEnd="140dp"
         android:layout_marginTop="8dp"
         android:text="°F"
         android:textAlignment="textStart"
@@ -144,6 +144,19 @@
         app:layout_constraintBottom_toTopOf="@+id/tvConditions"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnGetWeatherByRules"
-        app:layout_constraintVertical_bias="0.606" />
+        app:layout_constraintVertical_bias="0.627" />
+
+    <TextView
+        android:id="@+id/tvCredits"
+        android:layout_width="359dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/credits"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
