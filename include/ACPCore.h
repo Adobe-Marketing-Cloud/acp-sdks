@@ -4,7 +4,7 @@
 //
 //  Copyright 1996-2019. Adobe. All Rights Reserved
 //
-//  Core Version: 2.0.3
+//  Core Version: 2.1.0
 
 #import <Foundation/Foundation.h>
 
@@ -184,7 +184,7 @@ typedef NS_ENUM(NSUInteger, ACPMobileVisitorAuthenticationState) {
  *
  * In order to ensure that the extension can see all events (including the BOOTED event), `registerExtension` should be called
  * from your AppDelegate's `application:didFinishLaunchingWithOptions` method. This call should be before any calls into
- * the AdobeMarketingMobile interface except `setLogLevel`.
+ * the ACPCore interface except `setLogLevel`.
  *
  * @param extensionClass A class whose parent is `ACPExtension`.
  * @param error An optional parameter where an NSError* will be returned if valid and NO was returned
@@ -207,8 +207,8 @@ typedef NS_ENUM(NSUInteger, ACPMobileVisitorAuthenticationState) {
  *   - Pauses the current lifecycle session. Calling pause on an already paused session updates the paused timestamp,
  *     having the effect of resetting the session timeout timer. If no lifecycle session is running, then calling
  *     this method does nothing.
- *   - A paused session is resumed if ADBMobileMarketing::lifecycleStart: is called before the session timeout. After
- *     the session timeout, a paused session is closed and calling ADBMobileMarketing::lifecycleStart: will create
+ *   - A paused session is resumed if ACPCore::lifecycleStart: is called before the session timeout. After
+ *     the session timeout, a paused session is closed and calling ACPCore::lifecycleStart: will create
  *     a new session. The session timeout is defined by the `lifecycle.sessionTimeout` configuration parameter.
  *   - If not defined, the default session timeout is five minutes.
  */
@@ -265,7 +265,7 @@ typedef NS_ENUM(NSUInteger, ACPMobileVisitorAuthenticationState) {
  *  @param action NSString containing the name of the action to track
  *  @param data NSDictionary<NSString, NSString> containing context data to attach on this hit
  */
-+ (void) trackAction: (nullable NSString*) action data: (nullable NSDictionary*) data;
++ (void) trackAction: (nullable NSString*) action data: (nullable NSDictionary<NSString*, NSString*>*) data;
 
 /**
  *  @brief This method sends a generic Analytics state tracking hit with context data.
@@ -279,7 +279,7 @@ typedef NS_ENUM(NSUInteger, ACPMobileVisitorAuthenticationState) {
  *  @param state NSString containing the name of the state to track
  *  @param data NSDictionary<NSString, NSString> containing context data to attach on this hit
  */
-+ (void) trackState: (nullable NSString*) state data: (nullable NSDictionary*) data;
++ (void) trackState: (nullable NSString*) state data: (nullable NSDictionary<NSString*, NSString*>*) data;
 
 /**
  * @brief Called by the extension public API to dispatch an event for other extensions or the internal SDK to consume.
@@ -344,6 +344,29 @@ typedef NS_ENUM(NSUInteger, ACPMobileVisitorAuthenticationState) {
  */
 
 + (void) downloadRules;
+
+#pragma mark - Logging
+
+/**
+ * @brief Returns current logging level used by the SDK.
+ *
+ * @return ACPCore::ACPMobileLogLevel representing current logging level
+ * @see ACPCore::setLogLevel:
+ */
++ (ACPMobileLogLevel) logLevel;
+
+/**
+ * @brief Prints a log message with the provided logLevel and tag.
+ *
+ * @note This message is not printed if the current logging mode set using `setLogLevel`
+ * is less verbose than the given logLevel
+ *
+ * @param logLevel the logging level for which the message should be printed
+ * @param tag used to identify the source of the log message. It should not be empty
+ * @param message the message to log. It should not be empty
+ * @see ACPCore::setLogLevel:
+ */
++ (void) log: (ACPMobileLogLevel) logLevel tag: (nonnull NSString*) tag message: (nonnull NSString*) message;
 
 @end
 
