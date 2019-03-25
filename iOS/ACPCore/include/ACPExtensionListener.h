@@ -22,7 +22,7 @@
  * @return ACPExtensionListener* or nil
  *
  */
-- (nullable instancetype) init;
+- (nonnull instancetype) init;
 
 /*
  * @brief Reference to the extension that registered this listener
