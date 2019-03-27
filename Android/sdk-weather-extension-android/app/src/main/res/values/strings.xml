@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">WeatherExampleTester</string>
+    <string name="credits">Credits: This App uses OpenWeatherMap API as weather data source. More info at https://openweathermap.org/</string>
 </resources>

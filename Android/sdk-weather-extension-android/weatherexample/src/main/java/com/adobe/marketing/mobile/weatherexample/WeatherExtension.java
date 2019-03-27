@@ -1,8 +1,15 @@
-//
-//  Adobe Experience Platform -- ACP SDK Extension for Android
-//
-//  Copyright 1996-2019. Adobe. All Rights Reserved
-//
+/*
+ ADOBE CONFIDENTIAL
+
+ Copyright 2019 Adobe
+ All Rights Reserved.
+
+ NOTICE: Adobe permits you to use, modify, and distribute this file in
+ accordance with the terms of the Adobe license agreement accompanying
+ it. If you have received this file from a source other than Adobe,
+ then your use, modification, or distribution of it requires the prior
+ written permission of Adobe.
+ */
 
 package com.adobe.marketing.mobile.weatherexample;
 
@@ -17,6 +24,15 @@ import com.adobe.marketing.mobile.MobileCore;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * WeatherExtension Version: 1.0.0
+ *
+ * WeatherExtension is using the free tier of weather-related APIs available at:
+ * https://openweathermap.org/
+ *
+ * The ACPWeatherExample is being provided by Adobe to demonstrate how to make
+ * custom extensions to integrate into the Adobe Cloud Platform SDK's ecosystem.
+ */
 public class WeatherExtension {
     private static final String LOG_TAG = WeatherExtension.class.getSimpleName();
 
