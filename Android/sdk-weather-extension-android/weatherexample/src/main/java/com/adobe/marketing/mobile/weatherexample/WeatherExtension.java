@@ -13,12 +13,11 @@
 
 package com.adobe.marketing.mobile.weatherexample;
 
-import android.util.Log;
-
 import com.adobe.marketing.mobile.AdobeCallback;
 import com.adobe.marketing.mobile.Event;
 import com.adobe.marketing.mobile.ExtensionError;
 import com.adobe.marketing.mobile.ExtensionErrorCallback;
+import com.adobe.marketing.mobile.LoggingMode;
 import com.adobe.marketing.mobile.MobileCore;
 
 import java.util.HashMap;
@@ -34,7 +33,7 @@ import java.util.Map;
  * custom extensions to integrate into the Adobe Cloud Platform SDK's ecosystem.
  */
 public class WeatherExtension {
-    private static final String LOG_TAG = WeatherExtension.class.getSimpleName();
+    private static final String LOG_TAG = "WeatherExtension";
 
     private WeatherExtension() {}
 
@@ -58,7 +57,7 @@ public class WeatherExtension {
      */
     public static void getWeatherByZipCode(final String zip, final WeatherExtensionCallback<WeatherExtensionDataObject> callback) {
         if (callback == null) {
-            Log.w(LOG_TAG, "Weather cannot be returned when callback is null");
+            MobileCore.log(LoggingMode.WARNING, LOG_TAG, "Weather cannot be returned when callback is null");
             return;
         }
 
@@ -71,7 +70,7 @@ public class WeatherExtension {
                 WeatherExtensionConstants.EVENT_SOURCE_WEATHER_REQUEST_CONTENT).setEventData(requestData).build();
 
         if (getWeatherEvent == null) {
-            Log.d(LOG_TAG, "An error occurred constructing the Get Weather event");
+            MobileCore.log(LoggingMode.DEBUG, LOG_TAG, "An error occurred constructing the Get Weather event");
             callback.call(null);
             return;
         }
@@ -80,7 +79,7 @@ public class WeatherExtension {
         AdobeCallback<Event> responseEventCallback = new AdobeCallback<Event>() {
             @Override
             public void call(final Event responseEvent) {
-                Log.d(LOG_TAG, String.format("In response callback for event '%s', event data returned: %s",
+                MobileCore.log(LoggingMode.DEBUG, LOG_TAG, String.format("In response callback for event '%s', event data returned: %s",
                         responseEvent.getName(), responseEvent.getEventData()));
                 Map<String, Object> eventData = responseEvent.getEventData();
                 if (eventData == null || eventData.isEmpty()) {
@@ -103,12 +102,12 @@ public class WeatherExtension {
         ExtensionErrorCallback<ExtensionError> extensionErrorCallback = new ExtensionErrorCallback<ExtensionError>() {
             @Override
             public void error(final ExtensionError extensionError) {
-                Log.e(LOG_TAG, String.format("An error occurred dispatching event '%s', %s", getWeatherEvent.getName(), extensionError.getErrorName()));
+                MobileCore.log(LoggingMode.ERROR, LOG_TAG, String.format("An error occurred dispatching event '%s', %s", getWeatherEvent.getName(), extensionError.getErrorName()));
             }
         };
 
         if (MobileCore.dispatchEventWithResponseCallback(getWeatherEvent, responseEventCallback, extensionErrorCallback)) {
-            Log.d(LOG_TAG, String.format("WeatherExtension dispatched an event '%s'", getWeatherEvent.getName()));
+            MobileCore.log(LoggingMode.DEBUG, LOG_TAG, String.format("WeatherExtension dispatched an event '%s'", getWeatherEvent.getName()));
         }
     }
 }
