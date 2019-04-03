@@ -26,7 +26,7 @@ static NSString *const ACPWeatherExampleApiKey = @"";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    [ACPCore setLogLevel:ACPMobileLogLevelError];
+    [ACPCore setLogLevel:ACPMobileLogLevelDebug];
     [ACPCore configureWithAppId:@"staging/launch-ENb44c5c8eb4ac4c5b8c89b6afffc167f7-development"];
     
     // register the weather extension

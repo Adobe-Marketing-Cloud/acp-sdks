@@ -11,16 +11,17 @@
  written permission of Adobe.
  */
 
+#import "ACPCore.h"
 #import "WeatherExtensionInternal.h"
 #import "WeatherExtensionListener.h"
 
 @implementation WeatherExtensionListener
 
 - (void) hear:(ACPExtensionEvent *)event {
-    NSLog(@"WeatherExtensionListener heard an event: %@, %@.  Data: %@", event.eventName, event.eventType, event.eventData);
+    [ACPCore log:ACPMobileLogLevelDebug tag:@"WeatherExtensionListener" message:[NSString stringWithFormat:@"WeatherExtensionListener heard an event: %@, %@.  Data: %@", event.eventName, event.eventType, event.eventData]];
     WeatherExtensionInternal* parentExtension = [self getParentExtension];
     if (parentExtension == nil) {
-        NSLog(@"The parent extension was nil, skipping event");
+        [ACPCore log:ACPMobileLogLevelWarning tag:@"WeatherExtensionListener" message:@"The parent extension was nil, skipping event"];
         return;
     }
 
