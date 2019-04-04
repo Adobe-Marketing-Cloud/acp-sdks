@@ -18,7 +18,7 @@
 @implementation WeatherExtensionListener
 
 - (void) hear:(ACPExtensionEvent *)event {
-    [ACPCore log:ACPMobileLogLevelDebug tag:@"WeatherExtensionListener" message:[NSString stringWithFormat:@"WeatherExtensionListener heard an event: %@, %@.  Data: %@", event.eventName, event.eventType, event.eventData]];
+    [ACPCore log:ACPMobileLogLevelDebug tag:@"WeatherExtensionListener" message:[NSString stringWithFormat:@"Heard an event: %@, %@.  Data: %@", event.eventName, event.eventType, event.eventData]];
     WeatherExtensionInternal* parentExtension = [self getParentExtension];
     if (parentExtension == nil) {
         [ACPCore log:ACPMobileLogLevelWarning tag:@"WeatherExtensionListener" message:@"The parent extension was nil, skipping event"];

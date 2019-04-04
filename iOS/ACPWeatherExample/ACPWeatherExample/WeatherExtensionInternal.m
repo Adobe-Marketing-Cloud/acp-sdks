@@ -28,6 +28,7 @@
 
 @implementation WeatherExtensionInternal
 
+static NSString* LOG_TAG = @"WeatherExtensionInternal";
 static NSString* ACP_STATE_OWNER = @"stateowner";
 static NSString* ACP_CONFIGURATION_SHARED_STATE = @"com.adobe.module.configuration";
 static NSString* ACP_IDENTITY_SHARED_STATE = @"com.adobe.module.identity";
@@ -56,9 +57,9 @@ static NSString* WEATHER_KEY = @"weather";
                              eventType:@"com.adobe.eventType.hub"
                            eventSource:@"com.adobe.eventSource.sharedState"
                                  error:&error]) {
-            [ACPCore log:ACPMobileLogLevelDebug tag:@"WeatherExtensionInternal" message:@"WeatherExtensionListener successfully registered for Event Hub Shared State events"];
+            [ACPCore log:ACPMobileLogLevelDebug tag:LOG_TAG message:@"WeatherExtensionListener successfully registered for Event Hub Shared State events"];
         } else {
-            [ACPCore log:ACPMobileLogLevelError tag:@"WeatherExtensionInternal" message:[NSString stringWithFormat:@"There was an error registering WeatherExtensionListener for Event Hub Shared State events: %@", error.localizedDescription ?: @"unknown"]];
+            [ACPCore log:ACPMobileLogLevelError tag:LOG_TAG message:[NSString stringWithFormat:@"There was an error registering WeatherExtensionListener for Event Hub Shared State events: %@", error.localizedDescription ?: @"unknown"]];
         }
         
         // register a listener for RulesEngine response events
@@ -67,9 +68,9 @@ static NSString* WEATHER_KEY = @"weather";
                              eventType:@"com.adobe.eventType.rulesEngine"
                            eventSource:@"com.adobe.eventSource.responseContent"
                                  error:&error]) {
-            [ACPCore log:ACPMobileLogLevelDebug tag:@"WeatherExtensionInternal" message:@"WeatherExtensionListener successfully registered for Rules Engine Response Content events"];
+            [ACPCore log:ACPMobileLogLevelDebug tag:LOG_TAG message:@"WeatherExtensionListener successfully registered for Rules Engine Response Content events"];
         } else {
-            [ACPCore log:ACPMobileLogLevelError tag:@"WeatherExtensionInternal" message:[NSString stringWithFormat:@"There was an error registering WeatherExtensionListener for Rules Engine Response Content events: %@", error.localizedDescription ?: @"unknown"]];
+            [ACPCore log:ACPMobileLogLevelError tag:LOG_TAG message:[NSString stringWithFormat:@"There was an error registering WeatherExtensionListener for Rules Engine Response Content events: %@", error.localizedDescription ?: @"unknown"]];
         }
         
         // register a listener for WeatherExtension request events
@@ -78,9 +79,9 @@ static NSString* WEATHER_KEY = @"weather";
                              eventType:@"com.acpExample.eventType.weatherExtension"
                            eventSource:@"com.acpExample.eventSource.requestContent"
                                  error:&error]) {
-            [ACPCore log:ACPMobileLogLevelDebug tag:@"WeatherExtensionInternal" message:@"WeatherExtensionListener successfully registered for WeatherExtension Request Content events"];
+            [ACPCore log:ACPMobileLogLevelDebug tag:LOG_TAG message:@"WeatherExtensionListener successfully registered for WeatherExtension Request Content events"];
         } else {
-            [ACPCore log:ACPMobileLogLevelError tag:@"WeatherExtensionInternal" message:[NSString stringWithFormat:@"There was an error registering WeatherExtensionListener for WeatherExtension Request Content events: %@", error.localizedDescription ?: @"unknown"]];
+            [ACPCore log:ACPMobileLogLevelError tag:LOG_TAG message:[NSString stringWithFormat:@"There was an error registering WeatherExtensionListener for WeatherExtension Request Content events: %@", error.localizedDescription ?: @"unknown"]];
         }
         
         // create our WeatherExtensionApiHandler
@@ -110,11 +111,11 @@ static NSString* WEATHER_KEY = @"weather";
 
 #pragma mark - WeatherExtension Internal methods
 - (void) handleGetWeatherEvent:(ACPExtensionEvent *)event {
-    [ACPCore log:ACPMobileLogLevelDebug tag:@"WeatherExtensionInternal" message:[NSString stringWithFormat:@"%@ - Handling Get Weather event", [self name]]];
+    [ACPCore log:ACPMobileLogLevelDebug tag:LOG_TAG message:[NSString stringWithFormat:@"%@ - Handling Get Weather event", [self name]]];
     NSNumber *zip = event.eventData[WEATHER_ZIP_KEY];
     [self.apiHandler getWeatherForZip:[zip integerValue] callback:^(NSDictionary* _Nullable content) {
         // create the response event
-        [ACPCore log:ACPMobileLogLevelDebug tag:@"WeatherExtensionInternal" message:[NSString stringWithFormat:@"%@ - Weather object returned: %@", [self name], content]];
+        [ACPCore log:ACPMobileLogLevelDebug tag:LOG_TAG message:[NSString stringWithFormat:@"%@ - Weather object returned: %@", [self name], content]];
         
         NSError *eventError = nil;
         NSDictionary* eventData = @{WEATHER_KEY : content};
@@ -124,27 +125,27 @@ static NSString* WEATHER_KEY = @"weather";
                                                                                      data:eventData
                                                                                     error:&eventError];
         if (!weatherLoadedEvent) {
-            [ACPCore log:ACPMobileLogLevelError tag:@"WeatherExtensionInternal" message:[NSString stringWithFormat:@"%@ - An error occurred constructing event '%@': %@", [self name], weatherLoadedEvent.eventName, eventError.localizedDescription ?: @"unknown"]];
+            [ACPCore log:ACPMobileLogLevelError tag:LOG_TAG message:[NSString stringWithFormat:@"%@ - An error occurred constructing event '%@': %@", [self name], weatherLoadedEvent.eventName, eventError.localizedDescription ?: @"unknown"]];
         }
         
         // update weather extension's shared state
         NSError *setSharedStateError = nil;
         if (![[self api] setSharedEventState:content event:event error:&setSharedStateError] && setSharedStateError != nil) {
-            [ACPCore log:ACPMobileLogLevelError tag:@"WeatherExtensionInternal" message:[NSString stringWithFormat:@"An error occurred while setting the shared state %@, error code %ld", content, [setSharedStateError code]]];
+            [ACPCore log:ACPMobileLogLevelError tag:LOG_TAG message:[NSString stringWithFormat:@"An error occurred while setting the shared state %@, error code %ld", content, [setSharedStateError code]]];
         }
         
         // dispatch the response for the public API
         NSError *dispatchError = nil;
         if ([ACPCore dispatchResponseEvent:weatherLoadedEvent requestEvent:event error:&dispatchError]) {
-            [ACPCore log:ACPMobileLogLevelDebug tag:@"WeatherExtensionInternal" message:[NSString stringWithFormat:@"WeatherExtension dispatched an event '%@'", weatherLoadedEvent.eventName]];
+            [ACPCore log:ACPMobileLogLevelDebug tag:LOG_TAG message:[NSString stringWithFormat:@"WeatherExtension dispatched an event '%@'", weatherLoadedEvent.eventName]];
         } else {
-            [ACPCore log:ACPMobileLogLevelError tag:@"WeatherExtensionInternal" message:[NSString stringWithFormat:@"%@ - An error occurred dispatching event '%@': %@", [self name], weatherLoadedEvent.eventName, dispatchError.localizedDescription ?: @"unknown"]];
+            [ACPCore log:ACPMobileLogLevelError tag:LOG_TAG message:[NSString stringWithFormat:@"%@ - An error occurred dispatching event '%@': %@", [self name], weatherLoadedEvent.eventName, dispatchError.localizedDescription ?: @"unknown"]];
         }
     }];
 }
 
 - (void) handleRulesConsequence:(ACPExtensionEvent *)event {
-    [ACPCore log:ACPMobileLogLevelDebug tag:@"WeatherExtensionInternal" message:[NSString stringWithFormat:@"%@ - Handling Triggered Consequence event", [self name]]];
+    [ACPCore log:ACPMobileLogLevelDebug tag:LOG_TAG message:[NSString stringWithFormat:@"%@ - Handling Triggered Consequence event", [self name]]];
     NSDictionary *eventData = event.eventData;
     if (!eventData) {
         return;
@@ -162,16 +163,16 @@ static NSString* WEATHER_KEY = @"weather";
 
     NSString *zip = detail[WEATHER_ZIP_KEY];
     if (!zip) {
-        [ACPCore log:ACPMobileLogLevelDebug tag:@"WeatherExtensionInternal" message:[NSString stringWithFormat:@"%@ - Not a zip request consequence", [self name]]];
+        [ACPCore log:ACPMobileLogLevelDebug tag:LOG_TAG message:[NSString stringWithFormat:@"%@ - Not a zip request consequence", [self name]]];
         return;
     }
     
     [self.apiHandler getWeatherForZip:[zip integerValue] callback:^(NSDictionary* _Nullable content) {
-        [ACPCore log:ACPMobileLogLevelDebug tag:@"WeatherExtensionInternal" message:[NSString stringWithFormat:@"%@ - The weather has been updated for this user: %@, %@", self.name, content[@"temp"], content[@"conditions"]]];
+        [ACPCore log:ACPMobileLogLevelDebug tag:LOG_TAG message:[NSString stringWithFormat:@"%@ - The weather has been updated for this user: %@, %@", self.name, content[@"temp"], content[@"conditions"]]];
         // update weather extension's shared state
         NSError *setSharedStateError = nil;
         if (![[self api] setSharedEventState:content event:event error:&setSharedStateError] && setSharedStateError != nil) {
-            [ACPCore log:ACPMobileLogLevelError tag:@"WeatherExtensionInternal" message:[NSString stringWithFormat:@"An error occurred while setting the shared state %@, error code %ld", content, [setSharedStateError code]]];
+            [ACPCore log:ACPMobileLogLevelError tag:LOG_TAG message:[NSString stringWithFormat:@"An error occurred while setting the shared state %@, error code %ld", content, [setSharedStateError code]]];
         }
     }];
 }
@@ -193,12 +194,12 @@ static NSString* WEATHER_KEY = @"weather";
         
         // NOTE: configuration is mandatory processing the event, so if shared state is null stop processing events
         if (!configSharedState) {
-            [ACPCore log:ACPMobileLogLevelWarning tag:@"WeatherExtensionInternal" message:[NSString stringWithFormat:@"%@ - Could not process event, configuration shared state is pending", [self name]]];
+            [ACPCore log:ACPMobileLogLevelDebug tag:LOG_TAG message:[NSString stringWithFormat:@"%@ - Could not process event, configuration shared state is pending", [self name]]];
             return;
         }
         
         if (error != nil) {
-            [ACPCore log:ACPMobileLogLevelError tag:@"WeatherExtensionInternal" message:[NSString stringWithFormat:@"%@ - Could not process event, an error occured while retrieving configuration shared state %ld", [self name], [error code]]];
+            [ACPCore log:ACPMobileLogLevelError tag:LOG_TAG message:[NSString stringWithFormat:@"%@ - Could not process event, an error occured while retrieving configuration shared state %ld", [self name], [error code]]];
             return;
         }
         
@@ -210,11 +211,11 @@ static NSString* WEATHER_KEY = @"weather";
         if ([eventToProcess.eventType isEqualToString:@"com.acpExample.eventType.weatherExtension"]) {
             // handle the get weather event
             [self handleGetWeatherEvent:eventToProcess];
-            [ACPCore log:ACPMobileLogLevelDebug tag:@"WeatherExtensionInternal" message:[NSString stringWithFormat:@"%@ - GetWeather event successfully processed", [self name]]];
+            [ACPCore log:ACPMobileLogLevelDebug tag:LOG_TAG message:[NSString stringWithFormat:@"%@ - GetWeather event successfully processed", [self name]]];
         } else if ([eventToProcess.eventType isEqualToString:@"com.adobe.eventType.rulesEngine"]) {
             // handle the rules consequence
             [self handleRulesConsequence:eventToProcess];
-            [ACPCore log:ACPMobileLogLevelDebug tag:@"WeatherExtensionInternal" message:[NSString stringWithFormat:@"%@ - Rules consequence event successfully processed", [self name]]];
+            [ACPCore log:ACPMobileLogLevelDebug tag:LOG_TAG message:[NSString stringWithFormat:@"%@ - Rules consequence event successfully processed", [self name]]];
         }
         [self.eventQueue poll];
     }
@@ -225,12 +226,12 @@ static NSString* WEATHER_KEY = @"weather";
     NSDictionary *identitySharedState = [self.api getSharedEventState:ACP_IDENTITY_SHARED_STATE event:event error:&error];
     
     if (!identitySharedState) {
-        [ACPCore log:ACPMobileLogLevelWarning tag:@"WeatherExtensionInternal" message:[NSString stringWithFormat:@"%@ - Identity shared state is pending, returning nil", [self name]]];
+        [ACPCore log:ACPMobileLogLevelDebug tag:LOG_TAG message:[NSString stringWithFormat:@"%@ - Identity shared state is pending, returning nil", [self name]]];
         return;
     }
     
     if (error != nil) {
-        [ACPCore log:ACPMobileLogLevelError tag:@"WeatherExtensionInternal" message:[NSString stringWithFormat:@"%@ - An error occured while retrieving identity shared state %ld", [self name], [error code]]];
+        [ACPCore log:ACPMobileLogLevelError tag:LOG_TAG message:[NSString stringWithFormat:@"%@ - An error occured while retrieving identity shared state %ld", [self name], [error code]]];
         return;
     }
     
