@@ -1,12 +1,12 @@
 PODS:
-  - ACPAnalytics (2.0.1):
-    - ACPAnalytics/iOS (= 2.0.1)
+  - ACPAnalytics (2.0.2):
+    - ACPAnalytics/iOS (= 2.0.2)
     - ACPCore (~> 2.0)
-  - ACPAnalytics/iOS (2.0.1):
+  - ACPAnalytics/iOS (2.0.2):
     - ACPCore (~> 2.0)
-  - ACPCore (2.0.1):
-    - ACPCore/iOS (= 2.0.1)
-  - ACPCore/iOS (2.0.1)
+  - ACPCore (2.1.0):
+    - ACPCore/iOS (= 2.1.0)
+  - ACPCore/iOS (2.1.0)
 
 DEPENDENCIES:
   - ACPAnalytics
@@ -18,8 +18,8 @@ SPEC REPOS:
     - ACPCore
 
 SPEC CHECKSUMS:
-  ACPAnalytics: b570cf7c7c91c66b94b9adaaabc4b58a64c6da5d
-  ACPCore: 18f65b91b8752778799310527f46cf23c0d6facf
+  ACPAnalytics: 484376f18a2ff96a7fcfad3a5448af68f40cc44b
+  ACPCore: 5419b9772c0b939203d967f75d22676e390bcb46
 
 PODFILE CHECKSUM: 6f85c8ab551d689454f535689c47d8da4475f1dd
 

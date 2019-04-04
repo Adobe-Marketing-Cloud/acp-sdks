@@ -13,8 +13,6 @@
 
 package com.adobe.marketing.mobile.weatherexample;
 
-import android.util.Log;
-
 import com.adobe.marketing.mobile.AdobeCallback;
 import com.adobe.marketing.mobile.Event;
 import com.adobe.marketing.mobile.Extension;
@@ -22,6 +20,7 @@ import com.adobe.marketing.mobile.ExtensionApi;
 import com.adobe.marketing.mobile.ExtensionError;
 import com.adobe.marketing.mobile.ExtensionErrorCallback;
 import com.adobe.marketing.mobile.ExtensionUnexpectedError;
+import com.adobe.marketing.mobile.LoggingMode;
 import com.adobe.marketing.mobile.MobileCore;
 
 import java.util.HashMap;
@@ -111,14 +110,14 @@ class WeatherExtensionInternal extends Extension {
             ExtensionErrorCallback<ExtensionError> extensionErrorCallback = new ExtensionErrorCallback<ExtensionError>() {
                 @Override
                 public void error(final ExtensionError extensionError) {
-                    Log.e(getName(), String.format("Could not process event, an error occurred while retrieving configuration shared state: %s", extensionError.getErrorName()));
+                    MobileCore.log(LoggingMode.ERROR, getName(), String.format("Could not process event, an error occurred while retrieving configuration shared state: %s", extensionError.getErrorName()));
                 }
             };
             Map<String, Object> configSharedState = getApi().getSharedEventState(WeatherExtensionConstants.SharedState.CONFIGURATION, eventToProcess, extensionErrorCallback);
 
             // NOTE: configuration is mandatory processing the event, so if shared state is null (pending) stop processing events
             if (configSharedState == null) {
-                Log.d(getName(), "Could not process event, configuration shared state is pending");
+                MobileCore.log(LoggingMode.DEBUG, getName(), "Could not process event, configuration shared state is pending");
                 return;
             }
 
@@ -130,11 +129,11 @@ class WeatherExtensionInternal extends Extension {
             if (WeatherExtensionConstants.EVENT_TYPE_WEATHER_EXTENSION.equalsIgnoreCase(eventToProcess.getType())) {
                 // handle the get weather event
                 handleGetWeatherEvent(eventToProcess, apiKey);
-                Log.d(getName(), "GetWeather event successfully processed");
+                MobileCore.log(LoggingMode.DEBUG, getName(), "GetWeather event successfully processed");
             } else if (WeatherExtensionConstants.EVENT_TYPE_ADOBE_RULES_ENGINE.equalsIgnoreCase(eventToProcess.getType())) {
                 // handle the rules consequence
                 handleRulesConsequence(eventToProcess, apiKey);
-                Log.d(getName(), "Rules consequence event successfully processed");
+                MobileCore.log(LoggingMode.DEBUG, getName(), "Rules consequence event successfully processed");
             }
 
             // event processed, remove it from the queue
@@ -143,7 +142,7 @@ class WeatherExtensionInternal extends Extension {
     }
 
     private void handleGetWeatherEvent(final Event event, final String apiKey) {
-        Log.d(getName(), "Handling Get Weather event");
+        MobileCore.log(LoggingMode.DEBUG, getName(), "Handling Get Weather event");
         String zip = (String) event.getEventData().get(WEATHER_ZIP_KEY);
 
         apiHandler.getWeatherForZip(zip, apiKey, new AdobeCallback<Map<String, Object>>(){
@@ -151,7 +150,7 @@ class WeatherExtensionInternal extends Extension {
             @Override
             public void call(final Map<String, Object> content) {
                 // create the response event
-                Log.d(getName(),String.format("Weather object returned: %s", content));
+                MobileCore.log(LoggingMode.DEBUG, getName(),String.format("Weather object returned: %s", content));
                 Map<String, Object> eventData = new HashMap<>();
                 eventData.put(WEATHER_KEY, content);
                 Event weatherLoadedEvent = new Event.Builder("Weather Loaded",
@@ -160,7 +159,7 @@ class WeatherExtensionInternal extends Extension {
                     .setEventData(eventData).build();
 
                 if (weatherLoadedEvent == null) {
-                    Log.w(getName(), "An error occurred constructing event");
+                    MobileCore.log(LoggingMode.WARNING, getName(), "An error occurred constructing event");
                 }
 
                 // update weather extension's shared state
@@ -170,7 +169,7 @@ class WeatherExtensionInternal extends Extension {
                 ExtensionErrorCallback<ExtensionError> errorCallback = new ExtensionErrorCallback<ExtensionError>() {
                     @Override
                     public void error(final ExtensionError e) {
-                        Log.w(getName(), String.format("An error occurred dispatching the weather loaded event: %s", e.getErrorName()));
+                        MobileCore.log(LoggingMode.WARNING, getName(), String.format("An error occurred dispatching the weather loaded event: %s", e.getErrorName()));
                     }
                 };
                 MobileCore.dispatchResponseEvent(weatherLoadedEvent, event, errorCallback);
@@ -179,7 +178,7 @@ class WeatherExtensionInternal extends Extension {
     }
 
     private void handleRulesConsequence(final Event event, final String apiKey) {
-        Log.d(getName(), "Handling Triggered Consequence event");
+        MobileCore.log(LoggingMode.DEBUG, getName(), "Handling Triggered Consequence event");
         Map<String, Object> eventData = event.getEventData();
 
         Map<String, Object> triggeredConsequence = (HashMap<String, Object>) eventData.get(RULES_TRIGGERED_CONSEQUENCE_KEY);
@@ -194,7 +193,7 @@ class WeatherExtensionInternal extends Extension {
 
         String zip = (String) detail.get(WEATHER_ZIP_KEY);
         if (zip == null) {
-            Log.d(getName(), "Not a zip request consequence");
+            MobileCore.log(LoggingMode.DEBUG, getName(), "Not a zip request consequence");
             return;
         }
 
@@ -202,13 +201,13 @@ class WeatherExtensionInternal extends Extension {
 
             @Override
             public void call(final Map<String, Object> content) {
-                Log.d(getName(),String.format("The weather has been updated for this user: %s, %s", content.get("temp"), content.get("conditions")));
+                MobileCore.log(LoggingMode.DEBUG, getName(),String.format("The weather has been updated for this user: %s, %s", content.get("temp"), content.get("conditions")));
                 // update weather extension's shared state
 
                 ExtensionErrorCallback<ExtensionError> setSharedStateError = new ExtensionErrorCallback<ExtensionError>() {
                     @Override
                     public void error(ExtensionError extensionError) {
-                        Log.e(getName(), String.format("An error occurred while setting the shared state %s, error %s", content, extensionError.getErrorName()));
+                        MobileCore.log(LoggingMode.ERROR, getName(), String.format("An error occurred while setting the shared state %s, error %s", content, extensionError.getErrorName()));
                     }
                 };
 
@@ -221,7 +220,7 @@ class WeatherExtensionInternal extends Extension {
         Map<String, Object> identitySharedState = getApi().getSharedEventState(WeatherExtensionConstants.SharedState.IDENTITY, event, null);
 
         if (identitySharedState == null) {
-            Log.d(getName(), "Identity shared state is pending, returning nil");
+            MobileCore.log(LoggingMode.DEBUG, getName(), "Identity shared state is pending, returning nil");
             return;
         }
 

@@ -11,6 +11,7 @@
  written permission of Adobe.
  */
 
+#import "ACPCore.h"
 #import "WeatherExtensionApiHandler.h"
 #import "WeatherExtensionDataObject.h"
 
@@ -26,7 +27,7 @@ static NSString* WEATHER_CONDITIONS_KEY = @"conditions";
     NSURLSession *session = [NSURLSession sessionWithConfiguration:config];
     NSURLSessionTask *task = [session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (error) {
-            NSLog(@"There was an error making the request to openweathermap: %@", error.localizedDescription);
+            [ACPCore log:ACPMobileLogLevelError tag:@"WeatherExtensionApiHandler" message:[NSString stringWithFormat:@"There was an error making the request to openweathermap: %@", error.localizedDescription]];
             if (callback) {
                 callback(nil);
             }
@@ -36,7 +37,7 @@ static NSString* WEATHER_CONDITIONS_KEY = @"conditions";
         NSError *jsonError = nil;
         NSDictionary *jsonResponse = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&jsonError];
         if (!jsonResponse || jsonError) {
-            NSLog(@"There was an error parsing the response from openweathermap: %@", jsonError.localizedDescription);
+            [ACPCore log:ACPMobileLogLevelError tag:@"WeatherExtensionApiHandler" message:[NSString stringWithFormat:@"There was an error parsing the response from openweathermap: %@", jsonError.localizedDescription]];
             if (callback) {
                 callback(nil);
             }
