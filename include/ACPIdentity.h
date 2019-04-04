@@ -4,7 +4,7 @@
 //
 //  Copyright 1996-2019. Adobe. All Rights Reserved
 //
-//  Identity Version: 2.0.1
+//  Identity Version: 2.0.2
 
 #import <Foundation/Foundation.h>
 
@@ -26,13 +26,13 @@ typedef NS_ENUM(NSUInteger, ACPMobileVisitorAuthenticationState);
  * @param baseUrl URL to which the visitor info needs to be appended. Returned as is if it is nil or empty.
  * @param callback method which will be invoked once the updated url is available.
  */
-+(void) appendToUrl:(nullable NSURL*)baseUrl withCallback:(nullable void(^)(NSURL* __nullable urlWithVisitorData))
++ (void) appendToUrl: (nullable NSURL*) baseUrl withCallback: (nullable void (^) (NSURL* __nullable urlWithVisitorData))
     callback;
 
 /**
  * @brief Returns the current version of the ACPIdentity Extension.
  */
-+(nonnull NSString*) extensionVersion;
++ (nonnull NSString*) extensionVersion;
 
 /**
  * @brief Returns all customer identifiers which were previously synced with the Adobe Experience Cloud.
@@ -41,7 +41,7 @@ typedef NS_ENUM(NSUInteger, ACPMobileVisitorAuthenticationState);
  * @see ADBMobileMarketing::syncIdentifier:identifier:authentication:
  * @see ADBMobileMarketing::syncIdentifiers:
  */
-+(void) getIdentifiers:(nonnull void(^)(NSArray<ACPMobileVisitorId*>* __nullable visitorIDs))callback;
++ (void) getIdentifiers: (nonnull void (^) (NSArray<ACPMobileVisitorId*>* __nullable visitorIDs)) callback;
 
 /**
  * @brief Returns the Experience Cloud ID.
@@ -52,12 +52,12 @@ typedef NS_ENUM(NSUInteger, ACPMobileVisitorAuthenticationState);
  *
  * @param callback method which will be invoked once Experience Cloud ID is available.
  */
-+(void) getExperienceCloudId:(nonnull void(^)(NSString* __nullable experienceCloudId))callback;
++ (void) getExperienceCloudId: (nonnull void (^) (NSString* __nullable experienceCloudId)) callback;
 
 /**
  * @brief Registers the ACPIdentity extension with the Core Event Hub.
  */
-+(void) registerExtension;
++ (void) registerExtension;
 
 /**
  * @brief Updates the given customer ID with the Adobe Experience Cloud ID Service.
@@ -77,9 +77,9 @@ typedef NS_ENUM(NSUInteger, ACPMobileVisitorAuthenticationState);
  * @param authenticationState a valid \ref ACPMobileVisitorAuthenticationState value.
  * @see ADBMobilePrivacyStatus
  */
-+(void) syncIdentifier:(nonnull NSString*)identifierType
-    identifier:(nonnull NSString*)identifier
-    authentication:(ACPMobileVisitorAuthenticationState)authenticationState;
++ (void) syncIdentifier: (nonnull NSString*) identifierType
+             identifier: (nonnull NSString*) identifier
+         authentication: (ACPMobileVisitorAuthenticationState) authenticationState;
 
 /**
  * @brief Updates the given customer IDs with the Adobe Experience Cloud ID Service.
@@ -97,7 +97,7 @@ typedef NS_ENUM(NSUInteger, ACPMobileVisitorAuthenticationState);
  * @param identifiers a dictionary of customer IDs
  * @see ADBMobilePrivacyStatus
  */
-+(void) syncIdentifiers:(nullable NSDictionary*)identifiers;
++ (void) syncIdentifiers: (nullable NSDictionary*) identifiers;
 
 /**
  * @brief Updates the given customer IDs with the Adobe Experience Cloud ID Service.
@@ -115,7 +115,7 @@ typedef NS_ENUM(NSUInteger, ACPMobileVisitorAuthenticationState);
  * @param authenticationState a valid \ref ACPMobileVisitorAuthenticationState value.
  * @see ADBMobilePrivacyStatus
  */
-+(void) syncIdentifiers:(nullable NSDictionary*)identifiers
-    authentication:(ACPMobileVisitorAuthenticationState)authenticationState;
++ (void) syncIdentifiers: (nullable NSDictionary*) identifiers
+          authentication: (ACPMobileVisitorAuthenticationState) authenticationState;
 
 @end
