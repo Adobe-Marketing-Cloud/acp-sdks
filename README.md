@@ -13,6 +13,9 @@ To learn more about your topic of interest, click the following links:
 - [Launch documentation](https://docs.adobelaunch.com/)
 - [Mobile on Launch forums](https://forums.adobe.com/community/experience-cloud/platform/launch/sdk)
 
+# Release Notes
+- [Adobe Experience Platform Mobile SDK Release Notes](https://aep-sdks.gitbook.io/docs/release-notes)
+
 # Latest Versions
 
 | Extension | Cocopods | Maven | Github |
