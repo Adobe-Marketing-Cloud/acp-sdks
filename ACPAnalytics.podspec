@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "ACPAnalytics"
-  s.version      = "2.0.3"
+  s.version      = "2.0.4"
   s.summary      = "Analytics library for Adobe Experience Platform SDK. Written and maintained by Adobe."
   s.description  = <<-DESC
                    The Analytics library provides APIs that allow use of the Analytics product in the Adobe Experience Platform SDK.
@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
   s.default_subspec = "iOS"
 
   # dependency on the core library
-  s.dependency "ACPCore", "~> 2.1.1"
+  s.dependency "ACPCore", ">= 2.1.1"
 
   s.subspec "iOS" do |ios|
     ios.vendored_libraries = "libACPAnalytics_iOS.a"
