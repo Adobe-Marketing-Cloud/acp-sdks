@@ -18,7 +18,7 @@
  * @param source The source of the event to be dispatched.
  * @param data (Optional) Data associated with the event. The NSDictionary passed should follow NSCoding protocol.
  * @param error (Optional) NSError** where any errors constructing the event can be reported.
- * @return a new instance of ACPExtensionEvent
+ * @return a new instance of ACPExtensionEvent or nil if `data` is non-nil and is not in a valid format
  */
 + (nullable instancetype) extensionEventWithName: (nonnull NSString*) name
                                             type: (nonnull NSString*) type
