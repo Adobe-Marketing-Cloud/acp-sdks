@@ -1,6 +1,9 @@
 #import "ACPCore.h"
 #import "ACPTarget.h"
 #import "ACPIdentity.h"
-#import "ACPTargetRequestObject.h"
+#import "ACPTargetOrder.h"
+#import "ACPTargetParameters.h"
 #import "ACPTargetPrefetchObject.h"
-@implementation ACPTarget (ForceLoad) @end 
+#import "ACPTargetProduct.h"
+#import "ACPTargetRequestObject.h"
+@implementation ACPTarget (ForceLoad) @end

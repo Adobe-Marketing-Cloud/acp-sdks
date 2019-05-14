@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "ACPTarget"
-  s.version      = "2.0.0"
+  s.version      = "2.1.0"
   s.summary      = "Target library for Adobe Experience Cloud SDK. Written and maintained by Adobe."
   s.description  = <<-DESC
                    The Target library provides APIs that allow use of the Target product in the Adobe Experience Cloud SDK.
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.default_subspec = "iOS"
   s.static_framework = true
 
-  s.dependency "ACPCore", "~> 2.0"
+  s.dependency "ACPCore", ">= 2.2.1"
 
   s.subspec "iOS" do |ios|
     ios.vendored_libraries = "libACPTarget_iOS.a"
