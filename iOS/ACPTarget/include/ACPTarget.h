@@ -70,7 +70,7 @@
  *  @see ACPTargetRequestObject
  */
 + (void) loadRequests: (nonnull NSArray<ACPTargetRequestObject*>*) requests
-    withProfileParameters: (nullable NSDictionary<NSString*, NSString*>*) profileParameters DEPRECATED_MSG_ATTRIBUTE ("This method is deprecated, please use getLocationContent:WithParameters: instead") ;
+    withProfileParameters: (nullable NSDictionary<NSString*, NSString*>*) profileParameters DEPRECATED_MSG_ATTRIBUTE ("This method is deprecated, please use getLocationContent:WithParameters: instead");
 
 /**
  *  @brief Prefetch multiple Target mboxes simultaneously.
@@ -91,7 +91,7 @@
  */
 + (void) prefetchContent: (nonnull NSArray<ACPTargetPrefetchObject*>*) prefetchObjectArray
     withProfileParameters: (nullable NSDictionary<NSString*, NSString*>*) profileParameters
-                 callback: (nullable void (^) (BOOL success)) callback DEPRECATED_MSG_ATTRIBUTE ("This method is deprecated, please use prefetchContent:withParameters:callback: instead") ;
+                 callback: (nullable void (^) (BOOL success)) callback DEPRECATED_MSG_ATTRIBUTE ("This method is deprecated, please use prefetchContent:withParameters:callback: instead");
 
 /**
  * @brief Sends a click notification to Target if a click metric is defined for the provided location name.
@@ -113,7 +113,7 @@
                   mboxParameters: (nullable NSDictionary<NSString*, NSString*>*) mboxParameters
                productParameters: (nullable NSDictionary<NSString*, NSString*>*) productParameters
                  orderParameters: (nullable NSDictionary*) orderParameters
-               profileParameters: (nullable NSDictionary<NSString*, NSString*>*) profileParameters DEPRECATED_MSG_ATTRIBUTE ("This method is deprecated, please use locationClickedWithName:targetParameters: instead") ;
+               profileParameters: (nullable NSDictionary<NSString*, NSString*>*) profileParameters DEPRECATED_MSG_ATTRIBUTE ("This method is deprecated, please use locationClickedWithName:targetParameters: instead");
 
 /**
  * @brief Registers the ACPTarget extension with the Core Event Hub.
