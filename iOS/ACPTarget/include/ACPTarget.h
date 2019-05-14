@@ -131,7 +131,7 @@
 /**
  *  @brief Sets the Target preview restart deep link
  *
- *  Set the Taget preview URL to be displayed when the preview mode is restarted.
+ *  Set the Target preview URL to be displayed when the preview mode is restarted.
  *
  *  @param deeplink the URL which will be set for preview restart
  */
