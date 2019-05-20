@@ -4,7 +4,7 @@
 //
 //  Copyright 1996-2019. Adobe. All Rights Reserved
 //
-//  Identity Version: 2.0.2
+//  Identity Version: 2.0.3
 
 #import <Foundation/Foundation.h>
 
@@ -19,9 +19,10 @@ typedef NS_ENUM(NSUInteger, ACPMobileVisitorAuthenticationState);
  * @brief Appends visitor information to the given URL.
  *
  * If the given url is nil or empty, it is returned as is. Otherwise, the following information is added to the query section of the given URL.
- * The attribute `adobe_mc` is an URL encoded list containing the Experience Cloud ID, Experience Cloud Org ID, and a timestamp when this request
- * was made. The attribute `adobe_aa_vid` is the URL encoded Visitor ID, however the attribute is only included
- * if the Visitor ID was previously set.
+ * The attribute `adobe_mc` is an URL encoded list containing the Experience Cloud ID, Experience Cloud Org ID,
+ * Analytics Tracking ID if available from Analytics, and a timestamp when this request
+ * was made. The attribute `adobe_aa_vid` is the URL encoded Analytics Customer Visitor ID, if previously set in
+ * Analytics extension.
  *
  * @param baseUrl URL to which the visitor info needs to be appended. Returned as is if it is nil or empty.
  * @param callback method which will be invoked once the updated url is available.
