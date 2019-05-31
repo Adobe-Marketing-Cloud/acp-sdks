@@ -4,7 +4,7 @@
 //
 //  Copyright 1996-2019. Adobe. All Rights Reserved
 //
-//  Identity Version: 2.0.3
+//  Identity Version: 2.1.0
 
 #import <Foundation/Foundation.h>
 
@@ -118,5 +118,22 @@ typedef NS_ENUM(NSUInteger, ACPMobileVisitorAuthenticationState);
  */
 + (void) syncIdentifiers: (nullable NSDictionary*) identifiers
           authentication: (ACPMobileVisitorAuthenticationState) authenticationState;
+
+/**
+ * @brief Gets Visitor ID Service identifiers in URL query string form for consumption in hybrid mobile apps.
+ *
+ * Retrieves the visitor identifiers as a URL query parameter string.
+ * There will be no leading '&' or '?' punctuation, as the caller is responsible for placing the string in the correct
+ * location of their resulting URL. If there is not a valid URL string to return, or if an error occurs, callback will
+ * contain nil. Otherwise, the following information is added to the query section of the given URL.
+ * The attribute `adobe_mc` is an URL encoded list containing the Experience Cloud ID, Experience Cloud Org ID,
+ * Analytics Tracking ID if available from Analytics, and a timestamp when this request
+ * was made. The attribute `adobe_aa_vid` is the URL encoded Analytics Customer Visitor ID, if previously set in
+ * Analytics extension.
+ *
+ * @param callback a block pointer to call with an NSString value containing the visitor identifiers as a query
+ * string upon completion of the service request
+ */
++ (void) getUrlVariables: (nonnull void (^) (NSString* __nullable urlVariables)) callback;
 
 @end
