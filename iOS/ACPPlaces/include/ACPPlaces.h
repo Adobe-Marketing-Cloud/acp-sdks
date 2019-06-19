@@ -4,7 +4,7 @@
 //
 //  Copyright 1996-2018. Adobe. All Rights Reserved
 //
-//  Places Version: 1.0.0
+//  Places Version: 1.1.0
 
 #import <Foundation/Foundation.h>
 
@@ -21,6 +21,21 @@ typedef NS_ENUM(NSUInteger, ACPRegionEventType) {
     ACPRegionEventTypeExit      /*!< Enum value ACPRegionEventTypeExit */
 };
 
+/**
+ * @brief An enum type representing different error codes when getting nearby POIs.
+ *
+ * @see getNearbyPointsOfInterest
+ */
+typedef NS_ENUM(NSUInteger, ACPPlacesRequestError) {
+    ACPPlacesRequestErrorNone,
+    ACPPlacesRequestErrorConnectivityError,
+    ACPPlacesRequestErrorServerResponseError,
+    ACPPlacesRequestErrorInvalidLatLongError,
+    ACPPlacesRequestErrorConfigurationError,
+    ACPPlacesRequestErrorQueryServiceUnavailable,
+    ACPPlacesRequestErrorUnknownError
+};
+
 @interface ACPPlaces : NSObject {}
 
 /**
@@ -30,6 +45,11 @@ typedef NS_ENUM(NSUInteger, ACPRegionEventType) {
 
 /**
  * @brief Returns the last latitude and longitude provided to the ACPPlaces Extension.
+ *
+ * @discussion If the ACPPlaces Extension does not have a valid last known location for the user, the CLLocation
+ * object returned in the callback will have lat/lon values of 999.999. The CLLocation object returned by this
+ * method will only ever contain valid data for latitude and longitude, and is not meant to be used for plotting
+ * course, speed, altitude, etc.
  *
  * @param callback called with a CLLocation object representing the last known lat/lon provided to the extension
  */
@@ -45,6 +65,19 @@ typedef NS_ENUM(NSUInteger, ACPRegionEventType) {
 + (void) getNearbyPointsOfInterest: (nonnull CLLocation*) currentLocation
                              limit: (NSUInteger) limit
                           callback: (nullable void (^) (NSArray<ACPPlacesPoi*>* _Nullable nearbyPoi)) callback;
+
+/**
+ * @brief Requests a list of nearby Points of Interest (POI) and returns them in a callback.
+ *
+ * @param currentLocation a CLLocation object represent the current location of the device
+ * @param limit a non-negative number representing the number of nearby POI to return from the request
+ * @param callback called with an array of ACPPlacesPoi objects that represent the nearest POI to the device
+ * @param errorCallback called if there was an error encountered while getting POIs.
+ */
++ (void) getNearbyPointsOfInterest: (nonnull CLLocation*) currentLocation
+                             limit: (NSUInteger) limit
+                          callback: (nullable void (^) (NSArray<ACPPlacesPoi*>* _Nullable nearbyPoi)) callback
+                     errorCallback: (nullable void (^) (ACPPlacesRequestError result)) errorCallback;
 
 /**
  * @brief Returns all Points of Interest (POI) in which the device is currently known to be within.
@@ -84,7 +117,8 @@ typedef NS_ENUM(NSUInteger, ACPRegionEventType) {
 @property(nonatomic) double latitude;  ///< The latitude of the POI's center
 @property(nonatomic) double longitude;  ///< The longitude of the POI's center
 @property(nonatomic) NSUInteger radius;  ///< The radius of the POI
-@property(nonatomic, strong, nullable) NSDictionary<NSString*, NSString*>* metaData;  ///< Dictionary containing meta data for the POI
+@property(nonatomic, strong, nullable) NSDictionary<NSString*, NSString*>*
+metaData;  ///< Dictionary containing meta data for the POI
 @property(nonatomic) Boolean userIsWithin;  ///< Indicates if the device is currently inside of this POI
 
 @end
