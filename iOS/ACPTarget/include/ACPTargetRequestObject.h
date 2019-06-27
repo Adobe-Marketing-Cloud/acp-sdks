@@ -1,5 +1,5 @@
 //
-//  ACPTargetPrefetchObject.h
+//  ACPTargetRequestObject.h
 //  Adobe Experience Platform -- iOS Application Measurement Library
 //
 //  Copyright 1996-2019. Adobe Inc. All Rights Reserved
@@ -39,7 +39,7 @@
 + (nonnull instancetype) requestObjectWithName: (nonnull NSString*) name
                                 defaultContent: (nonnull NSString*) defaultContent
                                 mboxParameters: (nullable NSDictionary<NSString*, NSString*>*) mboxParameters
-                                      callback: (nullable void (^) (NSString* __nullable content)) callback DEPRECATED_MSG_ATTRIBUTE ("This method is deprecated, please use requestObjectWithName:targetParameters:defaultContent:callback instead");
+                                      callback: (nullable void (^) (NSString* __nullable content)) callback DEPRECATED_MSG_ATTRIBUTE ("This method is deprecated, please use requestObjectWithName:targetParameters:defaultContent:callback instead") ;
 
 /**
  * @brief Create an instance of a Target request object.
