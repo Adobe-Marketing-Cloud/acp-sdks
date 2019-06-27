@@ -4,7 +4,7 @@
 //
 //  Copyright 1996-2019. Adobe Inc. All Rights Reserved
 //
-//  Target Version: 2.1.0
+//  Target Version: 2.1.1
 
 #import <Foundation/Foundation.h>
 #import "ACPTargetOrder.h"
@@ -39,7 +39,7 @@
 + (void) getThirdPartyId: (nonnull void (^) (NSString* __nullable thirdPartyId)) callback;
 
 /**
- *  @brief Gets the Test and Target user identifier
+ *  @brief Gets the Test and Target user identifier.
  *
  *  Retrieves the TnT ID returned by the Target server for this visitor. The TnT ID is set to the
  *  Mobile SDK after a successful call to prefetch content or load requests.
@@ -63,14 +63,14 @@
  *  Each object in the array contains a callback function, which will be invoked when content is available for
  *  its given mbox location.
  *
- *  @deprecated Please use @see ACPTarget::retrieveLocationContent:WithParameters: instead
+ *  @deprecated Please use @see ACPTarget::retrieveLocationContent:withParameters: instead
  *  @param requests An array of ACPTargetRequestObject objects to retrieve content
  *  @param profileParameters a dictionary of key-value pairs used as profile parameters for all locations in the requests array
  *
  *  @see ACPTargetRequestObject
  */
 + (void) loadRequests: (nonnull NSArray<ACPTargetRequestObject*>*) requests
-    withProfileParameters: (nullable NSDictionary<NSString*, NSString*>*) profileParameters DEPRECATED_MSG_ATTRIBUTE ("This method is deprecated, please use getLocationContent:WithParameters: instead");
+    withProfileParameters: (nullable NSDictionary<NSString*, NSString*>*) profileParameters DEPRECATED_MSG_ATTRIBUTE ("This method is deprecated, please use retrieveLocationContent:withParameters: instead") ;
 
 /**
  *  @brief Prefetch multiple Target mboxes simultaneously.
@@ -91,7 +91,7 @@
  */
 + (void) prefetchContent: (nonnull NSArray<ACPTargetPrefetchObject*>*) prefetchObjectArray
     withProfileParameters: (nullable NSDictionary<NSString*, NSString*>*) profileParameters
-                 callback: (nullable void (^) (BOOL success)) callback DEPRECATED_MSG_ATTRIBUTE ("This method is deprecated, please use prefetchContent:withParameters:callback: instead");
+                 callback: (nullable void (^) (BOOL success)) callback DEPRECATED_MSG_ATTRIBUTE ("This method is deprecated, please use prefetchContent:withParameters:callback: instead") ;
 
 /**
  * @brief Sends a click notification to Target if a click metric is defined for the provided location name.
@@ -113,7 +113,7 @@
                   mboxParameters: (nullable NSDictionary<NSString*, NSString*>*) mboxParameters
                productParameters: (nullable NSDictionary<NSString*, NSString*>*) productParameters
                  orderParameters: (nullable NSDictionary*) orderParameters
-               profileParameters: (nullable NSDictionary<NSString*, NSString*>*) profileParameters DEPRECATED_MSG_ATTRIBUTE ("This method is deprecated, please use locationClickedWithName:targetParameters: instead");
+               profileParameters: (nullable NSDictionary<NSString*, NSString*>*) profileParameters DEPRECATED_MSG_ATTRIBUTE ("This method is deprecated, please use locationClickedWithName:targetParameters: instead") ;
 
 /**
  * @brief Registers the ACPTarget extension with the Core Event Hub.
@@ -129,7 +129,7 @@
 + (void) resetExperience;
 
 /**
- *  @brief Sets the Target preview restart deep link
+ *  @brief Sets the Target preview restart deep link.
  *
  *  Set the Target preview URL to be displayed when the preview mode is restarted.
  *
@@ -138,7 +138,7 @@
 + (void) setPreviewRestartDeeplink: (nonnull NSURL*) deeplink;
 
 /**
- *  @brief Sets the custom visitor ID for Target
+ *  @brief Sets the custom visitor ID for Target.
  *
  *  Sets a custom ID to identify visitors (profiles). This ID is preserved between app upgrades,
  *  is saved and restored during the standard application backup process, and is removed at uninstall or
@@ -188,7 +188,7 @@
 /**
  * Sends a display notification to Target for given prefetched mboxes. This helps Target record location display events.
  *
- * @param mboxNames (required) an array of displayed locaitons names
+ * @param mboxNames (required) an array of displayed location names
  * @param parameters {@link TargetParameters} for the displayed location
  */
 + (void) locationsDisplayed: (nonnull NSArray<NSString*>*) mboxNames

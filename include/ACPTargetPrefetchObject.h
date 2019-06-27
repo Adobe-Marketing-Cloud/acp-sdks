@@ -36,7 +36,7 @@
  * @see ADBMobileMarketing::targetPrefetchContent()
  */
 + (nonnull instancetype) prefetchObjectWithName: (nonnull NSString*) name
-                                 mboxParameters: (nullable NSDictionary*) mboxParameters DEPRECATED_MSG_ATTRIBUTE ("This method is deprecated, please use prefetchObjectWithName:targetParameters: instead");
+                                 mboxParameters: (nullable NSDictionary*) mboxParameters DEPRECATED_MSG_ATTRIBUTE ("This method is deprecated, please use prefetchObjectWithName:targetParameters: instead") ;
 
 /**
  * @brief Create an instance of a Target prefetch object.
@@ -67,7 +67,7 @@
  */
 - (void) setOrderParameters: (nonnull NSString*) orderId
                  orderTotal: (nonnull NSNumber*) orderTotal
-        purchasedProductIds: (nonnull NSArray<NSString*>*) purchasedProductIds DEPRECATED_MSG_ATTRIBUTE ("This method is deprecated, please use prefetchObjectWithName:targetParameters: to create instance and set order parameters as part of targetParameters");
+        purchasedProductIds: (nonnull NSArray<NSString*>*) purchasedProductIds DEPRECATED_MSG_ATTRIBUTE ("This method is deprecated, please use prefetchObjectWithName:targetParameters: to create instance and set order parameters as part of targetParameters") ;
 
 /**
  * @brief Set the product parameters.
@@ -80,6 +80,7 @@
  * @param categoryId the product category ID
  */
 - (void) setProductParameters: (nonnull NSString*) productId
-                   categoryId: (nonnull NSString*) categoryId DEPRECATED_MSG_ATTRIBUTE ("This method is deprecated, please use prefetchObjectWithName:targetParameters: to create instance and set product parameters as part of targetParameters");
+                   categoryId: (nonnull NSString*) categoryId DEPRECATED_MSG_ATTRIBUTE ("This method is deprecated, please use prefetchObjectWithName:targetParameters: to create instance and set product parameters as part of targetParameters") ;
 
 @end
+
