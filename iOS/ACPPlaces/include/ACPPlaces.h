@@ -4,7 +4,7 @@
 //
 //  Copyright 1996-2018. Adobe. All Rights Reserved
 //
-//  Places Version: 1.1.0
+//  Places Version: 1.2.0
 
 #import <Foundation/Foundation.h>
 
@@ -37,6 +37,11 @@ typedef NS_ENUM(NSUInteger, ACPPlacesRequestError) {
 };
 
 @interface ACPPlaces : NSObject {}
+
+/**
+ * @brief Clears out the client-side data for Places in shared state, local storage, and in-memory.
+ */
++ (void) clear;
 
 /**
  * @brief Returns the current version of the ACPPlaces Extension.
