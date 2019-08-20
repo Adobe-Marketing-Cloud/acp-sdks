@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "ACPAcquisition"
-  s.version      = "2.0.1"
+  s.version      = "2.0.2"
   s.summary      = "Acquisition library for Adobe Experience Platform SDK. Written and maintained by Adobe."
   s.description  = <<-DESC
                    The Acquisition library provides APIs that allow use of the Acquisition product in the Adobe Experience Platform SDK.
