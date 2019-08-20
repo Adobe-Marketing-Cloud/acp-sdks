@@ -4,7 +4,7 @@
 //
 //  Copyright 1996-2019. Adobe. All Rights Reserved
 //
-//  Core Version: 2.3.2
+//  Core Version: 2.3.3
 
 #import <Foundation/Foundation.h>
 
@@ -122,7 +122,10 @@ typedef NS_ENUM(NSUInteger, ACPMobileWrapperType) {
  *
  * @param callback a method that has an string param containing a url, which return YES if it will handle the provided url, NO continue to open url.
  */
+#if !TARGET_OS_WATCH
 + (void) registerURLHandler: (nonnull BOOL (^) (NSString* __nullable url)) callback;
+#endif
+
 /**
  * @brief Get the current Adobe Mobile Privacy Status
  *
