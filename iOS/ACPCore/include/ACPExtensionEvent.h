@@ -33,7 +33,6 @@
 @property(nonatomic, readonly) NSString* _Nonnull eventType;
 @property(nonatomic, readonly) NSString* _Nonnull eventSource;
 @property(nonatomic, readonly) NSDictionary* _Nullable eventData;
-@property(nonatomic, readonly) NSString* _Nonnull eventUniqueIdentifier;
 
 @end
 
