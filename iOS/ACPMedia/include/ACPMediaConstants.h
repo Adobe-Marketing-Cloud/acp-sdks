@@ -4,7 +4,7 @@
 //
 //  Copyright 1996-2019. Adobe, Inc. All Rights Reserved
 //
-//  Media Version: 1.0.2
+//  Media Version: 1.1.0
 
 #import <Foundation/Foundation.h>
 
@@ -89,5 +89,12 @@ FOUNDATION_EXPORT NSString* _Nonnull const ACPAdMetadataKeyCreativeUrl;
  */
 FOUNDATION_EXPORT NSString* _Nonnull const ACPMediaKeyMediaResumed;
 FOUNDATION_EXPORT NSString* _Nonnull const ACPMediaKeyPrerollTrackingWaitingTime;
+
+
+/**
+ * @brief These constant strings define keys that can be attached to config object.
+ */
+FOUNDATION_EXPORT NSString* _Nonnull const ACPMediaKeyConfigChannel;
+FOUNDATION_EXPORT NSString* _Nonnull const ACPMediaKeyConfigDownloadedContent;
 
 
