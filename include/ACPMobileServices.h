@@ -3,7 +3,7 @@
 //  Adobe Experience Platform -- iOS Framework
 //
 //  Copyright 1996-2019. Adobe. All Rights Reserved
-//  Core Version: 1.0.1
+//  Core Version: 1.0.2
 
 
 #import <Foundation/Foundation.h>
