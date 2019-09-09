@@ -47,6 +47,7 @@ Installation via [Maven](https://maven.apache.org/) & [Gradle](https://gradle.or
     implementation 'com.adobe.marketing.mobile:campaign:1.+'
     implementation 'com.adobe.marketing.mobile:campaignclassic:1.+'
     implementation 'com.adobe.marketing.mobile:target:1.+'
+    implementation 'com.adobe.marketing.mobile:griffon:1.+'
     implementation 'com.adobe.marketing.mobile:griffonbridge:1.+'
     implementation 'com.adobe.marketing.mobile:userprofile:1.+'
 
