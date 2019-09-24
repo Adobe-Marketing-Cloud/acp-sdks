@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "ACPAudience"
-  s.version      = "2.0.0"
+  s.version      = "2.0.1"
   s.summary      = "Audience Manager library for Adobe Experience Platform SDK. Written and maintained by Adobe."
   s.description  = <<-DESC
                    The Audience Manager library provides APIs that allow use of the Audience Manager product in the Adobe Experience Platform SDK.
