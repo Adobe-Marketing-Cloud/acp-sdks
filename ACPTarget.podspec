@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "ACPTarget"
-  s.version      = "2.1.3"
+  s.version      = "2.1.4"
   s.summary      = "Target library for Adobe Experience Cloud SDK. Written and maintained by Adobe."
   s.description  = <<-DESC
                    The Target library provides APIs that allow use of the Target product in the Adobe Experience Cloud SDK.
