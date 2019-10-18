@@ -4,7 +4,7 @@
 //
 //  Copyright 1996-2019. Adobe, Inc. All Rights Reserved
 //
-//  Audience Version: 2.0.1
+//  Audience Version: 2.0.1-test
 
 #import <Foundation/Foundation.h>
 
@@ -13,7 +13,7 @@
 /**
  * @brief Returns the current version of the ACPAudience Extension.
  */
-+ (nonnull NSString*) extensionVersion;
++(nonnull NSString*) extensionVersion;
 
 /**
  * @brief Returns the visitor profile that was most recently obtained.
@@ -22,18 +22,18 @@
  *
  * @param callback void method invoked with the visitor's profile as a parameter
  */
-+ (void) getVisitorProfile: (nonnull void (^) (NSDictionary* __nullable visitorProfile)) callback;
++(void) getVisitorProfile:(nonnull void(^)(NSDictionary* __nullable visitorProfile))callback;
 
 /**
  * @brief Registers the ACPAudience extension with the Core Event Hub.
  */
-+ (void) registerExtension;
++(void) registerExtension;
 
 /**
  * @brief Resets the Audience Manager UUID and purges the current visitor profile from NSUserDefaults.
  * @discussion Audience reset also clears the current in-memory DPID and DPUUID variables.
  */
-+ (void) reset;
++(void) reset;
 
 /**
  * @brief Sends Audience Manager a signal with traits and returns the matching segments for the visitor in a callback.
@@ -45,8 +45,8 @@
  * @param data Traits data for the current visitor
  * @param callback void method invoked with the visitor's profile as a parameter
  */
-+ (void) signalWithData: (NSDictionary<NSString*, NSString*>* __nullable) data
-               callback: (nullable void (^) (NSDictionary* __nullable visitorProfile)) callback;
++(void) signalWithData:(NSDictionary<NSString*, NSString*>* __nullable)data
+    callback:(nullable void(^)(NSDictionary* __nullable visitorProfile))callback;
 
 
 @end
