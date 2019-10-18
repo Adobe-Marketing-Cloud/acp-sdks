@@ -2,7 +2,7 @@
 //  ACPMobileVisitorId.h
 //  Adobe Experience Platform -- iOS Framework
 //
-//  Copyright 1996-2019. Adobe. All Rights Reserved
+//  Copyright 1996-2018. Adobe. All Rights Reserved
 
 #import <Foundation/Foundation.h>
 #import "ACPCore.h"
