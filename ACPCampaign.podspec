@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "ACPCampaign"
-  s.version      = "1.0.2"
+  s.version      = "1.0.4"
   s.summary      = "Campaign library for Adobe Experience Cloud SDK. Written and maintained by Adobe."
   s.description  = <<-DESC
                    The Campaign library provides APIs that allow use of the Campaign product in the Adobe Experience Cloud SDK.
