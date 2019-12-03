@@ -4,22 +4,12 @@
 //
 //  Copyright 1996-2018. Adobe. All Rights Reserved
 //
-//  Places Version: 1.2.0
+//  Places Version: 1.3.0
 
+#import <CoreLocation/CoreLocation.h>
 #import <Foundation/Foundation.h>
 
-@class ACPPlacesPoi, CLLocation, CLRegion;
-
-/**
- * @brief An enum type representing different types of region events
- *
- * @see processRegionEvent:forRegionEventType:
- */
-typedef NS_ENUM(NSUInteger, ACPRegionEventType) {
-    ACPRegionEventTypeNone,     /*!< Enum value ACPRegionEventTypeNone */
-    ACPRegionEventTypeEntry,    /*!< Enum value ACPRegionEventTypeEntry */
-    ACPRegionEventTypeExit      /*!< Enum value ACPRegionEventTypeExit */
-};
+@class ACPPlacesPoi;
 
 /**
  * @brief An enum type representing different error codes when getting nearby POIs.
@@ -34,6 +24,17 @@ typedef NS_ENUM(NSUInteger, ACPPlacesRequestError) {
     ACPPlacesRequestErrorConfigurationError,
     ACPPlacesRequestErrorQueryServiceUnavailable,
     ACPPlacesRequestErrorUnknownError
+};
+
+/**
+ * @brief An enum type representing different types of region events
+ *
+ * @see processRegionEvent:forRegionEventType:
+ */
+typedef NS_ENUM(NSUInteger, ACPRegionEventType) {
+    ACPRegionEventTypeNone,     /*!< Enum value ACPRegionEventTypeNone */
+    ACPRegionEventTypeEntry,    /*!< Enum value ACPRegionEventTypeEntry */
+    ACPRegionEventTypeExit      /*!< Enum value ACPRegionEventTypeExit */
 };
 
 @interface ACPPlaces : NSObject {}
@@ -106,6 +107,16 @@ typedef NS_ENUM(NSUInteger, ACPPlacesRequestError) {
  * @brief Registers the ACPPlaces extension with the Core Event Hub.
  */
 + (void) registerExtension;
+
+/**
+ * @brief Sets the authorization status in the Places extension.
+ *
+ * The status provided is stored in the Places shared state, and is for reference only.
+ * Calling this method does not impact the actual location authorization status for this device.
+ *
+ * @param status the CLAuthorizationStatus to be set for this device
+ */
++ (void) setAuthorizationStatus: (CLAuthorizationStatus) status;
 
 @end
 
