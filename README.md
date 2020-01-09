@@ -3,8 +3,8 @@ Home of the official Adobe Experience Platform (ACP) SDKs for mobile apps.
 
 <hr>
 
-## ACPAcquisition
+## ACPGriffon
 
-This pod contains the Acquisition library for the Adobe Experience Platform SDK for iOS.
+This pod contains the ACPGriffon library for the Adobe Experience Platform SDK for iOS.
 
 For more information, please see our [GitHub page](https://github.com/Adobe-Marketing-Cloud/acp-sdks).
