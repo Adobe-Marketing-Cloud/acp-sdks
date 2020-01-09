@@ -21,8 +21,8 @@ Pod::Spec.new do |s|
   s.dependency "ACPCore"
 
   s.subspec "iOS" do |ios|
-    ios.vendored_libraries = "iOS/libACPGriffon_iOS.a"
-    ios.source_files = "iOS/include/*.h"
+    ios.vendored_libraries = "libACPGriffon_iOS.a"
+    ios.source_files = "include/*.h"
     ios.frameworks = "UIKit", "SystemConfiguration"
     ios.libraries = "c++", "z"
   end
