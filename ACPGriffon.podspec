@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
 
   s.subspec "iOS" do |ios|
     ios.vendored_libraries = "libACPGriffon_iOS.a"
-    ios.source_files = "include/*.h"
+    ios.source_files = "include/*.h", "include/*.m"
     ios.frameworks = "UIKit", "SystemConfiguration"
     ios.libraries = "c++", "z"
   end
