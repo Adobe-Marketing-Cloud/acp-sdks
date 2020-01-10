@@ -2,9 +2,9 @@
 //  ACPSGriffon.h
 //  Adobe Experience Platform -- iOS Framework
 //
-//  Copyright 1996-2018. Adobe. All Rights Reserved
+//  Copyright 1996-2020. Adobe. All Rights Reserved
 //
-//  ACPGriffon Version: 1.0.0
+//  ACPGriffon Version: 1.0.2
 
 #import <Foundation/Foundation.h>
 
