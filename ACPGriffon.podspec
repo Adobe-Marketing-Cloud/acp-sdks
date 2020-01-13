@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "ACPGriffon"
-  s.version      = "1.0.2"
+  s.version      = "1.0.3"
   s.summary      = "Project Griffon SDK for Adobe Experience Cloud. Written and maintained by Adobe."
   s.description  = <<-DESC
                    The Project Griffon SDK provides APIs that allow use of the Project Griffon product in conjunction with the Adobe Experience Cloud solutions.
