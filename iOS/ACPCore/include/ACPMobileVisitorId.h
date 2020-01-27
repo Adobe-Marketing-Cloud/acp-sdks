@@ -13,3 +13,4 @@
     (ACPMobileVisitorAuthenticationState) authenticationState;
 
 @end
+
