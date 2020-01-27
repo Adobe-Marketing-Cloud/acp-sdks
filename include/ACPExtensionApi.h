@@ -14,7 +14,12 @@
 
 /*
  * @brief This interface is used by extensions to call into the core event hub.
- * High level documentation for this interface is here: https://wiki.corp.adobe.com/display/ADMSMobile/V5+Extensions
+ *
+ * When an ACPExtension is registered with ACPCore::registerExtension:error:, an instance of ACPExtensionApi is created
+ * by the Mobile SDK and set to ACPExtension before ACPExtension::init is called.
+ *
+ * Extension developers should not extend or instantiate this interface, instead the `api` property in ACPExtension
+ * is used to call the methods.
  */
 @interface ACPExtensionApi : NSObject {}
 
