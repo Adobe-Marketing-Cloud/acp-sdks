@@ -59,7 +59,10 @@
 - (void) onUnregister;
 
 /*
- * @brief This provides the services the extension will need.
+ * @brief Provides services for communicating with the Mobile SDK.
+ *
+ * The `api` property is created by the Mobile SDK and set to this extension when registered and before object
+ * initialization, making the `api` property available for use from within ACPExtension::init.
  *
  */
 @property(nonatomic, readonly) ACPExtensionApi* _Nonnull api;
