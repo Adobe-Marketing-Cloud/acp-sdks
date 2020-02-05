@@ -100,5 +100,6 @@ In order to do a manual installation of the AEP SDK libraries, please complete t
     * In the`Add to targets` section select all the targets that need AEP SDKs.
 - Select your project from the `Project Navigator`, select your App from the `TARGETS` frame, then select the `General` tab at the top of the window.
 - In the `Link Binary With Libraries` section, click the `+` link and add the following frameworks and libraries: `UIKit`, `SystemConfiguration`, `WebKit`, `UserNotifications`, `libsqlite3.0`, `libc++`, `libz`.
+- If you have a swift application, include a bridging header and import the AEP SDK headers available in the include folder. For more information see [Importing Objective-C into Swift](https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift)
 
 __Important__ - note that all AEP SDK iOS libraries depend on `libACPCore.a`.
