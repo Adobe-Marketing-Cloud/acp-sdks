@@ -26,13 +26,20 @@
  *
  * @see ACPCore::dispatchEvent:error:
  * @see ACPCore::dispatchEventWithResponseCallback:responseCallback:error:
- * @see ACPCore::dispatchResponseEvent::requestEvent:error:
+ * @see ACPCore::dispatchResponseEvent:requestEvent:error:
  */
 + (nullable instancetype) extensionEventWithName: (nonnull NSString*) name
                                             type: (nonnull NSString*) type
                                           source: (nonnull NSString*) source
                                             data: (nullable NSDictionary*) data
                                            error: (NSError* _Nullable* _Nullable) error;
+
+/**
+ * @brief The EventData of this ACPExtensionEvent
+ *
+ * The optional EventData may contain any payload information required for this ACPExtensionEvent.
+ */
+@property(nonatomic, readonly) NSDictionary* _Nullable eventData;
 
 /**
  * @brief The name of this ACPExtensionEvent
@@ -42,6 +49,21 @@
 @property(nonatomic, readonly) NSString* _Nonnull eventName;
 
 /**
+ * @brief The eventNumber of the original Event processed by the SDK
+ *
+ * The SDK assigns eventNumber to an Event prior to dispatching it.
+ * eventNumber is an auto-incremented value that is stored in memory.
+ */
+@property(nonatomic, readonly) int eventNumber;
+
+/**
+ * @brief The EventSource of this ACPExtensionEvent
+ *
+ * An ACPExtensionEvent is received by listeners which register with the same EventType and EventSource as the dispatched event.
+ */
+@property(nonatomic, readonly) NSString* _Nonnull eventSource;
+
+/**
  * @brief The EventType of this ACPExtensionEvent
  *
  * An ACPExtensionEvent is received by listeners which register with the same EventType and EventSource as the dispatched event.
@@ -49,19 +71,20 @@
 @property(nonatomic, readonly) NSString* _Nonnull eventType;
 
 /**
-* @brief The EventSource of this ACPExtensionEvent
-*
-* An ACPExtensionEvent is received by listeners which register with the same EventType and EventSource as the dispatched event.
-*/
-@property(nonatomic, readonly) NSString* _Nonnull eventSource;
+ * @brief A string representation of a UUID to identify this ACPExtensionEvent
+ *
+ * eventUniqueIdentifier differs from eventNumber because it does not reset between sessions.
+ * The value for eventUniqueIdentifier is guaranteed to always be unique.
+ */
+@property(nonatomic, readonly) NSString* _Nonnull eventUniqueIdentifier;
 
 /**
- * @brief The EventData of this ACPExtensionEvent
+ * @brief Timestamp representing the time that this event was originally processed by the SDK
  *
- * The optional EventData may contain any payload information required for this ACPExtensionEvent.
+ * The value for eventTimestamp is representing milliseconds since the Unix epoch
  */
-@property(nonatomic, readonly) NSDictionary* _Nullable eventData;
-@property(nonatomic, readonly) NSString* _Nonnull eventUniqueIdentifier;
+@property(nonatomic, readonly) long eventTimestamp;
+
 
 @end
 
