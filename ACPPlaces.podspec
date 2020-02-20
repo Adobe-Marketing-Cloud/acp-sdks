@@ -1,9 +1,9 @@
 Pod::Spec.new do |s|
   s.name         = "ACPPlaces"
-  s.version      = "1.3.0"
-  s.summary      = "Places extension (BETA) for Adobe Experience Platform SDK. Written and maintained by Adobe."
+  s.version      = "1.3.1"
+  s.summary      = "Places extension for Adobe Experience Platform SDK. Written and maintained by Adobe."
   s.description  = <<-DESC
-                   The Places extension (BETA) provides APIs that allow use of the Places service in the Adobe Experience Platform SDK.
+                   The Places extension provides APIs that allow use of the Places service in the Adobe Experience Platform SDK.
                    DESC
 
   s.homepage     = "https://github.com/Adobe-Marketing-Cloud/acp-sdks/releases"
@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
   s.default_subspec = "iOS"
 
   # dependency on the core library
-  s.dependency "ACPCore", ">= 2.3.6"
+  s.dependency "ACPCore", ">= 2.5.0"
 
   s.subspec "iOS" do |ios|
     ios.vendored_libraries = "libACPPlaces_iOS.a"
