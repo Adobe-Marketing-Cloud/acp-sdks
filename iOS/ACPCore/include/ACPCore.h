@@ -4,7 +4,7 @@
 //
 //  Copyright 1996-2019. Adobe. All Rights Reserved
 //
-//  Core Version: 2.4.0
+//  Core Version: 2.5.0
 
 #import <Foundation/Foundation.h>
 
@@ -64,7 +64,8 @@ typedef NS_ENUM(NSUInteger, ACPMobileVisitorAuthenticationState) {
  */
 typedef NS_ENUM(NSUInteger, ACPMobileWrapperType) {
     ACPMobileWrapperTypeNone = 0, /*!< Enum value ACPMobileWrapperTypeNone. */
-    ACPMobileWrapperTypeReactNative = 1 /*!< Enum value ACPMobileWrapperTypeReactNative. */
+    ACPMobileWrapperTypeReactNative = 1, /*!< Enum value ACPMobileWrapperTypeReactNative. */
+    ACPMobileWrapperTypeFlutter = 2 /*!< Enum value ACPMobileWrapperTypeFlutter. */
 };
 
 #pragma mark - Configuration
@@ -113,9 +114,18 @@ typedef NS_ENUM(NSUInteger, ACPMobileWrapperType) {
 
 /**
  * @brief Calls the provided callback with a JSON string containing all of the user's identities known by the SDK
+ *
  * @param callback a void-returning method that has an NSString param containing a JSON string
  */
 + (void) getSdkIdentities: (nullable void (^) (NSString* __nullable content)) callback;
+
+/**
+ * @brief Get a JSON string containing all of the user's identities known by the SDK  and calls a handler upon completion.
+ *
+ * @param completionHandler a void-returning method that has an NSString param containing a JSON string, and an NSError param if the request failed
+ */
+
++ (void) getSdkIdentitiesWithCompletionHandler: (nullable void (^) (NSString* __nullable content, NSError* _Nullable error)) completionHandler;
 
 /**
  * @brief Set the provided callback with a url string and call this callback function before SDK extension open url action
@@ -135,6 +145,16 @@ typedef NS_ENUM(NSUInteger, ACPMobileWrapperType) {
  * @see ACPMobilePrivacyStatus
  */
 + (void) getPrivacyStatus: (nonnull void (^) (ACPMobilePrivacyStatus status)) callback;
+
+/**
+ * @brief Get the current Adobe Mobile Privacy Status  and calls a handler upon completion.
+ *
+ * Gets the currently configured \ref ACPMobilePrivacyStatus and passes it as a parameter to the given void function.
+ *
+ * @param completionHandler method invoked with the configured privacy status as a parameter, and an NSError param if the request failed
+ * @see ACPMobilePrivacyStatus
+ */
++ (void) getPrivacyStatusWithCompletionHandler: (nonnull void (^) (ACPMobilePrivacyStatus status, NSError* _Nullable error)) completionHandler;
 
 /**
  * @brief Returns the current version of the ACPCore Extension.
