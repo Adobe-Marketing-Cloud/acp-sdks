@@ -4,61 +4,110 @@
 //
 //  Copyright 1996-2020. Adobe. All Rights Reserved
 //
-//  ACPGriffon Version: 1.0.4
+//  ACPGriffon Version: 1.1.0
 
 #import <Foundation/Foundation.h>
 
+#pragma mark - ACPGriffonEvent
+
 @interface ACPGriffonEvent : NSObject
 
-@property(nonatomic, readonly) NSString* eventID;
-@property(nonatomic, readonly) NSString* vendor;
-@property(nonatomic, readonly) NSString* type;
-@property(nonatomic, readonly) NSDictionary* payload;
-@property(nonatomic, readonly) NSString* pairID;
+#pragma mark - Instance members
+
+@property(nonatomic, readonly) NSString* _Nonnull eventID;
+@property(nonatomic, strong) NSString* _Nonnull clientID;
+@property(nonatomic, readonly) NSString* _Nonnull vendor;
+@property(nonatomic, readonly) NSString* _Nonnull type;
+@property(nonatomic, readonly) NSDictionary* _Nullable payload;
+@property(nonatomic, readonly) NSString* _Nullable pairID;
+@property(nonatomic, readonly) long timestamp;
+@property(nonatomic, readonly) int eventNumber;
+
+#pragma mark - Initialization methods
+
+/**
+ * @brief Creates an ACPGriffonEvent instance with the required parameters specified in a JSON Object
+ *
+ * @discussion
+ * The following keys are required in the provided JSON:
+ *      > eventID - A unique UUID string to identify the event
+ *      > vendor - A vendor string
+ *      > type - A string describing the type of the event
+ *      > timestamp - A whole number representing milliseconds since the Unix epoch
+ *      > payload (optional) - A JSON object containing the event's payload
+ *      > pairID (optional) - If this event is in response to another event, pairID contains the eventID of the
+ *                            original event
+ *
+ * This method will return nil if called under any of the following conditions:
+ *      > The json parameter is nil
+ *      > The provided json is not valid
+ *      > The provided json is not an object at its root
+ *      > Any of the required keys are missing (see above for a list of required keys)
+ *      > Any of the required keys do not contain the correct type of data
+ *
+ * @param json NSData containing the JSON that defines the ACPGriffonEvent.
+ *
+ * @return ACPGriffonEvent The ACPGriffonEvent instance defined by the provided json or nil.
+ */
+- (instancetype _Nullable) initWithJSONData: (NSData* _Nullable) json;
 
 /**
  * @brief Creates an ACPGriffonEvent instance with the given vendor, type and payload.
  *
- * @param vendor NSString The Vendor string to identity the event with. The string can be a reverse domain name format to uniquely identify the vendor.
- * @param type  NSString The type of the event.
- * @param payload NSDictionary The payload to be sent wrapped in the event. This will be serialized into Json in the transport process.
+ * @param vendor  NSString The Vendor string to identity the event with. The string can be a reverse domain name format
+ *                to uniquely identify the vendor.
+ * @param type    NSString The type of the event.
+ * @param payload NSDictionary The payload to be sent wrapped in the event. This will be serialized into
+ *                JSON in the transport process.
+ *
  * @return ACPGriffonEvent The ACPGriffonEvent instance
  */
-- (instancetype) initWithVendor: (NSString*) vendor type: (NSString*) type payload: (NSDictionary*) payload;
+- (instancetype _Nonnull) initWithVendor: (NSString* _Nonnull) vendor
+                                    type: (NSString* _Nonnull) type
+                                 payload: (NSDictionary* _Nullable) payload;
+
 /**
- * @brief Creates an ACPGriffonEvent instance with the required parameters specified in a JSON Object
+ * @brief Creates an ACPGriffonEvent instance with the given vendor, type, pairID, payload, and timestamp.
  *
- * @discussion The Json keys required are:
+ * Available starting with v1.1.0
  *
- * eventID - Required - A unique UUID string to identify the event
+ * @param vendor    NSString The Vendor string to identity the event with. The string can be a reverse domain name
+ *                  format to uniquely identify the vendor.
+ * @param type      NSString The type of the event.
+ * @param pairID    NSString If this event is in response to another event, pairID represents the eventID of the
+ *                  original triggering event.
+ * @param payload   NSDictionary The payload to be sent wrapped in the event. This will be serialized into
+ *                  JSON in the transport process.
+ * @param timestamp long The timestamp representing the time the original Event was created.
  *
- * vendor - Required - A vendor string
- *
- * type - Required - A type string for the event
- *
- * payload - Optional - A JSON Object for the payload
- *
- * pairID - Optional - The eventID of the event this is a response for
- *
- * @return ACPGriffonEvent The ACPGriffonEvent instance. Will return nil if any the required parameters are not present in the JSON supplied.
+ * @return ACPGriffonEvent The ACPGriffonEvent instance
  */
-- (instancetype) initWithJSONData: (NSData*) json;
+- (instancetype _Nonnull) initWithVendor: (NSString* _Nonnull) vendor
+                                    type: (NSString* _Nonnull) type
+                                  pairID: (NSString* _Nullable) pairID
+                                 payload: (NSDictionary* _Nullable) payload
+                               timestamp: (long) timestamp;
+
+#pragma mark - Helper methods
+
 /**
- * @brief Returns the Json representation of the Event in binary
- * @return NSData The binary json data
+ * @brief Returns the JSON representation of the ACPGriffonEvent in binary
+ *
+ * @return NSData The binary JSON data
  */
-- (NSData*) jsonRepresentation;
-/**
- * @brief Creates a response event with the supplied payload as the response
- * @return ACPGriffonEvent A response event
- */
-- (instancetype) createResponseEventWithPayload: (NSDictionary*) payload;
-- (NSString*) description;
+- (NSData* _Nonnull) jsonRepresentation;
 
 @end
 
+#pragma mark - ACPGriffonEventListener
+
 @protocol ACPGriffonEventListener
 
-- (void) hear: (ACPGriffonEvent*) remoteEvent;
+/**
+ * @brief Method to be called when an ACPGriffonEventListener needs to be notified of an ACPGriffonEvent
+ *
+ * @param remoteEvent ACPGriffonEvent that was processed.
+ */
+- (void) hear: (ACPGriffonEvent* _Nonnull) remoteEvent;
 
 @end
