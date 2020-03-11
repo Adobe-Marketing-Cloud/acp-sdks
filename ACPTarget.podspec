@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.default_subspec = "iOS"
   s.static_framework = true
 
-  s.dependency "ACPCore", ">= 2.3.4"
+  s.dependency "ACPCore", ">= 2.5.0"
 
   s.subspec "iOS" do |ios|
     ios.vendored_libraries = "libACPTarget_iOS.a"
