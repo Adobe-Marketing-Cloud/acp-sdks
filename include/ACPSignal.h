@@ -2,9 +2,9 @@
 //  ACPSignal.h
 //  Adobe Digital Marketing Suite -- iOS Application Measurement Library
 //
-//  Copyright 1996-2019. Adobe, Inc. All Rights Reserved
+//  Copyright 1996-2018. Adobe, Inc. All Rights Reserved
 //
-//  Signal Version: 2.0.2
+//  Signal Version: 2.0.4
 
 #import <Foundation/Foundation.h>
 
