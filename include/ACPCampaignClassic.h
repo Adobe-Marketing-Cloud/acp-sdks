@@ -4,7 +4,7 @@
 //
 //  Copyright 1996-2019. Adobe Inc. All Rights Reserved
 //
-//  Campaign Classic Version: 2.0.2
+//  Campaign Classic Version: 2.0.3
 
 #import <Foundation/Foundation.h>
 
