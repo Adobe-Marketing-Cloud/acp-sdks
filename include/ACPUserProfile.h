@@ -4,7 +4,7 @@
 //
 //  Copyright 1996-2019. Adobe, Inc. All Rights Reserved
 //
-//  UserProfile Version: 2.0.1
+//  UserProfile Version: 2.1.0
 
 #import <Foundation/Foundation.h>
 
@@ -33,6 +33,16 @@
 + (void) removeUserAttribute: (nonnull NSString*) attributeName;
 
 /**
+ * UserProfile API to remove the give attribute names
+ *
+ * If the attribute does not exist, this API has no effects
+ * If the attribute exists, then the User Attribute will be removed
+ *
+ * @param attributeNames Attribute keys which have to be removed.
+ */
++ (void) removeUserAttributes: (nullable NSArray <NSString*>*) attributeNames;
+
+/**
  * UserProfile API to set user profile attributes keys and values.
  *
  * If the attribute does not exist, it will be created. If the attribute
@@ -52,5 +62,15 @@
  * @param attributeMap of profile attributes key-value pairs to be set.
  */
 + (void) updateUserAttributes: (nonnull NSDictionary*) attributeMap;
+
+/**
+ * Get user profile attribute entries for the specific keys.
+ *
+ * If a specific key name does not exist in the user profile, the returned map will not include an entry for it. If none of the attributes exists for all the keys, an empty dictionary will be returned.
+ *
+ * @param attributNames  Attribute keys which will be used to retrieve user attributes
+ * @param completionHandler Method which will be called with user attributes, and an NSError param if the request failed
+*/
++ (void) getUserAttributes: (nullable NSArray <NSString*>*) attributNames withCompletionHandler: (nonnull void (^) (NSDictionary* __nullable userAttributes, NSError* _Nullable error)) completionHandler;
 
 @end
