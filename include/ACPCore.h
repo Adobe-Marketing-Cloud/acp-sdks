@@ -4,7 +4,7 @@
 //
 //  Copyright 1996-2019. Adobe. All Rights Reserved
 //
-//  Core Version: 2.5.1
+//  Core Version: 2.6.0
 
 #import <Foundation/Foundation.h>
 
