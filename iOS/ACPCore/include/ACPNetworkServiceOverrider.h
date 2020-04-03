@@ -54,7 +54,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @param completion A completion block which takes the ACPHttpConnectionOverride as a parameter
  * In the case of a Network Error, or timeout, the ACPHttpConnection* connection is expected to be nil
  */
-- (void) requestUrl: (NSURL*) url httpCommand: (NSString*) command connectPayload: (NSString*) payload requestPropertyDict: (NSDictionary<NSString*, NSString*>*) requestProperty connectTimeout: (NSTimeInterval) connectTimeout readTimeout: (NSTimeInterval) readTimeout completion: (void (^ _Nullable) (ACPHttpConnection* connection)) completion;
+- (void) requestUrl: (NSURL*) url httpCommand: (NSString*) command connectPayload: (NSString*) payload requestPropertyDict: (NSDictionary<NSString*, NSString*>*) requestProperty connectTimeout: (NSTimeInterval) connectTimeout readTimeout: (NSTimeInterval) readTimeout completion: (void (^) (ACPHttpConnection* _Nullable  connection)) completion;
 @end
 
 /**
