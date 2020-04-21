@@ -4,7 +4,7 @@
 //
 //  Copyright 1996-2019. Adobe. All Rights Reserved
 //
-//  Core Version: 2.6.0
+//  Core Version: 2.6.1
 
 #import <Foundation/Foundation.h>
 
@@ -65,7 +65,10 @@ typedef NS_ENUM(NSUInteger, ACPMobileVisitorAuthenticationState) {
 typedef NS_ENUM(NSUInteger, ACPMobileWrapperType) {
     ACPMobileWrapperTypeNone = 0, /*!< Enum value ACPMobileWrapperTypeNone. */
     ACPMobileWrapperTypeReactNative = 1, /*!< Enum value ACPMobileWrapperTypeReactNative. */
-    ACPMobileWrapperTypeFlutter = 2 /*!< Enum value ACPMobileWrapperTypeFlutter. */
+    ACPMobileWrapperTypeFlutter = 2, /*!< Enum value ACPMobileWrapperTypeFlutter. */
+    ACPMobileWrapperTypeCordova = 3, /*!< Enum value ACPMobileWrapperTypeCordova. */
+    ACPMobileWrapperTypeUnity = 4, /*!< Enum value ACPMobileWrapperTypeUnity. */
+    ACPMobileWrapperTypeXamarin = 5 /*!< Enum value ACPMobileWrapperTypeXamarin. */
 };
 
 #pragma mark - Configuration
