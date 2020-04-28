@@ -25,10 +25,10 @@
 - iOS: Find these in the Podfile.lock file generated for your application
 - Android: Run the following command with gradle: *./gradlew :app:dependencyInsight* and extract the com.adobe.marketing.mobile extension versions
 
-**Platform:**
+**Platform and version:**
 
-- [ ] iOS
-- [ ] Android
+- [ ] iOS (specify the version)
+- [ ] Android (specify the version)
 
 **Installation method**:
 
@@ -44,3 +44,7 @@
 **Can you share SDK logs or crash reports?**
 
 *SDK logs or crash reports can help us identify the issue much faster. Please note that this is a public repository so you might want to obfuscate sensitive information.*
+
+**IDE and version used (optional)**:
+- [ ] Xcode (specify the version)
+- [ ] Android studio (specify the version)
