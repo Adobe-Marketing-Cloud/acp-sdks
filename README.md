@@ -48,7 +48,7 @@ Installation via [Maven](https://maven.apache.org/) & [Gradle](https://gradle.or
     implementation 'com.adobe.marketing.mobile:campaignclassic:1.+'
     implementation 'com.adobe.marketing.mobile:target:1.+'
     implementation 'com.adobe.marketing.mobile:griffon:1.+'
-    implementation 'com.adobe.marketing.mobile:griffonbridge:1.+'
+    implementation 'com.adobe.marketing.mobile:griffon:1.+'
     implementation 'com.adobe.marketing.mobile:userprofile:1.+'
 
 #### <a name="manual-android"></a>Manual installation
@@ -87,7 +87,7 @@ Installation via [Cocoapods](https://cocoapods.org/) is the easiest and recommen
     pod 'ACPCampaign', '~> 1.0'
     pod 'ACPCampaignClassic', '~> 2.0'
     pod 'ACPTarget', '~> 2.0'
-    pod 'ACPGriffonBeta', '~> 0.0'
+    pod 'ACPGriffon', '~> 1.0'
     pod 'ACPUserProfile', '~> 2.0'
 
 
