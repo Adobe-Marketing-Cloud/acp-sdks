@@ -2,9 +2,9 @@
 //  ACPMedia.h
 //  Adobe Digital Marketing Suite -- iOS Application Measurement Library
 //
-//  Copyright 1996-2019. Adobe, Inc. All Rights Reserved
+//  Copyright 1996-2020. Adobe, Inc. All Rights Reserved
 //
-//  Media Version: 1.1.3
+//  Media Version: 2.0.0
 
 #import <Foundation/Foundation.h>
 
@@ -97,4 +97,11 @@ FOUNDATION_EXPORT NSString* _Nonnull const ACPMediaKeyPrerollTrackingWaitingTime
 FOUNDATION_EXPORT NSString* _Nonnull const ACPMediaKeyConfigChannel;
 FOUNDATION_EXPORT NSString* _Nonnull const ACPMediaKeyConfigDownloadedContent;
 
-
+/**
+ * @brief These constant strings define standard player states.
+*/
+FOUNDATION_EXPORT NSString* _Nonnull const ACPMediaPlayerStateFullScreen;
+FOUNDATION_EXPORT NSString* _Nonnull const ACPMediaPlayerStatePictureInPicture;
+FOUNDATION_EXPORT NSString* _Nonnull const ACPMediaPlayerStateClosedCaption;
+FOUNDATION_EXPORT NSString* _Nonnull const ACPMediaPlayerStateInFocus;
+FOUNDATION_EXPORT NSString* _Nonnull const ACPMediaPlayerStateMute;
