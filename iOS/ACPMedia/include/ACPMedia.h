@@ -2,9 +2,9 @@
 //  ACPMedia.h
 //  Adobe Digital Marketing Suite -- iOS Application Measurement Library
 //
-//  Copyright 1996-2019. Adobe, Inc. All Rights Reserved
+//  Copyright 1996-2020. Adobe, Inc. All Rights Reserved
 //
-//  Media Version: 1.1.3
+//  Media Version: 2.0.0
 
 #import <Foundation/Foundation.h>
 
@@ -27,6 +27,8 @@ typedef NS_ENUM(NSInteger, ACPMediaEvent) {
     ACPMediaEventBufferStart,
     ACPMediaEventBufferComplete,
     ACPMediaEventBitrateChange,
+    ACPMediaEventStateStart,
+    ACPMediaEventStateEnd
 };
 
 /**
@@ -124,20 +126,34 @@ typedef NS_ENUM(NSInteger, ACPMediaType) {
 
 /**
  * @brief Creates an instance of ACPMediaTracker.
+ */
++ (ACPMediaTracker* _Nullable) createTracker;
+
+/**
+ * @brief Creates an instance of ACPMediaTracker.
+ *
+ * @param config Config to override default config passed through V5 config.
+ */
++ (ACPMediaTracker* _Nullable) createTrackerWithConfig: (NSDictionary* _Nullable) config;
+
+/**
+ * @deprecated
+ * @brief Creates an instance of ACPMediaTracker.
  *
  * @param callback Callback which returns the created ACPMediaTracker instance.
  */
 + (void) createTracker: (void (^ _Nonnull) (
-    ACPMediaTracker* _Nullable)) callback;
+    ACPMediaTracker* _Nullable)) callback __attribute__ ( (deprecated)) ;
 
 /**
+ * @deprecated
  * @brief Creates an instance of ACPMediaTracker.
  *
  * @param config Config to override default config passed through V5 config.
  * @param callback Callback which returns the created ACPMediaTracker instance.
  */
 + (void) createTrackerWithConfig: (NSDictionary* _Nullable) config
-                        callback: (void (^ _Nonnull) (ACPMediaTracker* _Nullable)) callback;
+                        callback: (void (^ _Nonnull) (ACPMediaTracker* _Nullable)) callback __attribute__ ( (deprecated)) ;
 
 /**
  * @brief Creates an instance of the Media info object.
@@ -203,4 +219,12 @@ typedef NS_ENUM(NSInteger, ACPMediaType) {
                                           startupTime: (double) startupTime
                                                   fps: (double) fps
                                         droppedFrames: (double) droppedFrames;
+
+/**
+* @brief Creates an instance of the state info object.
+*
+* @param stateName The media state with a state name
+*/
++ (NSDictionary* _Nonnull) createStateObjectWithName: (NSString* _Nonnull) stateName;
+
 @end
