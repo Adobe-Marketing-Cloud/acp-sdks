@@ -48,7 +48,6 @@ Installation via [Maven](https://maven.apache.org/) & [Gradle](https://gradle.or
     implementation 'com.adobe.marketing.mobile:campaignclassic:1.+'
     implementation 'com.adobe.marketing.mobile:target:1.+'
     implementation 'com.adobe.marketing.mobile:griffon:1.+'
-    implementation 'com.adobe.marketing.mobile:griffon:1.+'
     implementation 'com.adobe.marketing.mobile:userprofile:1.+'
 
 #### <a name="manual-android"></a>Manual installation
