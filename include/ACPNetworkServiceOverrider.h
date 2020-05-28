@@ -10,6 +10,8 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
+#import <Foundation/Foundation.h>
+
 /**
  * ACPHttpConnection to be used when overriding the network stack in place of internal network connection implementation. Represents the response to an Http request. Has NSURLResponse response, and NSData data as properties
  */
