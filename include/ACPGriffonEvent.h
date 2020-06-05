@@ -69,7 +69,7 @@
 /**
  * @brief Creates an ACPGriffonEvent instance with the given vendor, type, pairID, payload, and timestamp.
  *
- * Available starting with v1.1.1
+ * Available starting with v1.1.0
  *
  * @param vendor    NSString The Vendor string to identity the event with. The string can be a reverse domain name
  *                  format to uniquely identify the vendor.
