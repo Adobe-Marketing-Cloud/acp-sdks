@@ -29,4 +29,5 @@ Pod::Spec.new do |s|
   th.tvos.frameworks = "SystemConfiguration"
   th.tvos.libraries = "sqlite3.0", "z", "c++"
   th.tvos.source_files = "include/*.h", "include/Empty.m"
+  end
 end
