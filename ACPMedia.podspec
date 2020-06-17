@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "ACPMedia"
-  s.version      = "2.0.0"
+  s.version      = "2.1.0"
   s.summary      = "Media library for Adobe Experience Platform SDK. Written and maintained by Adobe."
   s.description  = <<-DESC
                    The Media library provides APIs that allow analytics tracking for audio and video in the Adobe Experience Platform SDK.
