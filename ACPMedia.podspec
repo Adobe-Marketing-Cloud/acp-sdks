@@ -14,17 +14,21 @@ Pod::Spec.new do |s|
     :git => "https://github.com/Adobe-Marketing-Cloud/acp-sdks.git",
     :tag => "v#{s.version}-#{s.name}"
   }
-  s.platform     = :ios, "10.0"
+  s.ios.deployment_target = "10.0"
+  s.tvos.deployment_target = "10.0"
   s.requires_arc = true
   s.static_framework = true
-  s.default_subspec = "iOS"
+  s.default_subspec = "main"
 
   # dependency on the core framework
   s.dependency "ACPCore", ">= 2.3.3"
 
-  s.subspec "iOS" do |ios|
-    ios.vendored_libraries = "libACPMedia_iOS.a"
-    ios.source_files = "include/*.h", "include/*.m"
+  s.subspec "main" do |th|
+    th.ios.vendored_libraries = "libACPMedia_iOS.a"
+    th.ios.source_files = "include/*.h", "include/*.m"
+
+    th.tvos.vendored_libraries = "libACPMedia_tvOS.a"
+    th.tvos.source_files = "include/*.h", "include/*.m"
   end
 
 end
