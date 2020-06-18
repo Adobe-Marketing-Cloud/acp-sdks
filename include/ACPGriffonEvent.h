@@ -4,7 +4,7 @@
 //
 //  Copyright 1996-2020. Adobe. All Rights Reserved
 //
-//  ACPGriffon Version: 1.1.2
+//  ACPGriffon Version: 1.1.3
 
 #import <Foundation/Foundation.h>
 
@@ -69,7 +69,7 @@
 /**
  * @brief Creates an ACPGriffonEvent instance with the given vendor, type, pairID, payload, and timestamp.
  *
- * Available starting with v1.1.0
+ * Available starting with v1.1.1
  *
  * @param vendor    NSString The Vendor string to identity the event with. The string can be a reverse domain name
  *                  format to uniquely identify the vendor.
