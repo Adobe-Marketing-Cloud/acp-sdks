@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "ACPAudience"
-  s.version      = "2.0.1"
+  s.version      = "2.0.2"
   s.summary      = "Audience Manager library for Adobe Experience Platform SDK. Written and maintained by Adobe."
   s.description  = <<-DESC
                    The Audience Manager library provides APIs that allow use of the Audience Manager product in the Adobe Experience Platform SDK.
@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
   s.default_subspec = 'iOS'
 
   # dependency on the core library
-  s.dependency "ACPCore", "~> 2.0"
+  s.dependency "ACPCore", ">= 2.5.0"
 
   s.subspec 'iOS' do |ios|
     ios.vendored_libraries = "libACPAudience_iOS.a"
