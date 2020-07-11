@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
   s.default_subspec = 'iOS'
 
   # dependency on the core library
-  s.dependency "ACPCore", "~> 2.0"
+  s.dependency "ACPCore", ">= 2.5.0"
 
   s.subspec 'iOS' do |ios|
     ios.vendored_libraries = "libACPAudience_iOS.a"
