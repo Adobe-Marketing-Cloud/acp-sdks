@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
   s.default_subspec = "main"
 
   # dependency on the core framework
-  s.dependency "ACPCore", ">= 2.3.3"
+  s.dependency "ACPCore", ">= 2.7.0"
 
   s.subspec "main" do |th|
     th.ios.vendored_libraries = "libACPMedia_iOS.a"
