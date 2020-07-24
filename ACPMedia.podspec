@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "ACPMedia"
-  s.version      = "2.1.0"
+  s.version      = "2.1.1"
   s.summary      = "Media library for Adobe Experience Platform SDK. Written and maintained by Adobe."
   s.description  = <<-DESC
                    The Media library provides APIs that allow analytics tracking for audio and video in the Adobe Experience Platform SDK.
@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
   s.default_subspec = "main"
 
   # dependency on the core framework
-  s.dependency "ACPCore", ">= 2.3.3"
+  s.dependency "ACPCore", ">= 2.7.0"
 
   s.subspec "main" do |th|
     th.ios.vendored_libraries = "libACPMedia_iOS.a"
