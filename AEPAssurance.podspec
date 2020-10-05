@@ -21,7 +21,5 @@ Pod::Spec.new do |s|
   s.subspec "iOS" do |ios|
     ios.vendored_libraries = "iOS/libAEPAssurance_iOS.a"
     ios.source_files = "iOS/include/*.h"
-    ios.frameworks = "UIKit", "SystemConfiguration"
-    ios.libraries = "c++", "z"
   end
 end
