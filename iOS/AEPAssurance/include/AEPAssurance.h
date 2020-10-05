@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * @brief Starts an AEPAssurance session.
  *
- * Calling this method when a session has already been started results in a no-op, otherwise it attempt to initiate a new AEPAssurance session.
+ * Calling this method when a session has already been started results in a no-op, otherwise it attempts to initiate a new AEPAssurance session.
  *
  * @param url a valid AEPAssurance URL to start a session
  */
