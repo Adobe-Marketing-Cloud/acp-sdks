@@ -18,19 +18,18 @@ NS_ASSUME_NONNULL_BEGIN
 + (bool) registerExtension;
 
 /**
- * @brief Provides the current version of Assurace SDK.
+ * @brief Provides the current version of AEPAssurance SDK.
  *
- * @return a string representing the version of Assurace SDK
+ * @return a string representing the version of AEPAssurance SDK
 */
 + (nonnull NSString*) extensionVersion;
 
 /**
- * @brief Starts a Assurace session.
+ * @brief Starts an AEPAssurance session.
  *
- * Calling this method when a session has already been started will result in a no-op.
- * It will attempt to initiate a new Assurace session if no session is active.
+ * Calling this method when a session has already been started results in a no-op, otherwise it attempt to initiate a new AEPAssurance session.
  *
- * @param url a valid Assurace URL to start a session
+ * @param url a valid AEPAssurance URL to start a session
  */
 + (void) startSession: (NSURL* _Nonnull) url;
 
