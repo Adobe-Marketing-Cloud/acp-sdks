@@ -9,7 +9,7 @@ the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTA
 OF ANY KIND, either express or implied. See the License for the specific language
 governing permissions and limitations under the License.
 
-Analytics Version: 2.3.0
+Analytics Version: 2.4.0
 */
 
 #import <Foundation/Foundation.h>
@@ -35,6 +35,13 @@ Analytics Version: 2.3.0
 + (void) getQueueSize: (nonnull void (^) (NSUInteger queueSize)) callback;
 
 /**
+ *  @brief Retrieves the number of hits currently in the tracking queue
+ *
+ *  @param completionHandler method which is invoked with the queue size or an NSError if an unexpected error occurs or the request times out
+ */
++ (void) getQueueSizeWithCompletionHandler: (nonnull void (^) (NSUInteger queueSize, NSError* __nullable error)) completionHandler;
+
+/**
  *  @brief Retrieves the analytics tracking identifier.
  *
  *  @param callback invoked with the analytics identifier value
@@ -42,7 +49,14 @@ Analytics Version: 2.3.0
 + (void) getTrackingIdentifier: (nonnull void (^) (NSString* __nullable trackingIdentifier)) callback;
 
 /**
- * @brief Registers the ACPAnalytics extension with the Core Event Hub.
+ *  @brief Retrieves the analytics tracking identifier.
+ *
+ *  @param completionHandler method which is invoked with the  analytics identifier or an NSError if an unexpected error occurs or the request times out
+ */
++ (void) getTrackingIdentifierWithCompletionHandler: (nonnull void (^) (NSString* __nullable trackingIdentifier, NSError* __nullable error)) completionHandler;
+
+/**
+ *  @brief Registers the ACPAnalytics extension with the Core Event Hub.
  */
 + (void) registerExtension;
 
@@ -57,6 +71,13 @@ Analytics Version: 2.3.0
  *  @param callback invoked with the visitor identifier value
  */
 + (void) getVisitorIdentifier: (nonnull void (^) (NSString* __nullable visitorIdentifier)) callback;
+
+/**
+ *  @brief Retrieves the visitor identifier.
+ *
+ *  @param completionHandler method which is invoked with the visitor identifier or an NSError if an unexpected error occurs or the request times out
+ */
++ (void) getVisitorIdentifierWithCompletionHandler: (nonnull void (^) (NSString* __nullable visitorIdentifier, NSError* __nullable error)) completionHandler;
 
 /**
  *  @brief Sets the visitor identifier.
