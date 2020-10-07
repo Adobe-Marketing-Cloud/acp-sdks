@@ -89,6 +89,7 @@ FOUNDATION_EXPORT NSString* _Nonnull const ACPAdMetadataKeyCreativeUrl;
  */
 FOUNDATION_EXPORT NSString* _Nonnull const ACPMediaKeyMediaResumed;
 FOUNDATION_EXPORT NSString* _Nonnull const ACPMediaKeyPrerollTrackingWaitingTime;
+FOUNDATION_EXPORT NSString* _Nonnull const ACPMediaKeyGranularAdTracking;
 
 
 /**
