@@ -4,7 +4,7 @@
 //
 //  Copyright 1996-2020. Adobe, Inc. All Rights Reserved
 //
-//  Media Version: 2.1.1
+//  Media Version: 2.2.0
 
 #import <Foundation/Foundation.h>
 
