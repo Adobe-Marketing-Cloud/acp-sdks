@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "AEPAssurance"
-  s.version      = "1.0.0"
+  s.version      = "1.1.0"
   s.summary      = "AEPAssurance SDK for Adobe Experience Platform SDK. Written and maintained by Adobe."
   s.description  = <<-DESC
                    AEPAssurance SDK provides APIs that allow use of the AEPAssurance product in the Adobe Experience Platform SDK.
