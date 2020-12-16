@@ -4,7 +4,7 @@
 //
 //  Copyright 1996-2018. Adobe. All Rights Reserved
 //
-//  Places Version: 1.3.1
+//  Places Version: 1.4.0
 
 #import <CoreLocation/CoreLocation.h>
 #import <Foundation/Foundation.h>
