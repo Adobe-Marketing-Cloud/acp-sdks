@@ -22,7 +22,7 @@ To learn more about your topic of interest, click the following links:
 | :--- | :--- | :--- | :--- |
 | [Mobile Core](https://aep-sdks.gitbook.io/docs/using-mobile-extensions/mobile-core) | [![Cocoapods](https://img.shields.io/cocoapods/v/ACPCore.svg?color=orange&label=ACPCore&logo=apple&logoColor=white&style=flat-square)](https://cocoapods.org/pods/ACPCore) | [![Maven Central](https://img.shields.io/maven-central/v/com.adobe.marketing.mobile/core.svg?logo=android&logoColor=white)](https://mvnrepository.com/artifact/com.adobe.marketing.mobile/core) | [Android](https://github.com/Adobe-Marketing-Cloud/acp-sdks/tree/master/android) \| [iOS](https://github.com/Adobe-Marketing-Cloud/acp-sdks/tree/master/iOS/ACPCore) |
 | [Adobe Analytics](https://aep-sdks.gitbook.io/docs/using-mobile-extensions/adobe-analytics) | [![Cocoapods](https://img.shields.io/cocoapods/v/ACPAnalytics.svg?color=orange&label=ACPAnalytics&logo=apple&logoColor=white&style=flat-square)](https://cocoapods.org/pods/ACPAnalytics) | [![Maven Central](https://img.shields.io/maven-central/v/com.adobe.marketing.mobile/analytics.svg?logo=android&logoColor=white)](https://mvnrepository.com/artifact/com.adobe.marketing.mobile/analytics) | [Android](https://github.com/Adobe-Marketing-Cloud/acp-sdks/tree/master/android) \| [iOS](https://github.com/Adobe-Marketing-Cloud/acp-sdks/tree/master/iOS/ACPAnalytics) |
-| [Adobe Analytics - Mobile Services](https://aep-sdks.gitbook.io/docs/using-mobile-extensions/adobe-analytics-mobile-services) | [![Cocoapods](https://img.shields.io/cocoapods/v/ACPMobileServices.svg?color=Orange&label=ACPMobileServices&logo=apple&logoColor=white&style=flat-square)](https://cocoapods.org/pods/ACPMobileServices) | [![Maven Central](https://img.shields.io/maven-central/v/com.adobe.marketing.mobile/mobileservices.svg?logo=android&logoColor=white)](https://mvnrepository.com/artifact/com.adobe.marketing.mobile/mobileservices) | [Android](https://github.com/Adobe-Marketing-Cloud/acp-sdks/tree/master/android) \| [iOS](https://github.com/Adobe-Marketing-Cloud/acp-sdks/tree/master/iOS/ACPMobileServices) |
+| [Adobe Analytics - Mobile Services](https://aep-sdks.gitbook.io/docs/using-mobile-extensions/adobe-analytics-mobile-services) | [![Cocoapods](https://img.shields.io/cocoapods/v/ACPMobileServices.svg?color=orange&label=ACPMobileServices&logo=apple&logoColor=white&style=flat-square)](https://cocoapods.org/pods/ACPMobileServices) | [![Maven Central](https://img.shields.io/maven-central/v/com.adobe.marketing.mobile/mobileservices.svg?logo=android&logoColor=white)](https://mvnrepository.com/artifact/com.adobe.marketing.mobile/mobileservices) | [Android](https://github.com/Adobe-Marketing-Cloud/acp-sdks/tree/master/android) \| [iOS](https://github.com/Adobe-Marketing-Cloud/acp-sdks/tree/master/iOS/ACPMobileServices) |
 | [Adobe Media Analytics for Audio & Video](https://aep-sdks.gitbook.io/docs/using-mobile-extensions/adobe-media-analytics) | [![Cocoapods](https://img.shields.io/cocoapods/v/ACPMedia.svg?color=orange&label=ACPMedia&logo=apple&logoColor=white&style=flat-square)](https://cocoapods.org/pods/ACPMedia) | [![Maven Central](https://img.shields.io/maven-central/v/com.adobe.marketing.mobile/media.svg?logo=android&logoColor=white)](https://mvnrepository.com/artifact/com.adobe.marketing.mobile/media) | [Android](https://github.com/Adobe-Marketing-Cloud/acp-sdks/tree/master/android) \| [iOS](https://github.com/Adobe-Marketing-Cloud/acp-sdks/tree/master/iOS/ACPMedia) |
 | [Adobe Audience Manager](https://aep-sdks.gitbook.io/docs/using-mobile-extensions/adobe-audience-manager) | [![Cocoapods](https://img.shields.io/cocoapods/v/ACPAudience.svg?color=orange&label=ACPAudience&logo=apple&logoColor=white&style=flat-square)](https://cocoapods.org/pods/ACPAudience) | [![Maven Central](https://img.shields.io/maven-central/v/com.adobe.marketing.mobile/audience.svg?logo=android&logoColor=white)](https://mvnrepository.com/artifact/com.adobe.marketing.mobile/audience) | [Android](https://github.com/Adobe-Marketing-Cloud/acp-sdks/tree/master/android) \| [iOS](https://github.com/Adobe-Marketing-Cloud/acp-sdks/tree/master/iOS/ACPAudience) |
 | [Adobe Campaign Classic](https://aep-sdks.gitbook.io/docs/using-mobile-extensions/adobe-campaignclassic) | [![Cocoapods](https://img.shields.io/cocoapods/v/ACPCampaignClassic.svg?color=orange&label=ACPCampaignClassic&logo=apple&logoColor=white&style=flat-square)](https://cocoapods.org/pods/ACPCampaignClassic) | [![Maven Central](https://img.shields.io/maven-central/v/com.adobe.marketing.mobile/campaignclassic.svg?logo=android&logoColor=white)](https://mvnrepository.com/artifact/com.adobe.marketing.mobile/campaignclassic) | [Android](https://github.com/Adobe-Marketing-Cloud/acp-sdks/tree/master/android) \| [iOS](https://github.com/Adobe-Marketing-Cloud/acp-sdks/tree/master/iOS/ACPCampaignClassic) |
@@ -51,7 +51,7 @@ Installation via [Maven](https://maven.apache.org/) & [Gradle](https://gradle.or
     implementation 'com.adobe.marketing.mobile:userprofile:1.+'
 
 #### <a name="manual-android"></a>Manual installation
-In order to do a manual installation of the AEP SDK `.aar` binaries, please complete the following steps for each `.aar` you need:
+In order to do a manual installation of the AEP SDK `.aar` binaries, complete the following steps for each `.aar` you need:
 - Download the `.aar` file from the `Android/` directory on the `master` branch.
 - Go to "File > New > New Module" in the menu.
 - Select the "Import .JAR/.AAR Package" from the New Module window.
@@ -64,9 +64,13 @@ In order to do a manual installation of the AEP SDK `.aar` binaries, please comp
    - Click on the "+" button on the bottom, and select module dependency.
    - In the next dialog, select the library module as your dependency.
 
-__Important__ - note that all AEP SDK Android binaries depend on `core-1.x.x.aar`.
+__Important__ - _all_ AEP SDK Android binaries depend on `core-1.x.x.aar`.
 
 ## Installing the AEP SDK for iOS
+
+> __Important__ 
+> 
+> Newer versions of the AEP SDK for iOS are distributed using XCFrameworks. If using the XCFramework distribution, Xcode 12 or newer is required and Cocoapods 1.10.0 or newer is required (where applicable).
 
 The AEP SDK supports iOS 10 and newer.
 
@@ -89,16 +93,29 @@ Installation via [Cocoapods](https://cocoapods.org/) is the easiest and recommen
     pod 'AEPAssurance', '~> 1.0'
     pod 'ACPUserProfile', '~> 2.0'
 
-
-#### <a name="manual-ios"></a>Manual installation
-In order to do a manual installation of the AEP SDK libraries, please complete the following steps:
+#### <a name="manual-ios"></a>Manual installation - XCFrameworks
+In order to do a manual installation of the AEP SDK XCFrameworks, complete the following steps:
 - Download the extensions needed by your app from the `iOS/` directory.
-- In the Xcode project create a new Group, and then drag all the folders you just download and drop them under the group. And verify the following:
+- In the Xcode project create a new Group, then drag all the extensions downloaded and drop them under the group. Verify the following:
     * `The Copy Items if needed checkbox` is selected.
     * `Create groups` is selected.
-    * In the`Add to targets` section select all the targets that need AEP SDKs.
+    * In the `Add to targets` section, select all the targets that need AEP SDKs.
 - Select your project from the `Project Navigator`, select your App from the `TARGETS` frame, then select the `General` tab at the top of the window.
 - In the `Link Binary With Libraries` section, click the `+` link and add the following frameworks and libraries: `UIKit`, `SystemConfiguration`, `WebKit`, `UserNotifications`, `libsqlite3.0`, `libc++`, `libz`.
-- If you have a swift application, include a bridging header and import the AEP SDK headers available in the include folder. For more information see [Importing Objective-C into Swift](https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift)
+- If you have a Swift application, include a bridging header and import the AEP SDK headers available in the include folder. For more information see [Importing Objective-C into Swift](https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift)
 
-__Important__ - note that all AEP SDK iOS libraries depend on `libACPCore.a`.
+__Important__ - _all_ AEP SDK iOS XCFrameworks depend on `ACPCore.xcframework`.
+
+
+#### <a name="manual-ios"></a>Manual installation - static libraries
+In order to do a manual installation of the AEP SDK libraries, complete the following steps:
+- Download the extensions needed by your app from the `iOS/` directory.
+- In the Xcode project create a new Group, then drag all the extensions downloaded and drop them under the group. Verify the following:
+    * `The Copy Items if needed checkbox` is selected.
+    * `Create groups` is selected.
+    * In the `Add to targets` section, select all the targets that need AEP SDKs.
+- Select your project from the `Project Navigator`, select your App from the `TARGETS` frame, then select the `General` tab at the top of the window.
+- In the `Link Binary With Libraries` section, click the `+` link and add the following frameworks and libraries: `UIKit`, `SystemConfiguration`, `WebKit`, `UserNotifications`, `libsqlite3.0`, `libc++`, `libz`.
+- If you have a Swift application, include a bridging header and import the AEP SDK headers available in the include folder. For more information see [Importing Objective-C into Swift](https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift)
+
+__Important__ - _all_ AEP SDK iOS libraries depend on `libACPCore.a`.
