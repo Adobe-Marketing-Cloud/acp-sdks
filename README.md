@@ -30,7 +30,7 @@ To learn more about your topic of interest, click the following links:
 | [Adobe Target](https://aep-sdks.gitbook.io/docs/using-mobile-extensions/adobe-target) | [![Cocoapods](https://img.shields.io/cocoapods/v/ACPTarget.svg?color=orange&label=ACPTarget&logo=apple&logoColor=white&style=flat-square)](https://cocoapods.org/pods/ACPTarget) | [![Maven Central](https://img.shields.io/maven-central/v/com.adobe.marketing.mobile/target.svg?logo=android&logoColor=white)](https://mvnrepository.com/artifact/com.adobe.marketing.mobile/target) | [Android](https://github.com/Adobe-Marketing-Cloud/acp-sdks/tree/master/android) \| [iOS](https://github.com/Adobe-Marketing-Cloud/acp-sdks/tree/master/iOS/ACPTarget) |
 | [Places](https://aep-sdks.gitbook.io/docs/using-mobile-extensions/places-extension-1) | [![Cocoapods](https://img.shields.io/cocoapods/v/ACPPlaces.svg?color=orange&label=ACPPlaces&logo=apple&logoColor=white&style=flat-square)](https://cocoapods.org/pods/ACPPlaces) | [![Maven Central](https://img.shields.io/maven-central/v/com.adobe.marketing.mobile/places.svg?logo=android&logoColor=white)](https://mvnrepository.com/artifact/com.adobe.marketing.mobile/places) | [Android](https://github.com/Adobe-Marketing-Cloud/acp-sdks/blob/master/android/places-1.0.0.aar) \| [iOS](https://github.com/Adobe-Marketing-Cloud/acp-sdks/tree/master/iOS/ACPPlaces) |
 | [Places Monitor](https://aep-sdks.gitbook.io/docs/using-mobile-extensions/places-extension-1/places-monitoring-extension) | [![Cocoapods](https://img.shields.io/cocoapods/v/ACPPlacesMonitor.svg?color=orange&label=ACPPlacesMonitor&logo=apple&logoColor=white&style=flat-square)](https://cocoapods.org/pods/ACPPlacesMonitor) | [![Maven Central](https://img.shields.io/maven-central/v/com.adobe.marketing.mobile/places-monitor.svg?logo=android&logoColor=white)](https://mvnrepository.com/artifact/com.adobe.marketing.mobile/places-monitor) | [Android](https://github.com/adobe/places-monitor-android) \| [iOS](https://github.com/adobe/places-monitor-ios) |
-| [Project Griffon \(Beta\)](https://aep-sdks.gitbook.io/docs/beta/project-griffon) | [![Cocoapods](https://img.shields.io/cocoapods/v/ACPGriffon.svg?color=orange&label=ACPGriffon&logo=apple&logoColor=white&style=flat-square)](https://cocoapods.org/pods/ACPGriffon) | [![Maven Central](https://img.shields.io/maven-central/v/com.adobe.marketing.mobile/griffon.svg?logo=android&logoColor=white)](https://mvnrepository.com/artifact/com.adobe.marketing.mobile/griffon) | [Android](https://github.com/Adobe-Marketing-Cloud/acp-sdks/tree/master/android) \| [iOS](https://github.com/Adobe-Marketing-Cloud/acp-sdks/tree/master/iOS/ACPGriffon) |
+| [AEPAssurance](https://aep-sdks.gitbook.io/docs/using-mobile-extensions/adobe-experience-platform-assurance) | [![Cocoapods](https://img.shields.io/cocoapods/v/AEPAssurance.svg?color=orange&label=AEPAssurance&logo=apple&logoColor=white&style=flat-square)](https://cocoapods.org/pods/AEPAssurance) | [![Maven Central](https://img.shields.io/maven-central/v/com.adobe.marketing.mobile/assurance.svg?logo=android&logoColor=white)](https://mvnrepository.com/artifact/com.adobe.marketing.mobile/assurance) | [Android](https://github.com/Adobe-Marketing-Cloud/acp-sdks/tree/master/android) \| [iOS](https://github.com/Adobe-Marketing-Cloud/acp-sdks/tree/master/iOS/AEPAssurance) |
 | [Profile](https://aep-sdks.gitbook.io/docs/using-mobile-extensions/profile) | [![Cocoapods](https://img.shields.io/cocoapods/v/ACPUserProfile.svg?color=orange&label=ACPUserProfile&logo=apple&logoColor=white&style=flat-square)](https://cocoapods.org/pods/ACPUserProfile) | [![Maven Central](https://img.shields.io/maven-central/v/com.adobe.marketing.mobile/userprofile.svg?logo=android&logoColor=white)](https://mvnrepository.com/artifact/com.adobe.marketing.mobile/userprofile) | [Android](https://github.com/Adobe-Marketing-Cloud/acp-sdks/tree/master/android) \| [iOS](https://github.com/Adobe-Marketing-Cloud/acp-sdks/tree/master/iOS/ACPUserProfile) |
 
 
@@ -47,7 +47,7 @@ Installation via [Maven](https://maven.apache.org/) & [Gradle](https://gradle.or
     implementation 'com.adobe.marketing.mobile:campaign:1.+'
     implementation 'com.adobe.marketing.mobile:campaignclassic:1.+'
     implementation 'com.adobe.marketing.mobile:target:1.+'
-    implementation 'com.adobe.marketing.mobile:griffon:1.+'
+    implementation 'com.adobe.marketing.mobile:assurance:1.+'
     implementation 'com.adobe.marketing.mobile:userprofile:1.+'
 
 #### <a name="manual-android"></a>Manual installation
@@ -86,7 +86,7 @@ Installation via [Cocoapods](https://cocoapods.org/) is the easiest and recommen
     pod 'ACPCampaign', '~> 1.0'
     pod 'ACPCampaignClassic', '~> 2.0'
     pod 'ACPTarget', '~> 2.0'
-    pod 'ACPGriffon', '~> 1.0'
+    pod 'AEPAssurance', '~> 1.0'
     pod 'ACPUserProfile', '~> 2.0'
 
 
