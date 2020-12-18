@@ -10,17 +10,22 @@ Pod::Spec.new do |s|
 
   s.license      = {:type => "Commercial", :file => "LICENSE.md"}
   s.author       = "Adobe Experience Platform SDK Team"
-  s.source       = { :git => 'https://github.com/Adobe-Marketing-Cloud/acp-sdks.git', :tag => "v#{s.version}-#{s.name}" }
-  s.platform = :ios, "10.0"
+  s.source       = {
+      :git => 'https://github.com/Adobe-Marketing-Cloud/acp-sdks.git',
+      :tag => "v#{s.version}-#{s.name}"
+  }
+
+  s.ios.deployment_target = "10.0"
   s.requires_arc = true
-
-  s.default_subspec = "iOS"
+  s.default_subspec = "xcframeworks"
   s.static_framework = true
+  s.cocoapods_version = ">= 1.10"
+  s.dependency "ACPCore", ">= 2.9.0"
 
-  s.dependency "ACPCore", ">= 2.3.4"
-
-  s.subspec "iOS" do |ios|
-    ios.vendored_libraries = "libACPCampaign_iOS.a"
-    ios.source_files = "include/*.h", "include/*.m"
+  s.subspec "xcframeworks" do |f|
+    f.ios.vendored_frameworks = "iOS/#{s.name}.xcframework"
+    f.ios.source_files = "#{s.name}.xcframework/ios-arm64_armv7_armv7s/Headers/*.h", "include/*.m"
+    f.ios.frameworks = "UIKit", "SystemConfiguration"
+    f.ios.libraries = "sqlite3.0", "z", "c++"
   end
 end
