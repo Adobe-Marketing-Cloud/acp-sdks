@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "ACPPlaces"
-  s.version      = "1.3.1"
+  s.version      = "1.4.0"
   s.summary      = "Places extension for Adobe Experience Platform SDK. Written and maintained by Adobe."
   s.description  = <<-DESC
                    The Places extension provides APIs that allow use of the Places service in the Adobe Experience Platform SDK.
@@ -15,18 +15,19 @@ Pod::Spec.new do |s|
   	:tag => "v#{s.version}-#{s.name}"
   }
 
-  s.platform = :ios, "10.0"
+  s.ios.deployment_target = "10.0"
+  s.default_subspec = "xcframeworks"
   s.requires_arc = true
   s.static_framework = true
-  s.default_subspec = "iOS"
+  s.cocoapods_version = ">= 1.10"
 
   # dependency on the core library
-  s.dependency "ACPCore", ">= 2.5.0"
+  s.dependency "ACPCore", ">= 2.9.0"
 
-  s.subspec "iOS" do |ios|
-    ios.vendored_libraries = "libACPPlaces_iOS.a"
-    ios.source_files = "include/*.h", "include/*.m"
-    ios.frameworks = "CoreLocation"
+  s.subspec "xcframeworks" do |f|
+    f.ios.vendored_frameworks = "#{s.name}.xcframework"
+    f.ios.source_files = "#{s.name}.xcframework/ios-arm64_armv7_armv7s/Headers/*.h", "include/*.m"
+    f.ios.frameworks = "CoreLocation"
+    f.ios.libraries = "sqlite3.0", "z", "c++"
   end
-
 end
