@@ -15,11 +15,14 @@ Pod::Spec.new do |s|
   s.platform = :ios, "10.0"
   s.requires_arc = true
   s.static_framework = true
-  s.default_subspec = "iOS"
-  s.dependency "ACPCore"
+  s.cocoapods_version = ">= 1.10"
+  s.ios.deployment_target = "10.0"
+  s.default_subspec = "xcframeworks"
+  s.dependency "ACPCore", ">= 2.9.0"
 
-  s.subspec "iOS" do |ios|
-    ios.vendored_libraries = "libAEPAssurance_iOS.a"
-    ios.source_files = "include/*.h", "include/*.m"
-  end
+  s.subspec "xcframeworks" do |f|
+      f.ios.vendored_frameworks = "#{s.name}.xcframework"
+      f.ios.source_files = "#{s.name}.xcframework/ios-arm64_armv7_armv7s/Headers/*.h", "include/*.m"
+      f.ios.libraries = "sqlite3.0", "z", "c++"
+    end
 end
