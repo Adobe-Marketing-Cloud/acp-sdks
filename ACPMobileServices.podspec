@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "ACPMobileServices"
-  s.version      = "1.0.6"
+  s.version      = "1.1.0"
   s.summary      = "Mobile Services library for Adobe Experience Platform SDK. Written and maintained by Adobe."
   s.description  = <<-DESC
                    The Mobile Services library provides APIs that allow use of the Mobile Services product in the Adobe Experience Platform SDK.
@@ -14,15 +14,17 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '10.0'
   s.requires_arc = true
 
-  s.default_subspec = 'iOS'
+  s.default_subspec = 'xcframeworks'
+  s.cocoapods_version = ">= 1.10"
   s.static_framework = true
 
-  s.dependency "ACPCore", ">= 2.1.1"
-  s.dependency "ACPAnalytics", ">= 2.0.3"
+  s.dependency "ACPCore", ">= 2.9.0"
+  s.dependency "ACPAnalytics", ">= 2.5.0"
 
-  s.subspec "iOS" do |ios|
-    ios.vendored_libraries = "libACPMobileServices_iOS.a"
-    ios.source_files = "include/*.h", "include/Empty.m"
+  s.subspec "xcframeworks" do |f|
+    f.ios.vendored_frameworks = "#{s.name}.xcframework"
+    f.ios.source_files = "#{s.name}.xcframework/ios-arm64_armv7_armv7s/Headers/*.h", "include/*.m"
+    f.ios.libraries = "sqlite3.0", "z", "c++"
   end
 
 end
