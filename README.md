@@ -68,7 +68,9 @@ __Important__ - _all_ AEP SDK Android binaries depend on `core-1.x.x.aar`.
 
 ## Installing the AEP SDK for iOS
 
-__Important__ - newer versions of the AEP SDK for iOS are distributed using XCFrameworks. If using the XCFramework distribution, Xcode 12 or newer is required and Cocoapods 1.10.0 or newer is required (where applicable).
+> __Important__ 
+> 
+> Newer versions of the AEP SDK for iOS are distributed using XCFrameworks. If using the XCFramework distribution, Xcode 12 or newer is required and Cocoapods 1.10.0 or newer is required (where applicable).
 
 The AEP SDK supports iOS 10 and newer.
 
