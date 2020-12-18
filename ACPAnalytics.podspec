@@ -31,7 +31,7 @@ Pod::Spec.new do |s|
     f.ios.libraries = "sqlite3.0", "z", "c++"
 
     f.tvos.vendored_frameworks = "#{s.name}TV.xcframework"
-    f.tvos.source_files = "#{s.name}TV.xcframework/ios-arm64_armv7_armv7s/Headers/*.h", "include/*.m"
+    f.tvos.source_files = "#{s.name}TV.xcframework/tvos-arm64/Headers/*.h", "include/*.m"
     f.tvos.libraries = "sqlite3.0", "z", "c++"
   end
 
