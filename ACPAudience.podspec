@@ -14,7 +14,8 @@ Pod::Spec.new do |s|
     :git => 'https://github.com/Adobe-Marketing-Cloud/acp-sdks.git',
     :tag => "v#{s.version}-#{s.name}"
   }
-  s.platform     = :ios, '10.0'
+  s.ios.deployment_target = '10.0'
+  s.tvos.deployment_target = '10.0'
   s.default_subspec = "xcframeworks"
   s.requires_arc = true
   s.static_framework = true
@@ -27,6 +28,10 @@ Pod::Spec.new do |s|
     f.ios.vendored_frameworks = "#{s.name}.xcframework"
     f.ios.source_files = "#{s.name}.xcframework/ios-arm64_armv7_armv7s/Headers/*.h", "include/*.m"
     f.ios.libraries = "sqlite3.0", "z", "c++"
+
+    f.tvos.vendored_frameworks = "ACPAudienceTV.xcframework"
+    f.tvos.source_files = "ACPAudienceTV.xcframework/tvos-arm64/Headers/*.h", "include/*.m"
+    f.tvos.libraries = "sqlite3.0", "z", "c++"    	
   end
   
 end
