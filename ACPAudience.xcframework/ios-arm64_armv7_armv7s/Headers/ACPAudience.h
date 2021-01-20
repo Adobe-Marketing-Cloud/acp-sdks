@@ -4,7 +4,7 @@
 //
 //  Copyright 1996-2019. Adobe, Inc. All Rights Reserved
 //
-//  Audience Version: 2.2.0
+//  Audience Version: 2.3.0
 
 #import <Foundation/Foundation.h>
 
@@ -31,7 +31,8 @@
  *
  * @param completionHandler method which is invoked with the visitor profile or an NSErrorr if an unexpected error occurs or the request times out
  */
-+ (void) getVisitorProfileWithCompletionHandler: (nonnull void (^) (NSDictionary* __nullable visitorProfile, NSError* __nullable error)) completionHandler;
++ (void) getVisitorProfileWithCompletionHandler: (nonnull void (^) (NSDictionary* __nullable visitorProfile,
+    NSError* __nullable error)) completionHandler;
 
 /**
  * @brief Registers the ACPAudience extension with the Core Event Hub.
@@ -68,6 +69,7 @@
  * @param completionHandler method which is invoked with the visitor profile or an NSError if an unexpected error occurs or the request times out
  */
 + (void) signalWithData: (NSDictionary<NSString*, NSString*>* __nonnull) data
-    withCompletionHandler: (nonnull void (^) (NSDictionary* __nullable visitorProfile, NSError* __nullable error)) completionHandler;
+    withCompletionHandler: (nonnull void (^) (NSDictionary* __nullable visitorProfile,
+    NSError* __nullable error)) completionHandler;
 
 @end
