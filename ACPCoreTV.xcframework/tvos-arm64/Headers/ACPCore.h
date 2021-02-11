@@ -2,9 +2,9 @@
 //  ACPCore.h
 //  Adobe Experience Platform -- iOS Framework
 //
-//  Copyright 1996-2019. Adobe. All Rights Reserved
+//  Copyright 2019. Adobe. All Rights Reserved
 //
-//  Core Version: 2.9.0
+//  Core Version: 2.9.1
 
 #import <Foundation/Foundation.h>
 
