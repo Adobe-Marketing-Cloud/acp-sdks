@@ -1,0 +1,4 @@
+module ACPSignal {
+    umbrella "."
+    export *
+}

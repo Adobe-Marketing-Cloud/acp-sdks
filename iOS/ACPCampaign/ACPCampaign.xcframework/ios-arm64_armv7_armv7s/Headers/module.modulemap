@@ -1,0 +1,4 @@
+module ACPCampaign {
+    umbrella "."
+    export *
+}

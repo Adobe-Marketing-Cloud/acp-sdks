@@ -1,0 +1,4 @@
+module ACPCore {
+    umbrella "."
+    export *
+}
