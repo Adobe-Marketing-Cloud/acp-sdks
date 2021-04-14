@@ -3,7 +3,7 @@
 //  Adobe Experience Platform -- iOS Framework
 //
 //  Copyright 1996-2019. Adobe. All Rights Reserved
-//  Mobile Services Version: 1.1.0
+//  Mobile Services Version: 1.1.1
 
 
 #import <Foundation/Foundation.h>
