@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "ACPCore"
-  s.version      = "2.9.4"
+  s.version      = "2.9.5"
   s.summary      = "Core library for Adobe Experience Platform SDK. Written and Supported by Adobe."
   s.description  = <<-DESC
                    The core library provides the foundation for the Adobe Experience Platform SDK.  Having the core library installed is a pre-requisite for any other Adobe Experience Platform SDK extension to work.
