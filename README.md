@@ -3,7 +3,7 @@ Home of the official Adobe Experience Platform (ACP) SDKs for mobile apps.
 
 <hr>
 
-## ACPMobileServices
+## AEPMobileServices
 
 This pod contains the Mobile Services libraries for the Adobe Experience Platform SDK for iOS.
 
