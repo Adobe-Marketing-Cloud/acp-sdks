@@ -1,2 +1,2 @@
-#import "ACPMobileServices.h"
-@implementation ACPMobileServices (ForceLoad) @end
+#import "AEPMobileServices.h"
+@implementation AEPMobileServices (ForceLoad) @end
