@@ -17,13 +17,14 @@ Pod::Spec.new do |s|
   s.default_subspec = 'xcframeworks'
   s.cocoapods_version = ">= 1.10"
   s.static_framework = true
+  s.swift_version = '5.1'
 
   s.dependency "AEPCore"
 
   s.subspec "xcframeworks" do |f|
     f.ios.vendored_frameworks = "#{s.name}.xcframework"
     f.ios.source_files = "#{s.name}.xcframework/ios-arm64_armv7_armv7s/Headers/*.h", "include/*.m"
-    f.ios.libraries = "sqlite3.0", "z", "c++"
   end
 
 end
+
