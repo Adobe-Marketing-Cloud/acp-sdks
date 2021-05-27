@@ -1,5 +1,5 @@
 //
-//  ACPMobileServices.h
+//  AEPMobileServices.h
 //  Adobe Experience Platform -- iOS Framework
 //
 //  Copyright 1996-2021. Adobe. All Rights Reserved
@@ -11,9 +11,9 @@
 
 @interface AEPMobileServices : NSObject <AEPExtension>
 
-/**
- * @brief Returns the current version of the ACPMobileServices Extension.
- */
+    /**
+     * @brief Returns the current version of the AEPMobileServices Extension.
+     */
 + (nonnull NSString*) extensionVersion;
 
 /**
