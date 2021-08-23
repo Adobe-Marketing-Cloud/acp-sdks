@@ -11,9 +11,9 @@
 
 @interface AEPMobileServices : NSObject <AEPExtension>
 
-/**
- * @brief Returns the current version of the AEPMobileServices Extension.
- */
+    /**
+     * @brief Returns the current version of the AEPMobileServices Extension.
+     */
 + (nonnull NSString*) extensionVersion;
 
 /**
