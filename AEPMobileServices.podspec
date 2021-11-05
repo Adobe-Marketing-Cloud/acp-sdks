@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "AEPMobileServices"
-  s.version      = "3.0.2"
+  s.version      = "3.0.3"
   s.summary      = "Mobile Services library for Adobe Experience Platform SDK. Written and maintained by Adobe."
   s.description  = <<-DESC
                    The Mobile Services library provides APIs that allow use of the Mobile Services product in the Adobe Experience Platform SDK.
