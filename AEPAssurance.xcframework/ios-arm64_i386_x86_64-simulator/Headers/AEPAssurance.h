@@ -4,7 +4,7 @@
 //
 //  Copyright 1996-2020. Adobe. All Rights Reserved
 //
-//  AEPAssurance Version: 1.1.3
+//  AEPAssurance Version: 1.1.4
 
 #import <Foundation/Foundation.h>
 
