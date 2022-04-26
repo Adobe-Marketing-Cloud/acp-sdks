@@ -41,14 +41,14 @@ The AEP SDK supports Android API 14 (Ice Cream Sandwich) and newer.
 #### <a name="gradle"></a>Installation using Maven/Gradle << Preferred >>
 Installation via [Maven](https://maven.apache.org/) & [Gradle](https://gradle.org/) is the easiest and recommended way to get the AEP SDK into your Android app.  In your `build.gradle` file, include the following dependencies:
 
-    implementation 'com.adobe.marketing.mobile:sdk-core:1.+'
-    implementation 'com.adobe.marketing.mobile:analytics:1.+'
-    implementation 'com.adobe.marketing.mobile:audience:1.+'
-    implementation 'com.adobe.marketing.mobile:campaign:1.+'
-    implementation 'com.adobe.marketing.mobile:campaignclassic:1.+'
-    implementation 'com.adobe.marketing.mobile:target:1.+'
-    implementation 'com.adobe.marketing.mobile:assurance:1.+'
-    implementation 'com.adobe.marketing.mobile:userprofile:1.+'
+    implementation 'com.adobe.marketing.mobile:sdk-core:<latest version>'
+    implementation 'com.adobe.marketing.mobile:analytics:<latest version>'
+    implementation 'com.adobe.marketing.mobile:audience:<latest version>'
+    implementation 'com.adobe.marketing.mobile:campaign:<latest version>'
+    implementation 'com.adobe.marketing.mobile:campaignclassic:<latest version>'
+    implementation 'com.adobe.marketing.mobile:target:<latest version>'
+    implementation 'com.adobe.marketing.mobile:assurance:<latest version>'
+    implementation 'com.adobe.marketing.mobile:userprofile:<latest version>'
 
 #### <a name="manual-android"></a>Manual installation
 In order to do a manual installation of the AEP SDK `.aar` binaries, complete the following steps for each `.aar` you need:
