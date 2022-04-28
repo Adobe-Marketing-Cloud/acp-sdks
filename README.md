@@ -66,17 +66,14 @@ In order to do a manual installation of the AEP SDK `.aar` binaries, complete th
 
 __Important__ - _all_ AEP SDK Android binaries depend on `core-1.x.x.aar`.
 
-## Installing the AEP SDK for iOS
+## Installing the AEP SDK (2.x) for iOS
 
-> __Important__ 
+> ⚠️ __Important__ 
 > 
-> ⚠️ A newer version of the [AEP Mobile SDKs (3.x)](https://aep-sdks.gitbook.io/docs/resources/upgrading-to-aep/current-sdk-versions#ios-swift) is now available! These SDKs are open source, bring many exciting new features and include support for Swift Package Manager (SPM), CocoaPods and XCFrameworks.
-> If you are currently using our Objective-C (ACP-prefix) libraries, please see the [Migrating to Swift](https://aep-sdks.gitbook.io/docs/resources/migrate-to-swift) guide for next steps.
+> A newer version of the [AEP Mobile SDKs (3.x)](https://aep-sdks.gitbook.io/docs/resources/upgrading-to-aep/current-sdk-versions#ios-swift) is now available! These SDKs are open source, bring many exciting new features and include support for Swift Package Manager (SPM), CocoaPods and XCFrameworks.
+> If you are currently using our Objective-C (ACP-prefix 2.x) libraries, please see the [Migrating to Swift](https://aep-sdks.gitbook.io/docs/resources/migrate-to-swift) guide for next steps.
 
-> __Important__ 
-> 
-> Newer versions of the AEP SDK for iOS are distributed using XCFrameworks. If using the XCFramework distribution, Xcode 12 or newer is required and Cocoapods 1.10.0 or newer is required (where applicable).
-
+__Important__ - Newer versions of the AEP SDK for iOS are distributed using XCFrameworks. If using the XCFramework distribution, Xcode 12 or newer is required and Cocoapods 1.10.0 or newer is required (where applicable).
 The AEP SDK supports iOS 10 and newer.
 
 #### <a name="cocoapods"></a>Installation using Cocoapods << Preferred >>
@@ -121,6 +118,6 @@ In order to do a manual installation of the AEP SDK libraries, complete the foll
     * In the `Add to targets` section, select all the targets that need AEP SDKs.
 - Select your project from the `Project Navigator`, select your App from the `TARGETS` frame, then select the `General` tab at the top of the window.
 - In the `Link Binary With Libraries` section, click the `+` link and add the following frameworks and libraries: `UIKit`, `SystemConfiguration`, `WebKit`, `UserNotifications`, `libsqlite3.0`, `libc++`, `libz`.
-- ⚠️ Important: If you have a Swift application, include a bridging header and import the AEP SDK headers available in the include folder. For more information see [Importing Objective-C into Swift](https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift)
+- __Important__ - If you have a Swift application, include a bridging header and import the AEP SDK headers available in the include folder. For more information see [Importing Objective-C into Swift](https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift).
 
 __Important__ - _all_ AEP SDK iOS libraries depend on `libACPCore.a`.
