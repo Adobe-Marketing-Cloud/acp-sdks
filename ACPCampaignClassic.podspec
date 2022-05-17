@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "ACPCampaignClassic"
-  s.version      = "2.1.0"
+  s.version      = "2.1.1"
   s.summary      = "Campaign Classic library for Adobe Experience Cloud SDK. Written and maintained by Adobe."
   s.description  = <<-DESC
                    The campaign classic library provides APIs that allow use of the Campaign Classic product in the Adobe Experience Cloud SDK.
