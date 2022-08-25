@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
   s.cocoapods_version = ">= 1.10"
 
   # dependency on the core library
-  s.dependency "ACPCore", ">= 2.9.0"
+  s.dependency "ACPCore", ">= 2.9.6"
 
   s.subspec "xcframeworks" do |f|
     f.ios.vendored_frameworks = "#{s.name}.xcframework"
