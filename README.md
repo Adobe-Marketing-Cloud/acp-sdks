@@ -9,7 +9,7 @@ Home of the official Adobe Experience Platform (AEP) SDKs for mobile apps.
 
 To learn more about your topic of interest, click the following links:
 
-- [Adobe Experience Platform SDK documentation](https://aep-sdks.gitbook.io/docs/)
+- [Adobe Experience Platform SDK documentation](https://developer.adobe.com/client-sdks/documentation/)
 - [Launch documentation](https://docs.adobelaunch.com/)
 - [Mobile on Launch forums](https://forums.adobe.com/community/experience-cloud/platform/launch/sdk)
 
