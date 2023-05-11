@@ -71,7 +71,7 @@ __Important__ - _all_ AEP SDK Android binaries depend on `core-1.x.x.aar`.
 > ⚠️ __Important__ 
 > 
 > A newer version of the [AEP Mobile SDKs (3.x)](https://developer.adobe.com/client-sdks/documentation/current-sdk-versions/#ios--swift) is now available! These SDKs are open source, bring many exciting new features and include support for Swift Package Manager (SPM), CocoaPods and XCFrameworks.
-> If you are currently using our Objective-C (ACP-prefix 2.x) libraries, please see the [Migrating to Swift](https://developer.adobe.com/client-sdks/documentation/migrate-to-swift) guide for next steps.
+> If you are currently using our Objective-C (ACP-prefix 2.x) libraries, please see the [Migrating to Swift](https://developer.adobe.com/client-sdks/previous-versions/documentation/migrate-to-swift/) guide for next steps.
 
 __Important__ - The latest versions of the AEP SDK for iOS are distributed using XCFrameworks. If using the XCFramework distribution, Xcode 12 or newer is required and Cocoapods 1.10.0 or newer is required (where applicable).
 The AEP SDK supports iOS 10 and newer.
