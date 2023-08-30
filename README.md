@@ -33,6 +33,10 @@ To learn more about your topic of interest, click the following links:
 
 > ⚠️ __Important__ 
 > 
+>  Beginning August 31, 2023, any new AARs for the 1.x SDK will not be available in this repository. To install them manually, you can directly obtain them from the Maven Central repository.
+
+> ⚠️ __Important__ 
+> 
 >  A newer version of the AEP Mobile SDKs for Android (Mobile Core 2.x and compatible extensions) is now available! These SDKs are open source, and bring many exciting new features. If you are currently using the 1.x libraries, please see the guide for [migrating to latest SDKs for Android](https://developer.adobe.com/client-sdks/previous-versions/documentation/migrate-to-android/) for next steps.
 
 The AEP SDK 1.x supports Android API 14 (Ice Cream Sandwich) and newer.
