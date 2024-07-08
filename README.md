@@ -2,6 +2,8 @@
 
 ## Notice of deprecation
 
+As of June 30, 2024, Adobe has deprecated support for the Adobe Experience Platform 1.x SDKs for Android. We will continue to provide support for Experience Platform 2.x SDKs for Android, but we strongly recommend upgrading to the 3.x version to access new features. The Adobe Experience Platform 3.x SDKs for Android were released on [April 4th, 2024](https://developer.adobe.com/client-sdks/home/release-notes/#android-mobile-core-3x-and-compatible-extensions). Please consult the [migration guide](https://developer.adobe.com/client-sdks/resources/migration/android/) for instructions on upgrading to the latest version.
+
 Since *April 25, 2023*, [Apple has required](https://developer.apple.com/news/?id=jd9wcyov) apps submitted to the App Store to be built with Xcode 14.1 or later. The Experience Platform Mobile SDKs and extensions outlined below were built with prior versions of Xcode and are no longer compatible with iOS and iPadOS given Apple’s current App Store requirements. Consequently, on *August 31, 2023*, Adobe will be deprecating support for the following Experience Platform Mobile SDKs and wrapper extensions:
 
 - [ACP iOS SDK](https://developer.adobe.com/client-sdks/previous-versions/documentation/sdk-versions/#ios)
